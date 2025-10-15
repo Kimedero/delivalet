@@ -85,9 +85,16 @@ func set_path_changers_neighbours():
 
 func spawn_delivery_package():
 	var random_spawn_path: Path3D = vehicle_paths.get_children().pick_random()
-	var package_spawn_pos: Vector3 = Array(random_spawn_path.curve.get_baked_points()).pick_random()
+	#var package_spawn_pos: Vector3 = Array(random_spawn_path.curve.get_baked_points()).pick_random()
 	#while random_spawn_path.curve.get_closest_offset(package_spawn_pos) / random_spawn_path.curve.get_closest_point(random_spawn_path.curve.point_count - 1) > :
-	#var current_progress_ratio: float 
+	#var current_progress_ratio: float
+	var random_ratio := randf_range(0.1, 0.9)
+	
+	var new_path_follow := PathFollow3D.new()
+	random_spawn_path.add_child(new_path_follow)
+	new_path_follow.progress_ratio = random_ratio
+	var package_spawn_pos: Vector3 = random_spawn_path.curve.get_closest_point(new_path_follow.global_position)
+	new_path_follow.queue_free()
 	
 	var new_package = DELIVERY_PACKAGE_DATA.spawn_delivery_package(package_spawn_pos)
-	print("Package: %s -> Path: %s -> Pos: %s" % [new_package.name, random_spawn_path.name, package_spawn_pos])
+	print("Package: %s -> Path: %s -> Ratio: %.2f -> Pos: %s" % [new_package.name, random_spawn_path.name, random_ratio, package_spawn_pos])
