@@ -1,4 +1,5 @@
 extends Area3D
+class_name DeliveryPackage
 
 @export var rotation_speed: float = 2
 

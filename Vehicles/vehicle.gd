@@ -47,7 +47,7 @@ func _physics_process(_delta: float) -> void:
 	if not navigation_path:
 		var two_nearest_paths_array: Array = VEHICLE_PATHFINDING.get_two_nearest_paths(self.global_position)
 		navigation_path = two_nearest_paths_array[0]
-		print("Navigation path: %s" % [navigation_path])
+		#print("Navigation path: %s" % [navigation_path])
 		vehicle_controller.set_up_navigation()
 
 

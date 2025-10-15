@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://c2l7auup5udpr"]
+
+[ext_resource type="Script" uid="uid://bgadx4ao0x31" path="res://DeliveryPackages/Resources/delivery_package_data.gd" id="1_mjahs"]
+
+[resource]
+script = ExtResource("1_mjahs")

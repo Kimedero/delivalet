@@ -3,6 +3,7 @@ extends Node3D
 var GAME_DATA = load("res://Resources/game_data.tres")
 var VEHICLE_DATA = load("res://Vehicles/Resources/vehicle_data.tres")
 var VEHICLE_PATHFINDING = load("res://Vehicles/Resources/vehicle_pathfinding.tres")
+var DELIVERY_PACKAGE_DATA = load("res://DeliveryPackages/Resources/delivery_package_data.tres")
 
 @export var vehicles_spawn: Node3D
 
@@ -10,8 +11,12 @@ var VEHICLE_PATHFINDING = load("res://Vehicles/Resources/vehicle_pathfinding.tre
 @export var vehicle_paths: Node3D
 
 @export var navigation_path_holder: Node
+@export var delivery_package_path_holder: Node
+
 
 func _ready() -> void:
+	randomize()
+	
 	VEHICLE_DATA.vehicle_spawn = vehicles_spawn
 	
 	assert(vehicle_paths, "Vehicle paths not set!")
@@ -24,6 +29,8 @@ func _ready() -> void:
 	if navigation_path_holder:
 		VEHICLE_PATHFINDING.navigation_path_holder_node = navigation_path_holder
 	
+	DELIVERY_PACKAGE_DATA.delivery_package_path = delivery_package_path_holder
+	
 	set_vehicle_path_changer_linked_paths()
 	set_path_changers_neighbours()
 	
@@ -31,6 +38,12 @@ func _ready() -> void:
 	VEHICLE_PATHFINDING.add_navigation_points()
 	VEHICLE_PATHFINDING.connect_navigation_points()
 	
+	spawn_delivery_package()
+	spawn_delivery_package()
+	spawn_delivery_package()
+	spawn_delivery_package()
+	spawn_delivery_package()
+
 
 func set_vehicle_path_changer_linked_paths():
 	for path_changer: VehiclePathChanger in vehicle_path_changers.get_children():
@@ -68,3 +81,13 @@ func set_path_changers_neighbours():
 						current_vehicle_path_changer.neighbour_path_changers_array.append(vehicle_path_changer)
 					
 		#print("%s -> Neighbours: %s" % [current_vehicle_path_changer.name, current_vehicle_path_changer.neighbour_path_changers_array])
+
+
+func spawn_delivery_package():
+	var random_spawn_path: Path3D = vehicle_paths.get_children().pick_random()
+	var package_spawn_pos: Vector3 = Array(random_spawn_path.curve.get_baked_points()).pick_random()
+	#while random_spawn_path.curve.get_closest_offset(package_spawn_pos) / random_spawn_path.curve.get_closest_point(random_spawn_path.curve.point_count - 1) > :
+	#var current_progress_ratio: float 
+	
+	var new_package = DELIVERY_PACKAGE_DATA.spawn_delivery_package(package_spawn_pos)
+	print("Package: %s -> Path: %s -> Pos: %s" % [new_package.name, random_spawn_path.name, package_spawn_pos])

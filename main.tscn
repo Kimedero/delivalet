@@ -369,12 +369,13 @@ _data = {
 }
 point_count = 6
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("vehicles_spawn", "vehicle_path_changers", "vehicle_paths", "navigation_path_holder")]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("vehicles_spawn", "vehicle_path_changers", "vehicle_paths", "navigation_path_holder", "delivery_package_path_holder")]
 script = ExtResource("1_yaehf")
 vehicles_spawn = NodePath("Vehicles")
 vehicle_path_changers = NodePath("Map/Navigation/VehiclePathChangers")
 vehicle_paths = NodePath("Map/Navigation/VehiclePaths")
 navigation_path_holder = NodePath("NavigationPathHolder")
+delivery_package_path_holder = NodePath("DeliveryPackages")
 
 [node name="Map" type="Node3D" parent="."]
 
@@ -2078,7 +2079,7 @@ path_joined = false
 material = ExtResource("13_qsp4k")
 
 [node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_4" instance=ExtResource("14_kq58d")]
-transform = Transform3D(0.999988, 0, 0.00233163, 0, 1, 0, -0.00233163, 0, 0.999988, 96.1164, 0, 15.6563)
+transform = Transform3D(0.999987, 0, 0.00233163, 0, 1, 0, -0.00233163, 0, 0.999987, 96.1164, 0, 15.6563)
 
 [node name="Path_5" type="Path3D" parent="Map/Navigation/VehiclePaths"]
 curve = SubResource("Curve3D_4td1n")
