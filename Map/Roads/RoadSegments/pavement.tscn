@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=4 uid="uid://tw7gu0hwnu4l"]
+
+[ext_resource type="Texture2D" uid="uid://rf67sjjw8x7v" path="res://Map/Roads/textures/ConcreteSidewalk001a_Color.png" id="4_bxb1y"]
+[ext_resource type="Texture2D" uid="uid://co40b4gquj1kv" path="res://Map/Roads/textures/ConcreteSidewalk001a_Roughness.png" id="5_ehfqd"]
+[ext_resource type="Texture2D" uid="uid://sbnhifv5o6tk" path="res://Map/Roads/textures/ConcreteSidewalk001a_Normals.png" id="6_y00nf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ph043"]
+resource_name = "Concrete_Sidewalk"
+albedo_texture = ExtResource("4_bxb1y")
+metallic_texture = ExtResource("5_ehfqd")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("5_ehfqd")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("6_y00nf")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_43qnp"]
+_surfaces = [{
+"aabb": AABB(-20, -1.1, -20, 40, 1.1, 40),
+"format": 34359742465,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAwAAAAIAAwAEAAAABQADAAIABQACAAEABgAEAAMABgADAAUABwAAAAQABwAEAAYAAAAHAAEAAQAIAAUABgAJAAcABwAKAAEAAQAKAAgABwAJAAoABQAIAAsABQALAAYACwAIAAoABgALAAkACwAKAAkA"),
+"name": "Concrete_Sidewalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AACgQQAAAAAAAKBBAACgwcrMzL0AAKBBAACgwQAAAAAAAKBBAACgwQAAAAAAAKDBAACgQQAAAAAAAKDBAACgwcrMzL0AAKDBAACgQcrMzL0AAKDBAACgQcrMzL0AAKBBAACgwc3MjL8AAKDBAACgQc3MjL8AAKBBAACgwc3MjL8AAKBBAACgQc3MjL8AAKDB")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_sgl1u"]
+resource_name = "xTraUrgentRoads_Plane_023"
+_surfaces = [{
+"aabb": AABB(-20, -1.1, -20, 40, 1.1, 40),
+"attribute_data": PackedByteArray("//9/PwAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA///9/PwAAgD8AAAAAAACAPwAAAAAAAAAAAAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAAAAAAAAAAAAgD///38/AACAPwAAAAAAAIA///9/PwAAAAAAAAAAAACAP///fz8AAAAAAAAAAAAAgD///38/AACAPwAAAAAAAIA///9/PwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAIA///9/PwAAAAAAAAAAAACAPyi6aD/ILro9AAAAAAAAgD+ei24/AACAPwAAAAAAAIA/KrpoPwAAgD8AAAAAAACAP52Lbj/ILro9AAAAAAAAgD+ei24/yC66PQAAAAAAAIA/E110PwAAgD8AAAAAAACAP5+Lbj8AAIA/AAAAAAAAgD8SXXQ/yC66PQAAAAAAAIA/FF10P8guuj0AAAAAAACAP4kuej8AAIA/AAAAAAAAgD8VXXQ/AACAPwAAAAAAAIA/iC56P8guuj0AAAAAAACAP4kuej/ILro9AAAAAAAAgD///38/AACAPwAAAAAAAIA/ii56PwAAgD8AAAAAAACAP/7/fz/ILro9AAAAAAAAgD8oumg/uC66PQAAAAAAAIA/hi66MwAAgD8AAAAAAACAP2cpmzLALro9AAAAAAAAgD8pumg///9/PwAAAAAAAIA/AAAAAAAAAAAAAAAAAACAP///fz8AAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA///9/PwAAAAAAAAAAAACAPw=="),
+"format": 34359742519,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUA"),
+"material": SubResource("StandardMaterial3D_ph043"),
+"name": "Concrete_Sidewalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("AACgQQAAAAAAAKBBAACgwcrMzL0AAKBBAACgwQAAAAAAAKBBAACgQcrMzL0AAKBBAACgwcrMzL0AAKDBAACgwQAAAAAAAKBBAACgwcrMzL0AAKBBAACgwQAAAAAAAKDBAACgQcrMzL0AAKBBAACgQQAAAAAAAKDBAACgQcrMzL0AAKDBAACgQQAAAAAAAKBBAACgQcrMzL0AAKDBAACgwQAAAAAAAKDBAACgwcrMzL0AAKDBAACgQQAAAAAAAKDBAACgQcrMzL0AAKBBAACgwc3MjL8AAKBBAACgwcrMzL0AAKBBAACgQc3MjL8AAKBBAACgwcrMzL0AAKBBAACgwc3MjL8AAKDBAACgwcrMzL0AAKDBAACgwc3MjL8AAKBBAACgQcrMzL0AAKDBAACgQc3MjL8AAKBBAACgQcrMzL0AAKBBAACgQc3MjL8AAKDBAACgwcrMzL0AAKDBAACgQc3MjL8AAKDBAACgQcrMzL0AAKDBAACgwc3MjL8AAKDBAACgQc3MjL8AAKDBAACgwc3MjL8AAKBBAACgQc3MjL8AAKBBAACgwc3MjL8AAKDBAACgwQAAAAAAAKDBAACgQQAAAAAAAKBBAACgwQAAAAAAAKBBAACgQQAAAAAAAKDB/3//f////z//f/9/////P/9//3////8//3//f////z8AAP9/////vwAA/3////+/AAD/f////78AAP9/////v////3////+/////f////7////9/////v////3////+//////////z//////////P/////////8//////////z//f/9//38AgP9//3//fwCA/3//f/9/AID/f/9//38AgAAA/3//fwCAAAD/f/9/AIAAAP9//38AgAAA/3//fwCA////f/9/AID///9//38AgP///3//fwCA////f/9/AID//////38AgP//////fwCA//////9/AID//////38AgP9/AAD//////38AAP//////fwAA//////9/AAD//////3///////7//f///////v/9///////+//3///////78=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_43qnp")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jcaca"]
+data = PackedVector3Array(20, 0, 20, -20, -0.1, 20, -20, 0, 20, 20, 0, 20, 20, -0.1, 20, -20, -0.1, 20, -20, -0.1, -20, -20, 0, 20, -20, -0.1, 20, -20, -0.1, -20, -20, 0, -20, -20, 0, 20, 20, -0.1, 20, 20, 0, -20, 20, -0.1, -20, 20, -0.1, 20, 20, 0, 20, 20, 0, -20, 20, -0.1, -20, -20, 0, -20, -20, -0.1, -20, 20, -0.1, -20, 20, 0, -20, -20, 0, -20, 20, -0.1, 20, -20, -1.1, 20, -20, -0.1, 20, 20, -0.1, 20, 20, -1.1, 20, -20, -1.1, 20, -20, -0.1, 20, -20, -1.1, -20, -20, -0.1, -20, -20, -0.1, 20, -20, -1.1, 20, -20, -1.1, -20, 20, -0.1, -20, 20, -1.1, 20, 20, -0.1, 20, 20, -0.1, -20, 20, -1.1, -20, 20, -1.1, 20, -20, -0.1, -20, 20, -1.1, -20, 20, -0.1, -20, -20, -0.1, -20, -20, -1.1, -20, 20, -1.1, -20, 20, -1.1, -20, -20, -1.1, 20, 20, -1.1, 20, 20, -1.1, -20, -20, -1.1, -20, -20, -1.1, 20, -20, 0, -20, 20, 0, 20, -20, 0, 20, -20, 0, -20, 20, 0, -20, 20, 0, 20)
+
+[node name="pavement" type="Node3D"]
+
+[node name="pavement" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_sgl1u")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="pavement"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pavement/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_jcaca")

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7asj8h7ux3tk"]
+
+[ext_resource type="Script" uid="uid://3w2nkf2by0dm" path="res://DeliveryPackages/delivery_package.gd" id="1_awkwu"]
+[ext_resource type="PackedScene" uid="uid://7oea2by83bua" path="res://DeliveryPackages/Meshes/Delivery Package.glb" id="1_xeyvr"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xeyvr"]
+height = 1.0
+radius = 1.0
+
+[node name="Delivery Package" type="Area3D"]
+script = ExtResource("1_awkwu")
+
+[node name="Mesh" type="Node3D" parent="."]
+
+[node name="Delivery Package" parent="Mesh" instance=ExtResource("1_xeyvr")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CylinderShape3D_xeyvr")

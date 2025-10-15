@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=4 uid="uid://dddij5sa1odi"]
+
+[ext_resource type="Texture2D" uid="uid://rf67sjjw8x7v" path="res://Map/Roads/textures/ConcreteSidewalk001a_Color.png" id="1_coy8s"]
+[ext_resource type="Texture2D" uid="uid://co40b4gquj1kv" path="res://Map/Roads/textures/ConcreteSidewalk001a_Roughness.png" id="2_cvj0v"]
+[ext_resource type="Texture2D" uid="uid://sbnhifv5o6tk" path="res://Map/Roads/textures/ConcreteSidewalk001a_Normals.png" id="3_kjhtc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ph043"]
+resource_name = "Concrete_Sidewalk"
+albedo_texture = ExtResource("1_coy8s")
+metallic_texture = ExtResource("2_cvj0v")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_cvj0v")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_kjhtc")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3c06h"]
+_surfaces = [{
+"aabb": AABB(-20, -1.1, -20, 40, 1.1, 40),
+"format": 34359742465,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAAAAQABAAAAAIAAwAEAAUAAQAGAAIAAwAFAAcAAwAHAAEABQAEAAgABAACAAgABQAIAAcAAQAJAAYABwAJAAEAAgAGAAoAAgAKAAgACgAGAAkACAALAAcACAAKAAsABwALAAkACgAJAAsA"),
+"name": "Concrete_Sidewalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("//+fwQAAAAD//5/B//+fwczMzL3//59B//+fwczMzL3//5/B//+fwQAAAAD//59B//+fQQAAAAD//5/B//+fQQAAAAD//59B//+fwc3MjL///5/B//+fQczMzL3//59B//+fQczMzL3//5/B//+fwc3MjL///59B//+fQc3MjL///5/B//+fQc3MjL///59B")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_coy8s"]
+resource_name = "xTraUrgentRoads_Plane_002"
+_surfaces = [{
+"aabb": AABB(-20, -1.1, -20, 40, 1.1, 40),
+"attribute_data": PackedByteArray("AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAgD8oumg/yC66PZ6Lbj8AAIA/KbpoPwAAgD+ci24/yC66PZ6Lbj/ILro9E110PwAAgD+fi24/AACAPxJddD/ILro9FF10P8guuj2JLno/AACAPxVddD8AAIA/iC56P8guuj0AAIA/AACAPwAAgD8AAAAAAACAPwAAgD8AAIA/AAAAAIkuej/ILro9//9/PwAAgD+KLno/AACAP/3/fz/ILro9AAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAoumg/wC66PYcuujMAAIA/bCmbMsguuj0pumg///9/PwAAgD8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAAAAAAIA/AACAPwAAgD8="),
+"format": 34359742487,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUA"),
+"material": SubResource("StandardMaterial3D_ph043"),
+"name": "Concrete_Sidewalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("//+fwQAAAAD//5/B//+fwczMzL3//59B//+fwczMzL3//5/B//+fwQAAAAD//59B//+fwczMzL3//5/B//+fQc3MjL///5/B//+fQczMzL3//5/B//+fwc3MjL///5/B//+fwczMzL3//59B//+fwc3MjL///5/B//+fwczMzL3//5/B//+fwc3MjL///59B//+fQczMzL3//59B//+fwc3MjL///59B//+fwczMzL3//59B//+fQc3MjL///59B//+fQQAAAAD//59B//+fQczMzL3//5/B//+fQczMzL3//59B//+fQQAAAAD//5/B//+fQczMzL3//5/B//+fQc3MjL///59B//+fQczMzL3//59B//+fQc3MjL///5/B//+fwQAAAAD//59B//+fQQAAAAD//5/B//+fQQAAAAD//59B//+fwQAAAAD//5/B//+fQc3MjL///5/B//+fwc3MjL///59B//+fQc3MjL///59B//+fwc3MjL///5/B//+fQQAAAAD//5/B//+fwczMzL3//5/B//+fQczMzL3//5/B//+fwQAAAAD//5/B//+fwQAAAAD//59B//+fQczMzL3//59B//+fwczMzL3//59B//+fQQAAAAD//59BAAD/f////78AAP9/////vwAA/3////+/AAD/f////7///////38AgP//////fwCA//////9/AID//////38AgAAA/3//fwCAAAD/f/9/AIAAAP9//38AgAAA/3//fwCA/3//f/9/AID/f/9//38AgP9//3//fwCA/3//f/9/AID///9/////v////3////+/////f////7////9/////v////3//fwCA////f/9/AID///9//38AgP///3//fwCA/3///////7//f///////v/9///////+//3///////7//fwAA//////9/AAD//////38AAP//////fwAA//////////////8//////////z//////////P/////////8//3//f////z//f/9/////P/9//3////8//3//f////z8=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_3c06h")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cvj0v"]
+data = PackedVector3Array(-20, 0, -20, -20, -0.1, 20, -20, -0.1, -20, -20, 0, -20, -20, 0, 20, -20, -0.1, 20, -20, -0.1, -20, 20, -1.1, -20, 20, -0.1, -20, -20, -0.1, -20, -20, -1.1, -20, 20, -1.1, -20, -20, -0.1, 20, -20, -1.1, -20, -20, -0.1, -20, -20, -0.1, 20, -20, -1.1, 20, -20, -1.1, -20, 20, -0.1, 20, -20, -1.1, 20, -20, -0.1, 20, 20, -0.1, 20, 20, -1.1, 20, -20, -1.1, 20, 20, 0, 20, 20, -0.1, -20, 20, -0.1, 20, 20, 0, 20, 20, 0, -20, 20, -0.1, -20, 20, -0.1, -20, 20, -1.1, 20, 20, -0.1, 20, 20, -0.1, -20, 20, -1.1, -20, 20, -1.1, 20, -20, 0, 20, 20, 0, -20, 20, 0, 20, -20, 0, 20, -20, 0, -20, 20, 0, -20, 20, -1.1, -20, -20, -1.1, 20, 20, -1.1, 20, 20, -1.1, -20, -20, -1.1, -20, -20, -1.1, 20, 20, 0, -20, -20, -0.1, -20, 20, -0.1, -20, 20, 0, -20, -20, 0, -20, -20, -0.1, -20, -20, 0, 20, 20, -0.1, 20, -20, -0.1, 20, -20, 0, 20, 20, 0, 20, 20, -0.1, 20)
+
+[node name="pavement1" type="Node3D"]
+
+[node name="pavement1" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_coy8s")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="pavement1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pavement1/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_cvj0v")

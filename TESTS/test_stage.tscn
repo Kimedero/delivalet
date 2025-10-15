@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://buchd000c0liv"]
+
+[ext_resource type="Script" uid="uid://dcnd54xi5s8bk" path="res://addons/zylann.hterrain/hterrain.gd" id="1_xuhex"]
+[ext_resource type="Resource" uid="uid://cmvjv8rxuq366" path="res://TESTS/test_stage_data/data.hterrain" id="2_ayq6n"]
+[ext_resource type="Script" uid="uid://cpt2nnjr76twn" path="res://addons/zylann.hterrain/hterrain_texture_set.gd" id="3_kfvl0"]
+[ext_resource type="Texture2D" uid="uid://h68cek51vakm" path="res://icon.png" id="4_jw446"]
+[ext_resource type="Texture2D" uid="uid://d1wbgy5exp2g1" path="res://some1.png" id="5_se63g"]
+[ext_resource type="PackedScene" uid="uid://bmdnejd0p4dyv" path="res://Vehicles/Meshes/Delivery Van/Delivery Time Van.glb" id="6_et8rj"]
+
+[sub_resource type="Resource" id="Resource_kdmii"]
+script = ExtResource("3_kfvl0")
+mode = 0
+textures = [[ExtResource("4_jw446"), ExtResource("5_se63g")], [null, null]]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c0r0h"]
+size = Vector2(3200, 3200)
+
+[node name="TestStage" type="Node3D"]
+
+[node name="HTerrain" type="Node3D" parent="."]
+script = ExtResource("1_xuhex")
+map_scale = Vector3(2, 0.2, 2)
+centered = true
+_terrain_data = ExtResource("2_ayq6n")
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource("Resource_kdmii")
+render_layers = 1
+cast_shadow = 1
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = null
+shader_params/u_tile_reduction = null
+metadata/_custom_type_script = "uid://dcnd54xi5s8bk"
+
+[node name="Delivery Time Van" parent="." instance=ExtResource("6_et8rj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_c0r0h")

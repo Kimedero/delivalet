@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2jaeeq3behpd"]
+
+[ext_resource type="PackedScene" uid="uid://dsbscn5qx0755" path="res://Map/Structures/Fence1/fence1.blend" id="1_asdqt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w3ty6"]
+size = Vector3(20, 8, 0.4)
+
+[node name="fence1" instance=ExtResource("1_asdqt")]
+
+[node name="fence1" parent="." index="0"]
+visibility_range_end = 120.0
+visibility_range_end_margin = 5.0
+visibility_range_fade_mode = 1
+
+[node name="StaticBody3D" type="StaticBody3D" parent="fence1" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence1/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4, 0)
+shape = SubResource("BoxShape3D_w3ty6")
+
+[node name="fence1_LOD1" parent="." index="1"]
+cast_shadow = 0
+visibility_range_begin = 110.0
+visibility_range_begin_margin = 5.0
+visibility_range_fade_mode = 1

@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpyc688ksm7v4"]
+
+[ext_resource type="Script" uid="uid://d0bk7y7u5k5km" path="res://Vehicles/VehicleController/vehicle_controller.gd" id="1_0tyoh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0tyoh"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_u0ep0"]
+material = SubResource("StandardMaterial3D_0tyoh")
+bottom_radius = 0.0
+height = 1.0
+radial_segments = 12
+
+[node name="VehicleController" type="Node3D"]
+script = ExtResource("1_0tyoh")
+
+[node name="PathFinder" type="PathFollow3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PathFinder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_u0ep0")
+
+[node name="infoLabel3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+visibility_range_end = 100.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
+billboard = 1
+text = "info"

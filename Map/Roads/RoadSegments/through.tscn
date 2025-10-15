@@ -1,0 +1,204 @@
+[gd_scene load_steps=17 format=4 uid="uid://bepmrlr4bb8bg"]
+
+[ext_resource type="Texture2D" uid="uid://rf67sjjw8x7v" path="res://Map/Roads/textures/ConcreteSidewalk001a_Color.png" id="1_jcq6k"]
+[ext_resource type="Texture2D" uid="uid://co40b4gquj1kv" path="res://Map/Roads/textures/ConcreteSidewalk001a_Roughness.png" id="2_p7jcj"]
+[ext_resource type="Texture2D" uid="uid://sbnhifv5o6tk" path="res://Map/Roads/textures/ConcreteSidewalk001a_Normals.png" id="3_1bg57"]
+[ext_resource type="Texture2D" uid="uid://dnhs3onx2du3m" path="res://Map/Roads/textures/Asphalt diffuse_bmp.png" id="4_x043h"]
+[ext_resource type="Texture2D" uid="uid://jiiuhi2jr1jy" path="res://Map/Roads/textures/Asphalt roughness_bmp.png" id="5_oppjx"]
+[ext_resource type="Texture2D" uid="uid://c2wi0gdoyhx6t" path="res://Map/Roads/textures/Asphalt normal_bmp.png" id="6_1a6id"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ph043"]
+resource_name = "Concrete_Sidewalk"
+albedo_texture = ExtResource("1_jcq6k")
+metallic_texture = ExtResource("2_p7jcj")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_p7jcj")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_1bg57")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5b6"]
+resource_name = "Asphalt_Road"
+albedo_texture = ExtResource("4_x043h")
+metallic_texture = ExtResource("5_oppjx")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("5_oppjx")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("6_1a6id")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5u84p"]
+resource_name = "Lane_Strip"
+albedo_color = Color(0.906332, 0.665185, 0, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_htac5"]
+_surfaces = [{
+"aabb": AABB(-20, -1.1, -20, 40, 1.1, 40),
+"format": 34359742465,
+"index_count": 162,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEABAABAAMAAAAFAAMABAADAAUAAAAGAAUABwAEAAUABwAFAAYABAAIAAIACAAEAAcACQAAAAIACQACAAgABgAAAAkACAAHAAoACwAJAAgACwAIAAoABgAJAAsABwAMAAoABgANAAcABwANAAwACwAOAAYABgAOAA0ADgAMAA0ACwAPAA4ADwAMAA4AEAAMAA8ADAAQABEAEQAQABIAEQASABMAFAASABAAFQARABMAFAAQABYAFwATABIAFQATABcAFwASABQAFQAYABYAGAAUABYAFwAZABUAFQAZABgAFAAaABcAFwAbABkAGwAXABoAGQAcABgAGQAbABwAGAAdABQAFAAdABoAHQAYABwAGwAaAB4AHgAaAB0AGwAeAB8AHgAdAB8AGwAfABwAHQAcAB8A"),
+"name": "Concrete_Sidewalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("//8fQczMjL3//5/B//8fQQAAAAD//59B//8fQczMjL3//59B//8fQQAAAAD//5/B//+fQQAAAAD//59B//+fQQAAAAD//5/B//+fQczMzL3//5/B//+fQczMzL3//59BE9QeQQcOur3//59BE9QeQQcOur3//5/B//8bQcvMzL3//59B//8bQcvMzL3//5/B//8bQc3MjL///59B//+fQc3MjL///59B//+fQc3MjL///5/B//8bQc3MjL///5/B//8bwc3MjL///5/B//8bwc3MjL///59B//+fwc3MjL///5/B//+fwc3MjL///59B//+fwczMzL3//5/B//8bwcvMzL3//59B//8bwcvMzL3//5/B//+fwczMzL3//59BE9QewQcOur3//5/BE9QewQcOur3//59B//+fwQAAAAD//59B//8fwczMjL3//59B//8fwczMjL3//5/B//+fwQAAAAD//5/B//8fwQAAAAD//59B//8fwQAAAAD//5/B")
+}, {
+"aabb": AABB(-9.75, -1.1, -20, 19.5, 1, 40),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAQADAAIAAQAEAAMAAAAFAAEAAAAGAAUAAAAHAAYA"),
+"name": "Asphalt_Road",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAD//wAAAAD///////8AAAAA/////wAAAAAAAP//AAD//wAA//8AAP////8AAAAA//8AAAAAAAAAAAAAAAAAAA==")
+}, {
+"aabb": AABB(-9.5, -0.099, -20, 19, 1e-05, 40),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0A"),
+"name": "Lane_Strip",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("oXwAAAAAAACRfwAA//8AAKF8AAD//wAAkX8AAAAAAAAAAAAAAAAAAAoEAAD//wAAAAAAAP//AAAKBAAAAAAAAF2DAAAAAAAAbYAAAP//AABtgAAAAAAAAF2DAAD//wAA//8AAAAAAAD0+wAA//8AAPT7AAAAAAAA//8AAP//AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rv4yu"]
+resource_name = "xTraUrgentRoads_Plane_007"
+_surfaces = [{
+"aabb": AABB(-20, -1.1, -20, 40, 1.1, 40),
+"attribute_data": PackedByteArray("AABAPwAAAAAAAAAAAACAPwAAQD8AAIA/AAAAAAAAgD8AAEA/AACAPwAAAAAAAIA/AABAPwAAAAAAAAAAAACAPwAAQD8AAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAIA/AABAPwAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8GiD8/AAAAAAAAAAAAAIA/ZGY+PwAAAAAAAAAAAACAPwAAAAAAAIA/AAAAAAAAgD/x74A+AACAPwAAAAAAAIA/NDODPgAAgD8AAAAAAACAPwEAgD4AAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AQCAPgAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8BAIA+AACAPwAAAAAAAIA/8e+APgAAgD8AAAAAAACAP2RmPj8AAAAAAAAAAAAAgD8GiD8/AACAPwAAAAAAAIA/ZGY+PwAAgD8AAAAAAACAPwaIPz8AAAAAAAAAAAAAgD8AAEA/AACAPwAAAAAAAIA/AABAPwAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAgD8AAEA/AACAPwAAAAAAAIA/AABAPwAAgD8AAAAAAACAPwaIPz8AAIA/AAAAAAAAgD8AAIA/AACAPwAAAAAAAIA/ZGY+PwAAgD8AAAAAAACAPwAAgD8AAIA/AAAAAAAAgD8GiD8/AACAPwAAAAAAAIA/AABAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAEA/AAAAAAAAAAAAAIA/Bog/PwAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAgD8BAIA+AAAAAAAAAAAAAIA/AQCAPgAAAAAAAAAAAACAP/HvgD4AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAIA/NDODPgAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAgD/x74A+AAAAAAAAAAAAAIA/AQCAPgAAAAAAAAAAAACAPzQzgz4AAIA/AAAAAAAAgD/x74A+AAAAAAAAAAAAAIA/NDODPgAAAAAAAAAAAACAP/HvgD4AAIA/AAAAAAAAgD8BAIA+AAAAAAAAAAAAAIA/AQCAPgAAgD8AAAAAAACAPwAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAgD8BAIA+AACAPwAAAAAAAIA/AQCAPgAAAAAAAAAAAACAPwEAgD4AAAAAAAAAAAAAgD8BAIA+AACAPwAAAAAAAIA/AAAAAAAAAAAAAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAAAAAAAAAAACAPwEAgD4AAIA/AAAAAAAAgD8AAAAAAAAAAAAAAAAAAIA/AQCAPgAAAAAAAAAAAACAPwAAAAAAAIA/AAAAAAAAgD8oumg/yC66PQAAAAAAAIA/nYtuP4DRpT4AAAAAAACAPyi6aD+A0aU+AAAAAAAAgD+ci24/yC66PQAAAAAAAIA/FF10P8guuj0AAAAAAACAP4kuej8AAIA/AAAAAAAAgD8VXXQ/AACAPwAAAAAAAIA/iC56P8guuj0AAAAAAACAP4kuej/ILro9AAAAAAAAgD///38/AACAPwAAAAAAAIA/ii56PwAAgD8AAAAAAACAP/3/fz/ILro9AAAAAAAAgD8pumg/Gl1EPwAAAAAAAIA/notuPwAAgD8AAAAAAACAPym6aD8AAIA/AAAAAAAAgD+di24/Gl1EPwAAAAAAAIA/notuP8guuj0AAAAAAACAPxJddD+A0aU+AAAAAAAAgD+ei24/gNGlPgAAAAAAAIA/El10P8guuj0AAAAAAACAP5+Lbj8aXUQ/AAAAAAAAgD8TXXQ/AACAPwAAAAAAAIA/n4tuPwAAgD8AAAAAAACAPxNddD8ZXUQ/AAAAAAAAgD+paZQzGV1EPwAAAAAAAIA/KbpoP///fz8AAAAAAACAP4cuujMAAIA/AAAAAAAAgD8oumg/GF1EPwAAAAAAAIA/cx4ZM4DRpT4AAAAAAACAPyi6aD980aU+AAAAAAAAgD8oumg/wC66PQAAAAAAAIA/bCmbMsguuj0AAAAAAACAPwAAgD8AAIA/AAAAAAAAgD8AAEA/AAAAAAAAAAAAAIA/AACAPwAAAAAAAAAAAACAPwAAQD8AAIA/AAAAAAAAgD8="),
+"format": 34359742519,
+"index_count": 162,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUABwAIAAkACgALAAwADQAKAA4ADQAOAA8AEAARABIAEwAUABUAEwAWABQAFgAXABQAFgAYABcAGQAaABsAHAAZAB0AHAAdAB4AHwAgACEAIgAjACQAJQAmACcAKAAlACkAKAApACoAKwAsAC0ALgAvADAALgAxAC8AMQAyAC8AMQAzADIANAA1ADYANAA3ADUAOAA5ADoAOAA7ADkAPAA9AD4APAA/AD0AQABBAEIAQABDAEEARABFAEYARABHAEUASABJAEoASABLAEkATABNAE4ATABPAE0AUABRAFIAUABTAFEAVABVAFYAVABXAFUAWABZAFoAWABbAFkAXABdAF4AXABfAF0AYABfAFwAXwBgAGEAYQBgAGIAYgBgAGMAZABlAGYAZABnAGUA"),
+"material": SubResource("StandardMaterial3D_ph043"),
+"name": "Concrete_Sidewalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 104,
+"vertex_data": PackedByteArray("//8fQczMjL3//5/B//8fQQAAAAD//59B//8fQczMjL3//59B//8fQQAAAAD//5/B//8fQczMjL3//5/B//+fQQAAAAD//5/B//8fQQAAAAD//5/B//+fQczMzL3//5/BE9QeQQcOur3//5/B//8bQcvMzL3//5/B//+fwczMzL3//59BE9QewQcOur3//59B//8bwcvMzL3//59B//8fwczMjL3//59B//+fwQAAAAD//59B//8fwQAAAAD//59B//+fwczMzL3//59B//8fwczMjL3//59BE9QewQcOur3//59B//8bQcvMzL3//5/BE9QeQQcOur3//59B//8bQcvMzL3//59BE9QeQQcOur3//5/B//8fQczMjL3//59B//8fQczMjL3//5/B//+fQQAAAAD//59B//8fQczMjL3//59B//8fQQAAAAD//59BE9QeQQcOur3//59B//+fQczMzL3//59B//8bQcvMzL3//59B//+fQQAAAAD//59BE9QeQQcOur3//59B//8fQczMjL3//59B//+fQczMzL3//5/B//8fQczMjL3//5/BE9QeQQcOur3//5/B//+fwQAAAAD//5/B//8fwczMjL3//5/B//8fwQAAAAD//5/BE9QewQcOur3//5/B//+fwczMzL3//5/B//8bwcvMzL3//5/B//+fwQAAAAD//5/BE9QewQcOur3//5/B//8fwczMjL3//5/B//8bwcvMzL3//59BE9QewQcOur3//5/B//8bwcvMzL3//5/BE9QewQcOur3//59B//8fwczMjL3//5/B//8fwczMjL3//59B//+fQczMzL3//59B//+fQQAAAAD//5/B//+fQczMzL3//5/B//+fQQAAAAD//59B//8fwczMjL3//59B//8fwQAAAAD//5/B//8fwczMjL3//5/B//8fwQAAAAD//59B//+fwczMzL3//5/B//+fwQAAAAD//59B//+fwczMzL3//59B//+fwQAAAAD//5/B//8fwQAAAAD//59B//+fwQAAAAD//5/B//8fwQAAAAD//5/B//+fwQAAAAD//59B//+fwczMzL3//5/B//8bwc3MjL///5/B//8bwcvMzL3//5/B//+fwc3MjL///5/B//+fQczMzL3//5/B//+fQc3MjL///59B//+fQczMzL3//59B//+fQc3MjL///5/B//+fwczMzL3//59B//+fwc3MjL///5/B//+fwczMzL3//5/B//+fwc3MjL///59B//8bQcvMzL3//5/B//+fQc3MjL///5/B//+fQczMzL3//5/B//8bQc3MjL///5/B//+fQczMzL3//59B//8bQc3MjL///59B//8bQcvMzL3//59B//+fQc3MjL///59B//8bwcvMzL3//59B//+fwc3MjL///59B//+fwczMzL3//59B//8bwc3MjL///59B//8bwc3MjL///59B//+fwc3MjL///5/B//+fwc3MjL///59B//8bwc3MjL///5/B//8bQc3MjL///59B//8bQc3MjL///5/B//+fQc3MjL///5/B//+fQc3MjL///59B//+fQQAAAAD//59B//8fQQAAAAD//5/B//+fQQAAAAD//5/B//8fQQAAAAD//59BAAD/f////78AAP9/////vwAA/3////+/AAD/f////7//////////v/////////+//////////7//////////v/////////+//////////7//f/9/////P/9//3////8//3//f////z//f/9/////P/9//3////8//3//f////z//f/x/////P/9//H////8//3/8f////z/EfMP8w/ycwQJtAu0C7X3JxHzD/MP8nMECbQLtAu19yVNiU+JT4tXOU2JT4lPi1c7/f/9/////P/9//3////8//3//f////z//f/9/////P/9//3////8//3//f////z//f/x/////P/9//H////8//3/8f////z/7/wAA////v/v/AAD///+/+/8AAP///7//////////v/////////+//////////7//////////v/////////+//////////7/7/wAA////v/v/AAD///+/+/8AAP///786g8P8w/xhvvySAu0C7YC2OoPD/MP8Yb78kgLtAu2AtqudU+JT4imxq51T4lPiKbH///9/////v////3////+/////f////7////9/////v////3////+/////f////7////9/////v////3////+/AAD/f////78AAP9/////vwAA/3////+/AAD/f////7//f///////v/9///////+//3///////7//f///////v///////fwCA//////9/AID//////38AgP//////fwCA////f/9/AID///9//38AgP///3//fwCA////f/9/AIAAAP9//38AgAAA/3//fwCAAAD/f/9/AIAAAP9//38AgP//////fwCA//////9/AID//////38AgP//////fwCA/3//f/9/AID/f/9//38AgP9//3//fwCA/3//f/9/AID/f/9//38AgP9//3//fwCA/3//f/9/AID/f/9//38AgP9/AAD//////38AAP//////fwAA//////9/AAD//////38AAP//////fwAA//////9/AAD//////38AAP//////f///////v/9///////+//3///////7//f///////vw==")
+}, {
+"aabb": AABB(-9.75, -1.1, -20, 19.5, 1, 40),
+"attribute_data": PackedByteArray("GawAAAAA/////0iSAAD//xmsSJIAAP////8AAAAA//8LlOuFAAD//4iUBo4AAP//C5QGjgAA//+IlOuFAAD//42T64UAAP//C5QGjgAA//+NkwaOAAD//wuU64UAAP//"),
+"format": 34896613431,
+"index_count": 18,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkA"),
+"material": SubResource("StandardMaterial3D_yf5b6"),
+"name": "Asphalt_Road",
+"primitive": 3,
+"uv_scale": Vector4(11.9, 14, 0, 2),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAD//wAAAcD///////8BwAAA/////wHA/////wAAAcD/////////vwAAAAD///+/AAD//////7///wAA////vwAA//8AAP////8AAAAA////////AAD//wAAAAAAAP//w/xhfmH+OoPD/GF+Yf46g/9//3//f/9//3//f/9//3//P/+//z//v/8//7//P/+/")
+}, {
+"aabb": AABB(-9.5, -0.099, -20, 19, 1e-05, 40),
+"attribute_data": PackedByteArray("AAD/////AAAAAP//AAD//wAA////////AAD//wAAAAAAAP////8AAAAA//8AAP//AAD///////8AAP//AAAAAAAA/////wAAAAD//wAA//8AAP//AAAAAAAA////////AAD/////AAAAAP//AAD//wAA//8AAAAAAAD///////8="),
+"format": 34896613431,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0A"),
+"material": SubResource("StandardMaterial3D_5u84p"),
+"name": "Lane_Strip",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("oXwAAAAA/7+RfwAA////v6F8AAD///+/kX8AAAAA/78AAAAAAAD/vwoEAAD///+/AAAAAP///78KBAAAAAD/v12DAAAAAP+/bYAAAP///79tgAAAAAD/v12DAAD///+///8AAAAA/7/0+wAA////v/T7AAAAAP+///8AAP///7////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_htac5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8legr"]
+resource_name = "Concrete_Sidewalk"
+albedo_texture = ExtResource("1_jcq6k")
+metallic_texture = ExtResource("2_p7jcj")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_p7jcj")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_1bg57")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kb7co"]
+resource_name = "Asphalt_Road"
+albedo_texture = ExtResource("4_x043h")
+metallic_texture = ExtResource("5_oppjx")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("5_oppjx")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("6_1a6id")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jcq6k"]
+_surfaces = [{
+"aabb": AABB(-20, -1.1, -20, 40, 1.1, 40),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAEAAEABQADAAAAAwAFAAQABQAAAAYABgAEAAUABgAHAAQA"),
+"name": "Concrete_Sidewalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAAAAAAAAAAAAP//AAAAAAAAAAD//wAAAAAAAAAA//8AAAAA/////wAA////////AAD//wAA//8AAA==")
+}, {
+"aabb": AABB(-20, -1.1, -20, 40, 1.1, 40),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAADAAAABAAAAAUA"),
+"name": "Asphalt_Road",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("//8AAP//AAAAAAAAAAAAAAAAAAD//wAA//8AAAAAAAD/////AAAAAP///////wAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_p7jcj"]
+resource_name = "xTraUrgentRoads_Plane_001"
+_surfaces = [{
+"aabb": AABB(-20, -1.1, -20, 40, 1.1, 40),
+"attribute_data": PackedByteArray("//8AAC36RRct+v//AAAAAAAAAAD+/0UX/v///wAA//8AAP////8AAP////8AAAAA/////wAA//8AAP//AABFFw=="),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0A"),
+"material": SubResource("StandardMaterial3D_8legr"),
+"name": "Concrete_Sidewalk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("/////wAAAAAAAAAAAAAAAP//AAAAAAAAAAD//wAAAAAAAP//AADKAAAAAAD//8oAAAAAAAAAygAAAP/////KAAAA//////+//////wAA/7//////////vwAA//8AAP+//////////n8AAAAA////PwAA/////7lA//8AAP//RX9w/o2B+P8GgGr+lIH///9/b0DfgG9A34BvQN+Ab0DfgP///3////9/////f////3//f////3//f/9//3//f/9/")
+}, {
+"aabb": AABB(-20, -1.1, -20, 40, 1.1, 40),
+"attribute_data": PackedByteArray("AABFF7no/v8AAP//uehFF///AAAAAEUX/////7noRRc="),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"material": SubResource("StandardMaterial3D_kb7co"),
+"name": "Asphalt_Road",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("//8AAP//VNUAAAAAAABU1QAAAAD//1TV//8AAAAAVNX/////AAByCP//AAD///8//////////z///wAAAACZCFRVVFVUVVRVVFVUVVRVVFXQCJc7/38AAFV/VAD3CIQ7")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_jcq6k")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_u8dbv"]
+data = PackedVector3Array(10, -0.06875, -20, 10, 0, 20, 10, -0.06875, 20, 10, -0.06875, -20, 10, 0, -20, 10, 0, 20, 10, -0.06875, -20, 20, 0, -20, 10, 0, -20, 10, -0.06875, -20, 20, -0.1, -20, 20, 0, -20, -20, -0.1, 20, -9.92678, -0.0908471, 20, -9.75, -0.1, 20, -20, -0.1, 20, -10, -0.06875, 20, -9.92678, -0.0908471, 20, 9.75, -0.1, -20, 9.92678, -0.0908471, 20, 9.75, -0.1, 20, 9.75, -0.1, -20, 9.92678, -0.0908471, -20, 9.92678, -0.0908471, 20, 20, 0, 20, 10, -0.06875, 20, 10, 0, 20, 9.92678, -0.0908471, 20, 20, -0.1, 20, 9.75, -0.1, 20, 20, 0, 20, 9.92678, -0.0908471, 20, 10, -0.06875, 20, 9.92678, -0.0908471, 20, 20, 0, 20, 20, -0.1, 20, -10, -0.06875, 20, -20, 0, 20, -10, 0, 20, -10, -0.06875, 20, -20, -0.1, 20, -20, 0, 20, 20, -0.1, -20, 9.92678, -0.0908471, -20, 9.75, -0.1, -20, 20, -0.1, -20, 10, -0.06875, -20, 9.92678, -0.0908471, -20, -20, 0, -20, -10, -0.06875, -20, -10, 0, -20, -9.92678, -0.0908471, -20, -20, -0.1, -20, -9.75, -0.1, -20, -20, 0, -20, -9.92678, -0.0908471, -20, -10, -0.06875, -20, -9.92678, -0.0908471, -20, -20, 0, -20, -20, -0.1, -20, -9.75, -0.1, 20, -9.92678, -0.0908471, -20, -9.75, -0.1, -20, -9.75, -0.1, 20, -9.92678, -0.0908471, 20, -9.92678, -0.0908471, -20, 20, -0.1, 20, 20, 0, -20, 20, -0.1, -20, 20, -0.1, 20, 20, 0, 20, 20, 0, -20, -9.92678, -0.0908471, 20, -10, -0.06875, -20, -9.92678, -0.0908471, -20, -9.92678, -0.0908471, 20, -10, -0.06875, 20, -10, -0.06875, -20, -10, -0.06875, 20, -10, 0, -20, -10, -0.06875, -20, -10, -0.06875, 20, -10, 0, 20, -10, 0, -20, -20, -0.1, -20, -20, 0, 20, -20, -0.1, 20, -20, -0.1, -20, -20, 0, -20, -20, 0, 20, 9.92678, -0.0908471, -20, 10, -0.06875, 20, 9.92678, -0.0908471, 20, 9.92678, -0.0908471, -20, 10, -0.06875, -20, 10, -0.06875, 20, -10, 0, 20, -20, 0, -20, -10, 0, -20, -10, 0, 20, -20, 0, 20, -20, 0, -20, -20, -0.1, -20, -9.75, -1.1, -20, -9.75, -0.1, -20, -20, -0.1, -20, -20, -1.1, -20, -9.75, -1.1, -20, 20, -0.1, -20, 20, -1.1, 20, 20, -0.1, 20, 20, -0.1, -20, 20, -1.1, -20, 20, -1.1, 20, -20, -0.1, 20, -20, -1.1, -20, -20, -0.1, -20, -20, -0.1, 20, -20, -1.1, 20, -20, -1.1, -20, 9.75, -0.1, -20, 20, -1.1, -20, 20, -0.1, -20, 9.75, -0.1, -20, 9.75, -1.1, -20, 20, -1.1, -20, 20, -0.1, 20, 9.75, -1.1, 20, 9.75, -0.1, 20, 20, -0.1, 20, 20, -1.1, 20, 9.75, -1.1, 20, -9.75, -0.1, 20, -20, -1.1, 20, -20, -0.1, 20, -9.75, -0.1, 20, -9.75, -1.1, 20, -20, -1.1, 20, -9.75, -1.1, 20, -20, -1.1, -20, -20, -1.1, 20, -9.75, -1.1, 20, -9.75, -1.1, -20, -20, -1.1, -20, 20, -1.1, -20, 9.75, -1.1, 20, 20, -1.1, 20, 9.75, -1.1, 20, -9.75, -1.1, -20, -9.75, -1.1, 20, 9.75, -1.1, -20, 9.75, -1.1, 20, 20, -1.1, -20, -9.75, -1.1, -20, 9.75, -1.1, 20, 9.75, -1.1, -20, 20, 0, 20, 10, 0, -20, 20, 0, -20, 20, 0, 20, 10, 0, 20, 10, 0, -20, -9.75, -0.1, -20, 9.75, -0.1, 20, -9.75, -0.1, 20, -9.75, -0.1, -20, 9.75, -0.1, -20, 9.75, -0.1, 20, 9.75, -0.1, 20, -9.75, -1.1, 20, -9.75, -0.1, 20, 9.75, -0.1, 20, 9.75, -1.1, 20, -9.75, -1.1, 20, -9.75, -0.1, -20, 9.75, -1.1, -20, 9.75, -0.1, -20, -9.75, -0.1, -20, -9.75, -1.1, -20, 9.75, -1.1, -20, -0.25, -0.099, -20, -0.032, -0.099, 20, -0.25, -0.099, 20, -0.25, -0.099, -20, -0.032, -0.099, -20, -0.032, -0.099, 20, -9.5, -0.099, -20, -9.2, -0.099, 20, -9.5, -0.099, 20, -9.5, -0.099, -20, -9.2, -0.099, -20, -9.2, -0.099, 20, 0.25, -0.099, -20, 0.032, -0.099, 20, 0.032, -0.099, -20, 0.25, -0.099, -20, 0.25, -0.099, 20, 0.032, -0.099, 20, 9.5, -0.099, -20, 9.2, -0.099, 20, 9.2, -0.099, -20, 9.5, -0.099, -20, 9.5, -0.099, 20, 9.2, -0.099, 20)
+
+[node name="through" type="StaticBody3D"]
+
+[node name="through" type="MeshInstance3D" parent="."]
+visibility_range_end = 125.0
+visibility_range_end_margin = 10.0
+visibility_range_fade_mode = 1
+mesh = SubResource("ArrayMesh_rv4yu")
+skeleton = NodePath("")
+
+[node name="road-LOD1" type="MeshInstance3D" parent="."]
+cast_shadow = 0
+visibility_range_begin = 125.0
+mesh = SubResource("ArrayMesh_p7jcj")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_u8dbv")

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource type="Script"  path="res://Vehicles/Resources/vehicle_data.gd" id="1"]
+
+[resource]
+script = ExtResource( 1 )

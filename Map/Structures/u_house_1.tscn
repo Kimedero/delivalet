@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://vfyti57fr76n"]
+
+[ext_resource type="PackedScene" uid="uid://cmb702yngjdos" path="res://Map/Structures/UHouse1/uHouse1.blend" id="1_3g352"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hd0ix"]
+size = Vector3(10, 11, 10)
+
+[node name="uHouse1" instance=ExtResource("1_3g352")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
+shape = SubResource("BoxShape3D_hd0ix")

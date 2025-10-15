@@ -1,0 +1,63 @@
+[gd_scene load_steps=16 format=3 uid="uid://b1fkrvhaxdxt3"]
+
+[ext_resource type="PackedScene" uid="uid://ck2chacmbm0yw" path="res://Map/Roads/RoadSegments/l.tscn" id="1_4ue83"]
+[ext_resource type="PackedScene" uid="uid://di8k7iqb40hn3" path="res://Map/Roads/RoadSegments/t.tscn" id="2_pvcuu"]
+[ext_resource type="PackedScene" uid="uid://bepmrlr4bb8bg" path="res://Map/Roads/RoadSegments/through.tscn" id="3_kermd"]
+[ext_resource type="PackedScene" uid="uid://bdgxs2p2u4yvg" path="res://Map/Roads/RoadSegments/cross.tscn" id="4_ls0gr"]
+[ext_resource type="PackedScene" uid="uid://denwq00017qwx" path="res://Map/Roads/RoadSegments/through_wide.tscn" id="5_vbt3d"]
+[ext_resource type="PackedScene" uid="uid://cafp64s536v3s" path="res://Map/Roads/RoadSegments/l_wide.tscn" id="6_cxp4i"]
+[ext_resource type="PackedScene" uid="uid://d0lam8680k3n0" path="res://Map/Roads/RoadSegments/pavement_2.tscn" id="7_wy5un"]
+[ext_resource type="PackedScene" uid="uid://dddij5sa1odi" path="res://Map/Roads/RoadSegments/pavement_1.tscn" id="8_uayh4"]
+[ext_resource type="PackedScene" uid="uid://bipf2saaeplmq" path="res://Map/Roads/RoadSegments/road_plain.tscn" id="9_qkqa6"]
+[ext_resource type="PackedScene" uid="uid://de27rwjqlb8bs" path="res://Map/Roads/RoadSegments/t_wide.tscn" id="10_y5ge6"]
+[ext_resource type="PackedScene" uid="uid://ltlfm4hyaxdx" path="res://Map/Roads/RoadSegments/l_wide_2.tscn" id="11_b5u0j"]
+[ext_resource type="PackedScene" uid="uid://clpdrg1p7g2yf" path="res://Map/Roads/RoadSegments/t_wide_2.tscn" id="12_ae2jm"]
+[ext_resource type="PackedScene" uid="uid://b7ucfcjv5k8sq" path="res://Map/Roads/RoadSegments/t_wide_3.tscn" id="13_6rqaa"]
+[ext_resource type="PackedScene" uid="uid://bv1ipw0iu45h7" path="res://Map/Roads/RoadSegments/t_wide_4.tscn" id="14_q7qed"]
+[ext_resource type="PackedScene" uid="uid://tw7gu0hwnu4l" path="res://Map/Roads/RoadSegments/pavement.tscn" id="15_acbfj"]
+
+[node name="xTraUrgent Roads" type="Node3D"]
+
+[node name="l" parent="." instance=ExtResource("1_4ue83")]
+visible = false
+
+[node name="t" parent="." instance=ExtResource("2_pvcuu")]
+visible = false
+
+[node name="through" parent="." instance=ExtResource("3_kermd")]
+visible = false
+
+[node name="cross" parent="." instance=ExtResource("4_ls0gr")]
+visible = false
+
+[node name="through_wide" parent="." instance=ExtResource("5_vbt3d")]
+visible = false
+
+[node name="l_wide" parent="." instance=ExtResource("6_cxp4i")]
+visible = false
+
+[node name="pavement2" parent="." instance=ExtResource("7_wy5un")]
+visible = false
+
+[node name="pavement1" parent="." instance=ExtResource("8_uayh4")]
+visible = false
+
+[node name="road_plain" parent="." instance=ExtResource("9_qkqa6")]
+visible = false
+
+[node name="t_wide" parent="." instance=ExtResource("10_y5ge6")]
+visible = false
+
+[node name="l_wide2" parent="." instance=ExtResource("11_b5u0j")]
+visible = false
+
+[node name="t_wide2" parent="." instance=ExtResource("12_ae2jm")]
+visible = false
+
+[node name="t_wide3" parent="." instance=ExtResource("13_6rqaa")]
+visible = false
+
+[node name="t_wide4" parent="." instance=ExtResource("14_q7qed")]
+visible = false
+
+[node name="pavement" parent="." instance=ExtResource("15_acbfj")]

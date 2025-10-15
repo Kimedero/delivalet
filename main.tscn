@@ -1,0 +1,3155 @@
+[gd_scene load_steps=71 format=3 uid="uid://lww51yjnm3p3"]
+
+[ext_resource type="Script" uid="uid://cjhouy8qla3ha" path="res://main.gd" id="1_yaehf"]
+[ext_resource type="PackedScene" uid="uid://c2jaeeq3behpd" path="res://Map/Structures/Fence1/fence_1.tscn" id="2_074og"]
+[ext_resource type="PackedScene" uid="uid://easulvsv2803" path="res://Map/Structures/house_1.tscn" id="3_cegan"]
+[ext_resource type="PackedScene" uid="uid://df2b3wk87bg7q" path="res://Map/Structures/house_2.tscn" id="4_82xsv"]
+[ext_resource type="PackedScene" uid="uid://fe58ux3a1t8p" path="res://Map/Structures/house_3.tscn" id="5_getpj"]
+[ext_resource type="PackedScene" uid="uid://bt4sjb3tcqxbe" path="res://Map/Structures/house_4.tscn" id="6_ryguw"]
+[ext_resource type="PackedScene" uid="uid://tw7gu0hwnu4l" path="res://Map/Roads/RoadSegments/pavement.tscn" id="7_d13ii"]
+[ext_resource type="PackedScene" uid="uid://bntcg2tcwaswa" path="res://Map/Roads/RoadSegments/l.tscn" id="8_1u8w0"]
+[ext_resource type="PackedScene" uid="uid://bepmrlr4bb8bg" path="res://Map/Roads/RoadSegments/through.tscn" id="9_0odxb"]
+[ext_resource type="PackedScene" uid="uid://di8k7iqb40hn3" path="res://Map/Roads/RoadSegments/t.tscn" id="10_lswn8"]
+[ext_resource type="PackedScene" uid="uid://bdgxs2p2u4yvg" path="res://Map/Roads/RoadSegments/cross.tscn" id="11_a6jrf"]
+[ext_resource type="PackedScene" uid="uid://br2d2u45x0f0h" path="res://Vehicles/Navigation/vehicle_path_changer.tscn" id="12_xuqvo"]
+[ext_resource type="Material" uid="uid://c0jjpvijjpxgf" path="res://Vehicles/Navigation/path_scroll_material.tres" id="13_qsp4k"]
+[ext_resource type="PackedScene" uid="uid://bmyumancekp74" path="res://Vehicles/VehicleSpawning/vehicle_spawner.tscn" id="14_kq58d"]
+[ext_resource type="PackedScene" uid="uid://dh4ev2q4aj3ni" path="res://Camera/camera_rig.tscn" id="15_seu75"]
+[ext_resource type="PackedScene" uid="uid://i7yw3rq3hpa5" path="res://Vehicles/van_kimedero.tscn" id="16_htxhm"]
+[ext_resource type="PackedScene" uid="uid://bbwvj1totin30" path="res://Vehicles/van_nyarain.tscn" id="17_cegan"]
+[ext_resource type="Script" uid="uid://ceg1oovl4vxuv" path="res://addons/monitor_overlay/monitor_overlay.gd" id="17_jq2sk"]
+[ext_resource type="PackedScene" uid="uid://c7asj8h7ux3tk" path="res://DeliveryPackages/delivery_package.tscn" id="18_074og"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c0e6f"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_j15a4"]
+sky_material = SubResource("ProceduralSkyMaterial_c0e6f")
+
+[sub_resource type="Environment" id="Environment_cj684"]
+background_mode = 2
+sky = SubResource("Sky_j15a4")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Curve3D" id="Curve3D_pfhwb"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -15.572, 0, 15.347, 0, 0, 0, 0, 0, 0, 90.4561, 0, 15.4712),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_5vsgc"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 95.1377, 0, 24.9463, 0, 0, 0, 0, 0, 0, -10.4701, 0, 25.0469),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_c42um"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -25, 0, -64, 0, 0, 0, 0, 0, 0, 94, 0, -64, -0.1, 0, -9.9, 0.1, 0, 9.9, 104, 0, -56, 0, 0, 0, 0, 0, 0, 103, 0, 11),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_8qdo8"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 96.1164, 0, 15.6563, 0.2, 0, 8.2, -0.2, 0, -8.2, 95.9647, 0, -49.406, 0, 0, 0, 0, 0, 0, 87.5518, 0, -56.1, 0, 0, 0, 0, 0, 0, -10.1786, 0, -56.0095),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_4td1n"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -24.6082, 0, 24.9901, 0, 0, 0, 0, 0, 0, -25.1196, 0, -50.9413),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_fi8hn"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -15.0611, 0, -55.9413, 0, 0, 0, 0, 0, 0, -14.8906, 0, 10.728),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_k1hbb"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -24.7667, 0, -55.9518, 0, 0, 0, 0, 0, 0, -84.9957, 0, -56.489, 0, 0, -11, 0, 0, 11, -96.0451, 0, -45.8031, 0, 0, 0, 0, 0, 0, -94.969, 0, 51.0561, 15, 0, 0, -15, 0, 0, -107.695, 0, 64.7407, 10, 0, 0, -10, 0, 0, -126.601, 0, 64.5087, 0, 0, 0, 0, 0, 0, -135.631, 0, 74.4517, 0, 0, 0, 0, 0, 0, -135.378, 0, 131.24),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+
+[sub_resource type="Curve3D" id="Curve3D_o5na3"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -144, 0, 135, 0, 0, 0, 0, 0, 0, -143.837, 0, 64.2401, -9.5, 0, 0.3, 9.5, 0, -0.3, -135.816, 0, 56.0656, -9.1, 0, -0.1, 9.1, 0, 0.1, -112.053, 0, 55.5262, 0, 0, 0, 0, 0, 0, -104.329, 0, 49.0919, 0, 0, 0, 0, 0, 0, -104.08, 0, -53.8613, -14, 0, 0, 14, 0, 0, -91.9739, 0, -63.7953, 0, 0, 0, 0, 0, 0, -29, 0, -64),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+
+[sub_resource type="Curve3D" id="Curve3D_f06r1"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -15.1788, 0, 25.07, 0, 0, 0, 0, 0, 0, -15.3738, 0, 130.701),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_ndaau"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -25.0665, 0, 134.796, 0, 0, 0, 0, 0, 0, -24.2847, 0, 30.1326),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_831ya"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 103.398, 0, 15.1889, 0, 0, 0, 0, 0, 0, 103.61, 0, 49.6249, -5.3, 0, 0.3, 5.3, 0, -0.3, 108.736, 0, 55.3431, 0, 0, 0, 0, 0, 0, 134.567, 0, 55.5403, 0.3, 0, -9.8, -0.3, 0, 9.8, 145.017, 0, 64.2161, 0, 0, 0, 0, 0, 0, 144.82, 0, 130.299),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Curve3D" id="Curve3D_ipl27"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 135.459, 0, 135.853, 0.3, 0, 9.3, -0.3, 0, -9.3, 135.314, 0, 72.6045, 0, 0, 0, 0, 0, 0, 126.618, 0, 64.3579, 11.6, 0, -0.1, -11.6, 0, 0.1, 106.037, 0, 64.9521, 0, 0, 0, 0, 0, 0, 95.7473, 0, 57.2707, 0, 0, 0, 0, 0, 0, 95.5171, 0, 29.9154),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Curve3D" id="Curve3D_2fwhv"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -16.0009, 0, 135.017, 0, 0, 0, 0, 0, 0, 131.029, 0, 135.596),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_slp6p"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 135.877, 0, 144.544, 0, 0, 0, 0, 0, 0, -10.633, 0, 144.065),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_pwqdp"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -24.7118, 0, 145.231, 0, 0, 0, 0, 0, 0, -130.217, 0, 144.53),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_g778a"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -135.815, 0, 135.135, 0, 0, 0, 0, 0, 0, -29.1141, 0, 134.855),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_bdh3h"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -144, 0, 144, 6, 0, 0, -6, 0, 0, -249, 0, 144, 0, 0, 0, 0, 0, 0, -255, 0, 149, 0, 0, 0, 0, 0, 0, -255, 0, 251),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_we5kv"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -264.883, 0, 264.829, 0, 0, 0, 0, 0, 0, -264.551, 0, 145.912, -13, 0, 0, 13, 0, 0, -252.882, 0, 136.08, 0, 0, 0, 0, 0, 0, -149.212, 0, 135.178),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_27v0r"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -254.633, 0, 255.065, 0, 0, 0, 0, 0, 0, -149.353, 0, 255.345),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_4gofc"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -144.896, 0, 264.881, 0, 0, 0, 0, 0, 0, -250.475, 0, 264.862),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_dmdxv"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -144.506, 0, 254.682, 0, 0, 0, 0, 0, 0, -144.179, 0, 148.836),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_nam1k"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -134.856, 0, 144.163, 0, 0, 0, 0, 0, 0, -135.019, 0, 250.682),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_uv25q"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -135.291, 0, 254.303, 0, 0, 0, 0, 0, 0, -29.0465, 0, 254.164),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_hjbdb"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -25.1852, 0, 265.121, 0, 0, 0, 0, 0, 0, -130.539, 0, 264.844),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_gsfph"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -24.1817, 0, 254.215, 0, 0, 0, 0, 0, 0, -24.3794, 0, 149.399),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_vigww"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -15.4984, 0, 144.399, 0, 0, 0, 0, 0, 0, -16.0972, 0, 250.611),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_al5x2"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 135.977, 0, 214.766, 0, 0, 0, 0, 0, 0, 136.036, 0, 149.956),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_ba4ip"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 145, 0, 136, 0, 0, 0, 0, 0, 0, 145, 0, 211),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_vdwoj"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 135.295, 0, 223.54, 8.3, 0, -0.1, -8.3, 0, 0.1, 71.4899, 0, 224.015, 0, 0, 0, 0, 0, 0, 64.694, 0, 231.285, 0, 0, 0, 0, 0, 0, 65.0487, 0, 329.421),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_b4wx3"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 55, 0, 335, 0, 0, 0, 0, 0, 0, 55, 0, 225, -10, 0, 0, 10, 0, 0, 65, 0, 216, 0, 0, 0, 0, 0, 0, 131, 0, 215),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_0tfl6"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 144.616, 0, 214.931, 0, 0, 0, 0, 0, 0, 144.805, 0, 330.615),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_b7tpx"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 135.37, 0, 334.766, 0, 0, 0, 0, 0, 0, 135.559, 0, 229.667),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_g277b"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 65, 0, 335, 0, 0, 0, 0, 0, 0, 131, 0, 335),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_qugxw"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 135.202, 0, 345.014, 0, 0, 0, 0, 0, 0, 69.0903, 0, 345.133),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_0t0bb"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -25.4638, 0, 335.462, 0, 0, 0, 0, 0, 0, -25.4638, 0, 271.365),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_g763l"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -15.9513, 0, 254.365, 0, 0, 0, 0, 0, 0, -15.2379, 0, 329.986),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_2tjcr"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -15.459, 0, 334.983, 0, 0, 0, 0, 0, 0, 50.8129, 0, 335.454),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_cdlkr"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 65.1643, 0, 344.627, 0, 0, 0, 0, 0, 0, -10.8118, 0, 344.744),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_x5gkv"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -64.8297, 0, 411.452, 0, 0, 13, 0, 0, -13, -65.3044, 0, 347.823, 0, 0, 0, 0, 0, 0, -55.1765, 0, 335.227, 0, 0, 0, 0, 0, 0, -29.1227, 0, 335.176),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_sq6sw"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -15.0588, 0, 344.355, 7, 0, 0, -7, 0, 0, -48.9038, 0, 344.563, 0, 0, 0, 0, 0, 0, -55.8095, 0, 350.469, 0, 0, 0, 0, 0, 0, -55.493, 0, 408.604),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_5kqyy"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -55.5175, 0, 415.174, -10, 0, 0, 10, 0, 0, 127.983, 0, 415.539, 0, 0, 0, 0, 0, 0, 136.289, 0, 407.556, 0, 0, 0, 0, 0, 0, 135.997, 0, 352.966),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_8yl1x"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 144.41, 0, 335.151, 0, 0, 0, 0, 0, 0, 144.41, 0, 413.14, 14, 0, 0, -14, 0, 0, 132.688, 0, 424.768, 0, 0, 0, 0, 0, 0, -50.3209, 0, 425.381),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_yosuq"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -136.125, 0, 264.327, 0, 0, 0, 0, 0, 0, -135.476, 0, 373.941, 10.3, 0, -0.5, -10.3, 0, 0.5, -145.763, 0, 384.237, 0, 0, 0, 0, 0, 0, -250.481, 0, 384.995),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_wmm8q"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -256, 0, 375, -6.3, 0, 0, 6.3, 0, 0, -151, 0, 375, 0, 0, 0, 0, 0, 0, -145.095, 0, 369.284, 0, 0, 0, 0, 0, 0, -144.91, 0, 268.933),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_b0fav"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -255, 0, 266, 0, 0, 0, 0, 0, 0, -255, 0, 371),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_mt4tm"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -265, 0, 385, 0, 0, 0, 0, 0, 0, -265, 0, 270),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_b0tc1"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -255, 0, 385, 0, 0, 0, 0, 0, 0, -255, 0, 450, -9.1, 0, -0.1, 9.1, 0, 0.1, -247, 0, 456, 0, 0, 0, 0, 0, 0, -71, 0, 455, -0.1, 0, 7.6, 0.1, 0, -7.6, -65, 0, 447, 0, 0, 0, 0, 0, 0, -65, 0, 415),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="Curve3D" id="Curve3D_op2fv"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -56, 0, 425, 0, 0, 0, 0, 0, 0, -56.8298, 0, 457.603, 8.9, 0, -0.5, -8.9, 0, 0.5, -65.5948, 0, 464.96, 9.5, 0, 0.3, -9.5, 0, -0.3, -256.087, 0, 464.479, 0, 0, 0, 0, 0, 0, -264.852, 0, 453.836, 0, 0, 0, 0, 0, 0, -264, 0, 390),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[node name="Main" type="Node3D" node_paths=PackedStringArray("vehicles_spawn", "vehicle_path_changers", "vehicle_paths", "navigation_path_holder")]
+script = ExtResource("1_yaehf")
+vehicles_spawn = NodePath("Vehicles")
+vehicle_path_changers = NodePath("Map/Navigation/VehiclePathChangers")
+vehicle_paths = NodePath("Map/Navigation/VehiclePaths")
+navigation_path_holder = NodePath("NavigationPathHolder")
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="Env" type="Node" parent="Map"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Map/Env"]
+environment = SubResource("Environment_cj684")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Map/Env"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, -5)
+shadow_enabled = true
+directional_shadow_mode = 0
+directional_shadow_fade_start = 0.4
+directional_shadow_max_distance = 40.0
+
+[node name="Meshes" type="Node3D" parent="Map"]
+
+[node name="Fences" type="Node3D" parent="Map/Meshes"]
+
+[node name="fence1" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160, 0, -120)
+
+[node name="fence2" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140, 0, -120)
+
+[node name="fence3" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -120, 0, -120)
+
+[node name="fence4" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, -120)
+
+[node name="fence5" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -120)
+
+[node name="fence6" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, -120)
+
+[node name="fence7" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -120)
+
+[node name="fence8" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -120)
+
+[node name="fence9" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -120)
+
+[node name="fence10" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -120)
+
+[node name="fence11" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -120)
+
+[node name="fence12" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, -120)
+
+[node name="fence13" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, -120)
+
+[node name="fence14" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, -120)
+
+[node name="fence15" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120, 0, -120)
+
+[node name="fence16" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140, 0, -120)
+
+[node name="fence17" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 160, 0, -120)
+
+[node name="fence18" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 160, 0, -100)
+
+[node name="fence19" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 160, 0, -80)
+
+[node name="fence20" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 160, 0, -60)
+
+[node name="fence21" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 160, 0, -40)
+
+[node name="fence22" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 160, 0, -20)
+
+[node name="fence23" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160, 0, 0)
+
+[node name="fence24" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 0, 0)
+
+[node name="fence25" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 0)
+
+[node name="fence26" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 20)
+
+[node name="fence27" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 40)
+
+[node name="fence28" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 60)
+
+[node name="fence29" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 80)
+
+[node name="fence30" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 100)
+
+[node name="fence31" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 120)
+
+[node name="fence32" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 140)
+
+[node name="fence33" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 160)
+
+[node name="fence34" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 180)
+
+[node name="fence35" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 200)
+
+[node name="fence36" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 220)
+
+[node name="fence37" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 240)
+
+[node name="fence38" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 260)
+
+[node name="fence39" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 280)
+
+[node name="fence40" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 300)
+
+[node name="fence41" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 320)
+
+[node name="fence42" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 340)
+
+[node name="fence43" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 360)
+
+[node name="fence44" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 380)
+
+[node name="fence45" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 400)
+
+[node name="fence46" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 420)
+
+[node name="fence47" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 440)
+
+[node name="fence48" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 200, 0, 460)
+
+[node name="fence49" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 200, 0, 480)
+
+[node name="fence50" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 180, 0, 480)
+
+[node name="fence51" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 160, 0, 480)
+
+[node name="fence52" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 140, 0, 480)
+
+[node name="fence53" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 120, 0, 480)
+
+[node name="fence54" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 100, 0, 480)
+
+[node name="fence55" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 80, 0, 480)
+
+[node name="fence56" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 60, 0, 480)
+
+[node name="fence57" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 40, 0, 480)
+
+[node name="fence58" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 20, 0, 480)
+
+[node name="fence59" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 480)
+
+[node name="fence60" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 500)
+
+[node name="fence61" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 520)
+
+[node name="fence62" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -20, 0, 520)
+
+[node name="fence63" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -40, 0, 520)
+
+[node name="fence64" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -60, 0, 520)
+
+[node name="fence65" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -79, 0, 520)
+
+[node name="fence66" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -99, 0, 520)
+
+[node name="fence67" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -119, 0, 520)
+
+[node name="fence68" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -139, 0, 520)
+
+[node name="fence69" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -159, 0, 520)
+
+[node name="fence70" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -179, 0, 520)
+
+[node name="fence71" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -199, 0, 520)
+
+[node name="fence72" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -219, 0, 520)
+
+[node name="fence73" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -239, 0, 520)
+
+[node name="fence74" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -259, 0, 520)
+
+[node name="fence75" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -279, 0, 520)
+
+[node name="fence76" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -299, 0, 520)
+
+[node name="fence77" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 520)
+
+[node name="fence78" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 500)
+
+[node name="fence79" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 480)
+
+[node name="fence80" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 460)
+
+[node name="fence81" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 440)
+
+[node name="fence82" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 420)
+
+[node name="fence83" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 400)
+
+[node name="fence84" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 380)
+
+[node name="fence85" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 360)
+
+[node name="fence86" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 340)
+
+[node name="fence87" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 320)
+
+[node name="fence88" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 300)
+
+[node name="fence89" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 280)
+
+[node name="fence90" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 260)
+
+[node name="fence91" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 240)
+
+[node name="fence92" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 220)
+
+[node name="fence93" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 200)
+
+[node name="fence94" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 180)
+
+[node name="fence95" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 160)
+
+[node name="fence96" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 140)
+
+[node name="fence97" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 120)
+
+[node name="fence98" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -319, 0, 100)
+
+[node name="fence99" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -319, 0, 80)
+
+[node name="fence100" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -299, 0, 80)
+
+[node name="fence101" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -279, 0, 80)
+
+[node name="fence102" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -259, 0, 80)
+
+[node name="fence103" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -239, 0, 80)
+
+[node name="fence104" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -219, 0, 80)
+
+[node name="fence105" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -199, 0, 80)
+
+[node name="fence106" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -199, 0, 60)
+
+[node name="fence107" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -199, 0, 40)
+
+[node name="fence108" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -199, 0, 20)
+
+[node name="fence109" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -199, 0, 0)
+
+[node name="fence110" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -179, 0, 0)
+
+[node name="fence111" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.78814e-07, 0, 1, 0, 1, 0, -1, 0, 1.78814e-07, -159, 0, 9.53674e-07)
+
+[node name="fence112" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.78814e-07, 0, 1, 0, 1, 0, -1, 0, 1.78814e-07, -159, 0, -20)
+
+[node name="fence113" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.78814e-07, 0, 1, 0, 1, 0, -1, 0, 1.78814e-07, -159, 0, -40)
+
+[node name="fence114" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.78814e-07, 0, 1, 0, 1, 0, -1, 0, 1.78814e-07, -159, 0, -60)
+
+[node name="fence115" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.78814e-07, 0, 1, 0, 1, 0, -1, 0, 1.78814e-07, -159, 0, -80)
+
+[node name="fence116" parent="Map/Meshes/Fences" instance=ExtResource("2_074og")]
+transform = Transform3D(1.78814e-07, 0, 1, 0, 1, 0, -1, 0, 1.78814e-07, -159, 0, -100)
+
+[node name="Houses" type="Node3D" parent="Map/Meshes"]
+
+[node name="House1" type="Node3D" parent="Map/Meshes/Houses"]
+
+[node name="House1_1" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1, 0, -1.62921e-07, 0, 1, 0, 1.62921e-07, 0, -1, 35.5, 0, 43.5)
+
+[node name="House1_2" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 125, 0, 4)
+
+[node name="House1_3" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -75, 0, 30)
+
+[node name="House1_4" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1, 0, -1.62921e-07, 0, 1, 0, 1.62921e-07, 0, -1, 114.5, 0, 85.5)
+
+[node name="House1_5" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, 115)
+
+[node name="House1_6" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -116, 0, 94)
+
+[node name="House1_7" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, -45, 0, 110)
+
+[node name="House1_8" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(1, 0, 7.54976e-08, 0, 1, 0, -7.54976e-08, 0, 1, 25, 0, 115)
+
+[node name="House1_9" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 165, 0, 120)
+
+[node name="House1_10" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 34, 0, 165)
+
+[node name="House1_11" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, 115, 0, 116)
+
+[node name="House1_12" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -115, 0, 164)
+
+[node name="House1_13" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -60, 0, 164)
+
+[node name="House1_14" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -45, 0, 234)
+
+[node name="House1_15" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(1, 0, 7.54976e-08, 0, 1, 0, -7.54976e-08, 0, 1, 87, 0, 195)
+
+[node name="House1_16" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(1, 0, -7.54976e-08, 0, 1, 0, 7.54976e-08, 0, 1, 57, 0, 196)
+
+[node name="House1_17" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 165, 0, 220)
+
+[node name="House1_18" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(4.37114e-08, 0, -1, 0, 1, 0, 1, 0, 4.37114e-08, -114, 0, 216)
+
+[node name="House1_19" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, 1, -75, 0, 234)
+
+[node name="House1_20" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(4.37114e-08, 0, -1, 0, 1, 0, 1, 0, 4.37114e-08, 3, 0, 220)
+
+[node name="House1_21" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 167, 0, 260)
+
+[node name="House1_22" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -215, 0, 284)
+
+[node name="House1_23" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 3, 0, 260)
+
+[node name="House1_24" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, 117, 0, 270)
+
+[node name="House1_78" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1, 0, 1.19252e-08, 0, 1, 0, -1.19252e-08, 0, -1, 85, 0, 245)
+
+[node name="House1_25" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(1, 0, -7.54976e-08, 0, 1, 0, 7.54976e-08, 0, 1, -86, 0, 436)
+
+[node name="House1_26" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -284, 0, 478)
+
+[node name="House1_27" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -236, 0, 315)
+
+[node name="House1_28" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -164, 0, 286)
+
+[node name="House1_29" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -88, 0, 285)
+
+[node name="House1_30" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1, 0, -1.6292e-07, 0, 1, 0, 1.6292e-07, 0, -1, -68, 0, 285)
+
+[node name="House1_31" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 166, 0, 320)
+
+[node name="House1_32" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -285, 0, 340)
+
+[node name="House1_33" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, 1, -212, 0, 354)
+
+[node name="House1_34" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, 1, -189.661, 0, 353.882)
+
+[node name="House1_35" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, 115, 0, 366)
+
+[node name="House1_36" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -237, 0, 350)
+
+[node name="House1_37" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -165, 0, 327)
+
+[node name="House1_38" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(3.17865e-08, 0, -1, 0, 1, 0, 1, 0, 3.17865e-08, 85, 0, 315.667)
+
+[node name="House1_39" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1, 0, 1.6292e-07, 0, 1, 0, -1.6292e-07, 0, -1, -20, 0, 365)
+
+[node name="House1_40" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 166, 0, 382)
+
+[node name="House1_41" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 395)
+
+[node name="House1_42" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 395)
+
+[node name="House1_43" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, -152, 0, 435)
+
+[node name="House1_44" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1, 0, -1.62921e-07, 0, 1, 0, 1.62921e-07, 0, -1, -140, 0, 405)
+
+[node name="House1_45" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -285, 0, 400)
+
+[node name="House1_46" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 35, 0, 445)
+
+[node name="House1_47" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 95, 0, 445)
+
+[node name="House1_48" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(4.37114e-08, 0, -1, 0, 1, 0, 1, 0, 4.37114e-08, -235, 0, 434)
+
+[node name="House1_49" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -185, 0, 404)
+
+[node name="House1_50" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -25, 0, 445)
+
+[node name="House1_51" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -210, 0, 485)
+
+[node name="House1_52" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -160, 0, 485)
+
+[node name="House1_53" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -100, 0, 485)
+
+[node name="House1_54" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, 0, -85)
+
+[node name="House1_55" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70, 0, -85)
+
+[node name="House1_56" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, 0, -85)
+
+[node name="House1_57" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 125, 0, -56)
+
+[node name="House1_58" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 27, 0, -35)
+
+[node name="House1_59" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -55, 0, -35)
+
+[node name="House1_60" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -125, 0, 35)
+
+[node name="House1_61" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -166, 0, 70)
+
+[node name="House1_62" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -166, 0, 104)
+
+[node name="House1_63" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(1, 0, 7.54976e-08, 0, 1, 0, -7.54976e-08, 0, 1, -60, 0, 115)
+
+[node name="House1_64" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -232, 0, 111)
+
+[node name="House1_65" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -283, 0, 140)
+
+[node name="House1_66" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -285, 0, 170)
+
+[node name="House1_67" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -234, 0, 190)
+
+[node name="House1_68" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -165, 0, 200)
+
+[node name="House1_69" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -285, 0, 210)
+
+[node name="House1_70" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -198, 0, 236)
+
+[node name="House1_71" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -285, 0, 270)
+
+[node name="House1_72" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 0, 317)
+
+[node name="House1_73" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -285, 0, 307)
+
+[node name="House1_74" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, 300)
+
+[node name="House1_75" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -125, 0, -40)
+
+[node name="House1_76" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -75, 0, -25)
+
+[node name="House1_77" parent="Map/Meshes/Houses/House1" instance=ExtResource("3_cegan")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -5)
+
+[node name="House2" type="Node3D" parent="Map/Meshes/Houses"]
+
+[node name="House2_1" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 125, 0, -26)
+
+[node name="House2_2" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1, 0, -1.62921e-07, 0, 1, 0, 1.62921e-07, 0, -1, 55.5, 0, 43.5)
+
+[node name="House2_3" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 125, 0, 24)
+
+[node name="House2_4" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 5, 0, 45)
+
+[node name="House2_5" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 145, 0, 34)
+
+[node name="House2_6" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 165, 0, 90)
+
+[node name="House2_7" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80, 0, 115)
+
+[node name="House2_8" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 165, 0, 140)
+
+[node name="House2_9" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -44, 0, 165)
+
+[node name="House2_10" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 14, 0, 165)
+
+[node name="House2_11" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1, 0, -1.62921e-07, 0, 1, 0, 1.62921e-07, 0, -1, 80, 0, 164)
+
+[node name="House2_12" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(4.37114e-08, 0, -1, 0, 1, 0, 1, 0, 4.37114e-08, 3, 0, 191)
+
+[node name="House2_13" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -45, 0, 224)
+
+[node name="House2_14" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, -45, 0, 185)
+
+[node name="House2_15" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 165, 0, 190)
+
+[node name="House2_16" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, 1, -65, 0, 234)
+
+[node name="House2_17" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -45, 0, 285)
+
+[node name="House2_18" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 166, 0, 58)
+
+[node name="House2_19" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 317)
+
+[node name="House2_20" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, 117, 0, 300)
+
+[node name="House2_76" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(3.17862e-08, 0, -1, 0, 1, 0, 1, 0, 3.17862e-08, 86, 0, 278)
+
+[node name="House2_21" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 166, 0, 300)
+
+[node name="House2_22" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, 115, 0, 376)
+
+[node name="House2_23" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 166, 0, 360)
+
+[node name="House2_24" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 395)
+
+[node name="House2_25" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 52, 0, 365)
+
+[node name="House2_26" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 75, 0, 445)
+
+[node name="House2_27" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 5, 0, 445)
+
+[node name="House2_28" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -85)
+
+[node name="House2_29" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93, 0, -85)
+
+[node name="House2_30" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 7, 0, -35)
+
+[node name="House2_31" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, 77, 0, -35)
+
+[node name="House2_32" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 57, 0, -35)
+
+[node name="House2_33" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, -46, 0, 9)
+
+[node name="House2_34" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -125, 0, 25)
+
+[node name="House2_35" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -84, 0, 84)
+
+[node name="House2_36" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, -44, 0, 60)
+
+[node name="House2_37" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(4.37114e-08, 0, -1, 0, 1, 0, 1, 0, 4.37114e-08, 5, 0, 100)
+
+[node name="House2_38" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(2.06632e-07, 0, 1, 0, 1, 0, -1, 0, 2.06632e-07, -45, 0, 100)
+
+[node name="House2_39" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -166, 0, 114)
+
+[node name="House2_40" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -116, 0, 114)
+
+[node name="House2_41" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -165, 0, 165)
+
+[node name="House2_42" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 39, 0, 220)
+
+[node name="House2_43" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -164, 0, 236)
+
+[node name="House2_44" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -114, 0, 226)
+
+[node name="House2_45" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 3, 0, 240)
+
+[node name="House2_46" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, 41, 0, 260)
+
+[node name="House2_47" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -195, 0, 284)
+
+[node name="House2_48" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(4.37114e-08, 0, -1, 0, 1, 0, 1, 0, 4.37114e-08, 3, 0, 285)
+
+[node name="House2_49" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -115, 0, 295)
+
+[node name="House2_50" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -114, 0, 340)
+
+[node name="House2_51" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(3.17865e-08, 0, -1, 0, 1, 0, 1, 0, 3.17865e-08, -35, 0, 392.667)
+
+[node name="House2_52" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -165, 0, 404)
+
+[node name="House2_53" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -35, 0, 445)
+
+[node name="House2_54" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -80, 0, 485)
+
+[node name="House2_55" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -125, 0, -10)
+
+[node name="House2_56" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -262, 0, 111)
+
+[node name="House2_57" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -202, 0, 111)
+
+[node name="House2_58" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -234, 0, 180)
+
+[node name="House2_59" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -285, 0, 200)
+
+[node name="House2_60" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -234, 0, 210)
+
+[node name="House2_61" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -285, 0, 240)
+
+[node name="House2_62" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(4.37114e-08, 0, 1, 0, 1, 0, -1, 0, 4.37114e-08, -284, 0, 415)
+
+[node name="House2_63" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -284, 0, 445)
+
+[node name="House2_64" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -236, 0, 305)
+
+[node name="House2_65" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(1, 0, -2.13163e-14, 0, 1, 0, 2.13163e-14, 0, 1, -123, 0, 435)
+
+[node name="House2_66" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -85, 0, 342)
+
+[node name="House2_67" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -285, 0, 317)
+
+[node name="House2_68" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -165, 0, 354)
+
+[node name="House2_69" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -205, 0, 405)
+
+[node name="House2_70" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -285, 0, 390)
+
+[node name="House2_71" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(1, 0, 7.54979e-08, 0, 1, 0, -7.54979e-08, 0, 1, -205, 0, 434)
+
+[node name="House2_72" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90, 0, -85)
+
+[node name="House2_73" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -85)
+
+[node name="House2_74" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -235, 0, 404)
+
+[node name="House2_75" parent="Map/Meshes/Houses/House2" instance=ExtResource("4_82xsv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, -5)
+
+[node name="House3" type="Node3D" parent="Map/Meshes/Houses"]
+
+[node name="House3_1" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 125, 0, -76)
+
+[node name="House3_2" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, 77, 0, -5)
+
+[node name="House3_3" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1, 0, -1.62921e-07, 0, 1, 0, 1.62921e-07, 0, -1, 75.5, 0, 43.5)
+
+[node name="House3_4" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(2.06632e-07, 0, -1, 0, 1, 0, 1, 0, 2.06632e-07, 5, 0, 66)
+
+[node name="House3_5" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1, 0, -1.6292e-07, 0, 1, 0, 1.6292e-07, 0, -1, 58, 0, 165)
+
+[node name="House3_6" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 165, 0, 160)
+
+[node name="House3_7" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1, 0, -1.6292e-07, 0, 1, 0, 1.6292e-07, 0, -1, 115, 0, 165)
+
+[node name="House3_8" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 165, 0, 240)
+
+[node name="House3_9" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, 117, 0, 245)
+
+[node name="House3_10" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 166, 0, 290)
+
+[node name="House3_11" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 166, 0, 340)
+
+[node name="House3_12" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, 115, 0, 396)
+
+[node name="House3_13" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -125, 0, 0)
+
+[node name="House3_14" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -166, 0, 80)
+
+[node name="House3_15" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -285, 0, 180)
+
+[node name="House3_16" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -165, 0, 190)
+
+[node name="House3_17" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -285, 0, 230)
+
+[node name="House3_18" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -82, 0, 403)
+
+[node name="House3_19" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -180, 0, 485)
+
+[node name="House3_20" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, -130, 0, 485)
+
+[node name="House3_21" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -285, 0, 363)
+
+[node name="House3_22" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -285, 0, 290)
+
+[node name="House3_23" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(3.17865e-08, 0, -1, 0, 1, 0, 1, 0, 3.17865e-08, -35, 0, 364.667)
+
+[node name="House3_24" parent="Map/Meshes/Houses/House3" instance=ExtResource("5_getpj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65, 0, 115)
+
+[node name="House4" type="Node3D" parent="Map/Meshes/Houses"]
+
+[node name="House4_1" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -75, 0, 10)
+
+[node name="House4_2" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -60, 0, 50)
+
+[node name="House4_3" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -116, 0, 84)
+
+[node name="House4_4" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, 115, 0, 106)
+
+[node name="House4_5" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(1, 0, -7.54976e-08, 0, 1, 0, 7.54976e-08, 0, 1, -96, 0, 116)
+
+[node name="House4_6" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-1, 0, 1.6292e-07, 0, 1, 0, -1.6292e-07, 0, -1, 4, 0, 165)
+
+[node name="House4_7" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-1, 0, 1.6292e-07, 0, 1, 0, -1.6292e-07, 0, -1, -200, 0, 165)
+
+[node name="House4_8" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -115, 0, 180)
+
+[node name="House4_9" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -45, 0, 214)
+
+[node name="House4_10" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, 115, 0, 196)
+
+[node name="House4_11" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(1, 0, -1.63913e-07, 0, 1, 0, 1.63913e-07, 0, 1, -224, 0, 235)
+
+[node name="House4_12" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -114, 0, 236)
+
+[node name="House4_13" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -235, 0, 284)
+
+[node name="House4_14" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -115, 0, 285)
+
+[node name="House4_15" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, 317)
+
+[node name="House4_16" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -115, 0, 315)
+
+[node name="House4_17" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -237, 0, 340)
+
+[node name="House4_18" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-1.19209e-07, 0, 1, 0, 1, 0, -1, 0, -1.19209e-07, -164.661, 0, 308.882)
+
+[node name="House4_19" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-1, 0, 1.6292e-07, 0, 1, 0, -1.6292e-07, 0, -1, 5, 0, 364)
+
+[node name="House4_20" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -114, 0, 360)
+
+[node name="House4_21" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(3.17862e-08, 0, -1, 0, 1, 0, 1, 0, 3.17862e-08, 165, 0, 405)
+
+[node name="House4_22" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, 0, 395)
+
+[node name="House4_23" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -235, 0, 414)
+
+[node name="House4_24" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -114, 0, 380)
+
+[node name="House4_25" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -85)
+
+[node name="House4_26" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, -85)
+
+[node name="House4_27" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52, 0, -85)
+
+[node name="House4_28" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 37, 0, -35)
+
+[node name="House4_29" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, -75, 0, -35)
+
+[node name="House4_30" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -45, 0, -15)
+
+[node name="House4_31" parent="Map/Meshes/Houses/House4" instance=ExtResource("6_ryguw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 115)
+
+[node name="Pavements" type="Node3D" parent="Map/Meshes"]
+
+[node name="pavement_1" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140, 0, -100)
+
+[node name="pavement_2" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140, 0, -100)
+
+[node name="pavement_3" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180, 0, 20)
+
+[node name="pavement_4" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 0, 20)
+
+[node name="pavement_5" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 0, 100)
+
+[node name="pavement_6" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 0, 500)
+
+[node name="pavement_7" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 500)
+
+[node name="pavement_8" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 0, 460)
+
+[node name="pavement_9" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, -100)
+
+[node name="pavement_10" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, -100)
+
+[node name="pavement_11" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -100)
+
+[node name="pavement_12" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -100)
+
+[node name="pavement_13" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, -100)
+
+[node name="pavement_14" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, -100)
+
+[node name="pavement_15" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140, 0, -60)
+
+[node name="pavement_16" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140, 0, -20)
+
+[node name="pavement_17" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140, 0, 20)
+
+[node name="pavement_18" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140, 0, -60)
+
+[node name="pavement_19" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140, 0, -20)
+
+[node name="pavement_20" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140, 0, 20)
+
+[node name="pavement_21" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, -20)
+
+[node name="pavement_22" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 20)
+
+[node name="pavement_23" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 60)
+
+[node name="pavement_24" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -20)
+
+[node name="pavement_25" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, -20)
+
+[node name="pavement_26" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180, 0, 60)
+
+[node name="pavement_27" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180, 0, 100)
+
+[node name="pavement_28" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -260, 0, 100)
+
+[node name="pavement_29" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -220, 0, 100)
+
+[node name="pavement_30" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 100)
+
+[node name="pavement_31" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 100)
+
+[node name="pavement_32" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 60)
+
+[node name="pavement_33" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 60)
+
+[node name="pavement_34" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 100)
+
+[node name="pavement_35" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 100)
+
+[node name="pavement_36" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 100)
+
+[node name="pavement_37" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 0, 60)
+
+[node name="pavement_38" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 0, 100)
+
+[node name="pavement_39" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 0, 140)
+
+[node name="pavement_40" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 0, 140)
+
+[node name="pavement_41" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 0, 180)
+
+[node name="pavement_42" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -220, 0, 180)
+
+[node name="pavement_43" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180, 0, 180)
+
+[node name="pavement_44" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -220, 0, 220)
+
+[node name="pavement_45" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180, 0, 220)
+
+[node name="pavement_46" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 180)
+
+[node name="pavement_47" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 180)
+
+[node name="pavement_48" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 220)
+
+[node name="pavement_49" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 220)
+
+[node name="pavement_50" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 0, 220)
+
+[node name="pavement_51" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 180)
+
+[node name="pavement_52" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 180)
+
+[node name="pavement_53" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 180)
+
+[node name="pavement_54" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 0, 180)
+
+[node name="pavement_55" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 220)
+
+[node name="pavement_56" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 260)
+
+[node name="pavement_57" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 300)
+
+[node name="pavement_58" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 260)
+
+[node name="pavement_59" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 300)
+
+[node name="pavement_60" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 0, 220)
+
+[node name="pavement_61" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 0, 260)
+
+[node name="pavement_62" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 0, 300)
+
+[node name="pavement_63" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 0, 340)
+
+[node name="pavement_64" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 0, 380)
+
+[node name="pavement_65" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 180, 0, 420)
+
+[node name="pavement_66" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 0, 260)
+
+[node name="pavement_67" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 0, 300)
+
+[node name="pavement_68" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 0, 340)
+
+[node name="pavement_69" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 0, 380)
+
+[node name="pavement_70" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 0, 420)
+
+[node name="pavement_71" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300, 0, 460)
+
+[node name="pavement_72" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -220, 0, 300)
+
+[node name="pavement_73" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180, 0, 300)
+
+[node name="pavement_74" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -220, 0, 340)
+
+[node name="pavement_75" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180, 0, 340)
+
+[node name="pavement_76" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 300)
+
+[node name="pavement_77" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 300)
+
+[node name="pavement_78" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 340)
+
+[node name="pavement_79" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 380)
+
+[node name="pavement_80" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 380)
+
+[node name="pavement_81" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 380)
+
+[node name="pavement_82" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 380)
+
+[node name="pavement_83" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 380)
+
+[node name="pavement_84" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -220, 0, 420)
+
+[node name="pavement_85" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180, 0, 420)
+
+[node name="pavement_86" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140, 0, 420)
+
+[node name="pavement_87" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 420)
+
+[node name="pavement_88" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 460)
+
+[node name="pavement_89" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 460)
+
+[node name="pavement_90" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 460)
+
+[node name="pavement_91" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 460)
+
+[node name="pavement_92" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140, 0, 460)
+
+[node name="pavement_93" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -260, 0, 500)
+
+[node name="pavement_94" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -220, 0, 500)
+
+[node name="pavement_95" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -180, 0, 500)
+
+[node name="pavement_96" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140, 0, 500)
+
+[node name="pavement_97" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, 500)
+
+[node name="pavement_98" parent="Map/Meshes/Pavements" instance=ExtResource("7_d13ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 500)
+
+[node name="Roads" type="Node3D" parent="Map/Meshes"]
+
+[node name="L" type="Node3D" parent="Map/Meshes/Roads"]
+
+[node name="l_1" parent="Map/Meshes/Roads/L" instance=ExtResource("8_1u8w0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 0, -60)
+
+[node name="l_2" parent="Map/Meshes/Roads/L" instance=ExtResource("8_1u8w0")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 100, 0, -60)
+
+[node name="l_3" parent="Map/Meshes/Roads/L" instance=ExtResource("8_1u8w0")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -100, 0, 60)
+
+[node name="l_5" parent="Map/Meshes/Roads/L" instance=ExtResource("8_1u8w0")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -140, 0, 60)
+
+[node name="l_4" parent="Map/Meshes/Roads/L" instance=ExtResource("8_1u8w0")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 100, 0, 60)
+
+[node name="l_6" parent="Map/Meshes/Roads/L" instance=ExtResource("8_1u8w0")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 140, 0, 60)
+
+[node name="l_7" parent="Map/Meshes/Roads/L" instance=ExtResource("8_1u8w0")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -260, 0, 140)
+
+[node name="l_8" parent="Map/Meshes/Roads/L" instance=ExtResource("8_1u8w0")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 60, 0, 220)
+
+[node name="l_9" parent="Map/Meshes/Roads/L" instance=ExtResource("8_1u8w0")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -60, 0, 340)
+
+[node name="l_10" parent="Map/Meshes/Roads/L" instance=ExtResource("8_1u8w0")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -140, 0, 380)
+
+[node name="l_11" parent="Map/Meshes/Roads/L" instance=ExtResource("8_1u8w0")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 140, 0, 420)
+
+[node name="l_12" parent="Map/Meshes/Roads/L" instance=ExtResource("8_1u8w0")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -260, 0, 460)
+
+[node name="l_13" parent="Map/Meshes/Roads/L" instance=ExtResource("8_1u8w0")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -60, 0, 460)
+
+[node name="Through" type="Node3D" parent="Map/Meshes/Roads"]
+
+[node name="through_1" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -60, 0, -60)
+
+[node name="through_2" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20, 0, -60)
+
+[node name="through_3" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 60, 0, -60)
+
+[node name="through_4" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -100, 0, -20)
+
+[node name="through_5" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -100, 0, 20)
+
+[node name="through_6" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -20, 0, -20)
+
+[node name="through_7" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 100, 0, -20)
+
+[node name="through_8" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20, 0, 20)
+
+[node name="through_9" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 60, 0, 20)
+
+[node name="through_10" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -20, 0, 60)
+
+[node name="through_11" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -20, 0, 100)
+
+[node name="through_12" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -140, 0, 100)
+
+[node name="through_13" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 140, 0, 100)
+
+[node name="through_14" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -220, 0, 140)
+
+[node name="through_15" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -180, 0, 140)
+
+[node name="through_16" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -100, 0, 140)
+
+[node name="through_17" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -60, 0, 140)
+
+[node name="through_18" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20, 0, 140)
+
+[node name="through_19" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 60, 0, 140)
+
+[node name="through_20" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 100, 0, 140)
+
+[node name="through_21" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -260, 0, 180)
+
+[node name="through_22" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -260, 0, 220)
+
+[node name="through_23" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -140, 0, 180)
+
+[node name="through_24" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -140, 0, 220)
+
+[node name="through_25" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -20, 0, 180)
+
+[node name="through_26" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -20, 0, 220)
+
+[node name="through_27" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 140, 0, 180)
+
+[node name="through_28" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 100, 0, 220)
+
+[node name="through_29" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -220, 0, 260)
+
+[node name="through_30" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -180, 0, 260)
+
+[node name="through_31" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -100, 0, 260)
+
+[node name="through_32" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -60, 0, 260)
+
+[node name="through_33" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 60, 0, 260)
+
+[node name="through_34" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 60, 0, 300)
+
+[node name="through_35" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 140, 0, 260)
+
+[node name="through_36" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 140, 0, 300)
+
+[node name="through_37" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -260, 0, 300)
+
+[node name="through_38" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -260, 0, 340)
+
+[node name="through_39" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -140, 0, 300)
+
+[node name="through_40" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -140, 0, 340)
+
+[node name="through_41" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -20, 0, 300)
+
+[node name="through_42" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 20, 0, 340)
+
+[node name="through_43" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 100, 0, 340)
+
+[node name="through_44" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -220, 0, 380)
+
+[node name="through_45" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -180, 0, 380)
+
+[node name="through_46" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -60, 0, 380)
+
+[node name="through_47" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 140, 0, 380)
+
+[node name="through_48" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -260, 0, 420)
+
+[node name="through_49" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -20, 0, 420)
+
+[node name="through_50" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 20, 0, 420)
+
+[node name="through_51" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 60, 0, 420)
+
+[node name="through_52" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 100, 0, 420)
+
+[node name="through_53" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -220, 0, 460)
+
+[node name="through_54" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -180, 0, 460)
+
+[node name="through_55" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -140, 0, 460)
+
+[node name="through_56" parent="Map/Meshes/Roads/Through" instance=ExtResource("9_0odxb")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -100, 0, 460)
+
+[node name="T" type="Node3D" parent="Map/Meshes/Roads"]
+
+[node name="t_1" parent="Map/Meshes/Roads/T" instance=ExtResource("10_lswn8")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -20, 0, -60)
+
+[node name="t_2" parent="Map/Meshes/Roads/T" instance=ExtResource("10_lswn8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 20)
+
+[node name="t_3" parent="Map/Meshes/Roads/T" instance=ExtResource("10_lswn8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 100, 0, 20)
+
+[node name="t_4" parent="Map/Meshes/Roads/T" instance=ExtResource("10_lswn8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 140, 0, 140)
+
+[node name="t_5" parent="Map/Meshes/Roads/T" instance=ExtResource("10_lswn8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 140, 0, 220)
+
+[node name="t_6" parent="Map/Meshes/Roads/T" instance=ExtResource("10_lswn8")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -20, 0, 260)
+
+[node name="t_7" parent="Map/Meshes/Roads/T" instance=ExtResource("10_lswn8")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -260, 0, 260)
+
+[node name="t_8" parent="Map/Meshes/Roads/T" instance=ExtResource("10_lswn8")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -20, 0, 340)
+
+[node name="t_9" parent="Map/Meshes/Roads/T" instance=ExtResource("10_lswn8")]
+transform = Transform3D(-2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, 60, 0, 340)
+
+[node name="t_10" parent="Map/Meshes/Roads/T" instance=ExtResource("10_lswn8")]
+transform = Transform3D(-1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, 140, 0, 340)
+
+[node name="t_11" parent="Map/Meshes/Roads/T" instance=ExtResource("10_lswn8")]
+transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, -260, 0, 380)
+
+[node name="t_12" parent="Map/Meshes/Roads/T" instance=ExtResource("10_lswn8")]
+transform = Transform3D(1, 0, 3.49691e-07, 0, 1, 0, -3.49691e-07, 0, 1, -60, 0, 420)
+
+[node name="Cross" type="Node3D" parent="Map/Meshes/Roads"]
+
+[node name="cross_1" parent="Map/Meshes/Roads/Cross" instance=ExtResource("11_a6jrf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140, 0, 140)
+
+[node name="cross_2" parent="Map/Meshes/Roads/Cross" instance=ExtResource("11_a6jrf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 140)
+
+[node name="cross_3" parent="Map/Meshes/Roads/Cross" instance=ExtResource("11_a6jrf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140, 0, 260)
+
+[node name="Navigation" type="Node3D" parent="Map"]
+
+[node name="VehiclePathChangers" type="Node3D" parent="Map/Navigation"]
+
+[node name="VehiclePathChanger" parent="Map/Navigation/VehiclePathChangers" instance=ExtResource("12_xuqvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 20)
+
+[node name="VehiclePathChanger2" parent="Map/Navigation/VehiclePathChangers" instance=ExtResource("12_xuqvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -60)
+
+[node name="VehiclePathChanger3" parent="Map/Navigation/VehiclePathChangers" instance=ExtResource("12_xuqvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 140)
+
+[node name="VehiclePathChanger4" parent="Map/Navigation/VehiclePathChangers" instance=ExtResource("12_xuqvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140, 0, 140)
+
+[node name="VehiclePathChanger5" parent="Map/Navigation/VehiclePathChangers" instance=ExtResource("12_xuqvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -260, 0, 260)
+
+[node name="VehiclePathChanger6" parent="Map/Navigation/VehiclePathChangers" instance=ExtResource("12_xuqvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140, 0, 260)
+
+[node name="VehiclePathChanger7" parent="Map/Navigation/VehiclePathChangers" instance=ExtResource("12_xuqvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 260)
+
+[node name="VehiclePathChanger8" parent="Map/Navigation/VehiclePathChangers" instance=ExtResource("12_xuqvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 0, 20)
+
+[node name="VehiclePathChanger9" parent="Map/Navigation/VehiclePathChangers" instance=ExtResource("12_xuqvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140, 0, 140)
+
+[node name="VehiclePathChanger10" parent="Map/Navigation/VehiclePathChangers" instance=ExtResource("12_xuqvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140, 0, 220)
+
+[node name="VehiclePathChanger11" parent="Map/Navigation/VehiclePathChangers" instance=ExtResource("12_xuqvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 140, 0, 340)
+
+[node name="VehiclePathChanger12" parent="Map/Navigation/VehiclePathChangers" instance=ExtResource("12_xuqvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, 0, 340)
+
+[node name="VehiclePathChanger13" parent="Map/Navigation/VehiclePathChangers" instance=ExtResource("12_xuqvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 340)
+
+[node name="VehiclePathChanger14" parent="Map/Navigation/VehiclePathChangers" instance=ExtResource("12_xuqvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 0, 420)
+
+[node name="VehiclePathChanger15" parent="Map/Navigation/VehiclePathChangers" instance=ExtResource("12_xuqvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -260, 0, 380)
+
+[node name="VehiclePaths" type="Node3D" parent="Map/Navigation"]
+
+[node name="Path_1" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_pfhwb")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_1"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_1" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.00117139, 0, -0.999994, 0, 1, 0, 0.999994, 0, -0.00117139, -15.572, 0, 15.347)
+
+[node name="Path_2" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_5vsgc")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_2"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_2" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.000952639, 0, 0.999993, 0, 1, 0, -0.999993, 0, -0.000952639, 95.1377, 0, 24.9463)
+
+[node name="Path_3" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_c42um")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_3"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_3" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-4.37112e-08, 0, -0.999995, 0, 1, 0, 0.999995, 0, -4.37112e-08, -25, 0, -64)
+
+[node name="Path_4" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_8qdo8")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_4"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_4" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.999988, 0, 0.00233163, 0, 1, 0, -0.00233163, 0, 0.999988, 96.1164, 0, 15.6563)
+
+[node name="Path_5" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_4td1n")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_5"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_5" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.999972, 0, 0.00673484, 0, 1, 0, -0.00673484, 0, 0.999972, -24.6082, 0, 24.9901)
+
+[node name="Path_6" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_fi8hn")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_6"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_6" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.999992, 0, -0.00255741, 0, 1, 0, 0.00255741, 0, -0.999992, -15.0611, 0, -55.9413)
+
+[node name="Path_7" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_k1hbb")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_7"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_7" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.0089188, 0, 0.999956, 0, 1, 0, -0.999956, 0, 0.0089188, -24.7667, 0, -55.9518)
+
+[node name="Path_8" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_o5na3")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_8"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_8" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.999976, 0, -0.00230343, 0, 1, 0, 0.00230343, 0, 0.999976, -144, 0, 135)
+
+[node name="Path_9" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_f06r1")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_9"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_9" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.999992, 0, 0.00184597, 0, 1, 0, -0.00184597, 0, -0.999992, -15.1788, 0, 25.07)
+
+[node name="Path_10" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_ndaau")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_10"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_10" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.999966, 0, -0.0074694, 0, 1, 0, 0.0074694, 0, 0.999966, -25.0665, 0, 134.796)
+
+[node name="Path_11" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_831ya")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_11"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_11" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.999967, 0, -0.00615599, 0, 1, 0, 0.00615599, 0, -0.999967, 103.398, 0, 15.1889)
+
+[node name="Path_12" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_ipl27")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_12"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_12" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.999986, 0, 0.00229258, 0, 1, 0, -0.00229258, 0, 0.999986, 135.459, 0, 135.853)
+
+[node name="Path_13" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_2fwhv")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_13"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_13" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.00393796, 0, -0.999985, 0, 1, 0, 0.999985, 0, -0.00393796, -16.0009, 0, 135.017)
+
+[node name="Path_14" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_slp6p")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_14"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_14" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.00326924, 0, 0.999987, 0, 1, 0, -0.999987, 0, 0.00326924, 135.877, 0, 144.544)
+
+[node name="Path_15" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_pwqdp")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_15"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_15" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.00664424, 0, 0.999972, 0, 1, 0, -0.999972, 0, 0.00664424, -24.7118, 0, 145.231)
+
+[node name="Path_16" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_g778a")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_16"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_16" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.00262421, 0, -0.999991, 0, 1, 0, 0.999991, 0, 0.00262421, -135.815, 0, 135.135)
+
+[node name="Path_17" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_bdh3h")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_17"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_17" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-4.3711e-08, 0, 0.99999, 0, 1, 0, -0.99999, 0, -4.3711e-08, -144, 0, 144)
+
+[node name="Path_18" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_we5kv")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_18"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_18" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.999984, 0, -0.00279182, 0, 1, 0, 0.00279182, 0, 0.999984, -264.883, 0, 264.829)
+
+[node name="Path_19" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_27v0r")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_19"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_19" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.00265958, 0, -0.99999, 0, 1, 0, 0.99999, 0, -0.00265958, -254.633, 0, 255.065)
+
+[node name="Path_20" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_4gofc")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_20"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_20" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.000180199, 0, 0.999993, 0, 1, 0, -0.999993, 0, 0.000180199, -144.896, 0, 264.881)
+
+[node name="Path_21" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_dmdxv")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_21"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_21" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.999988, 0, -0.00308932, 0, 1, 0, 0.00308932, 0, 0.999988, -144.506, 0, 254.682)
+
+[node name="Path_22" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_nam1k")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_22"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_22" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.99999, 0, 0.00153007, 0, 1, 0, -0.00153007, 0, -0.99999, -134.856, 0, 144.163)
+
+[node name="Path_23" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_uv25q")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_23"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_23" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.00130803, 0, -0.999992, 0, 1, 0, 0.999992, 0, 0.00130803, -135.291, 0, 254.303)
+
+[node name="Path_24" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_hjbdb")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_24"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_24" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.00262921, 0, 0.999989, 0, 1, 0, -0.999989, 0, 0.00262921, -25.1852, 0, 265.121)
+
+[node name="Path_25" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_gsfph")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_25"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_25" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.99999, 0, 0.00188615, 0, 1, 0, -0.00188615, 0, 0.99999, -24.1817, 0, 254.215)
+
+[node name="Path_26" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_vigww")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_26"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_26" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.999974, 0, 0.00563771, 0, 1, 0, -0.00563771, 0, -0.999974, -15.4984, 0, 144.399)
+
+[node name="Path_27" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_al5x2")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_27"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_27" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.999991, 0, -0.000910198, 0, 1, 0, 0.000910198, 0, 0.999991, 135.977, 0, 214.766)
+
+[node name="Path_28" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_ba4ip")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_28"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_28" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.999991, 0, -8.7422e-08, 0, 1, 0, 8.7422e-08, 0, -0.999991, 145, 0, 136)
+
+[node name="Path_29" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_vdwoj")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_29"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_29" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.0074443, 0, 0.999964, 0, 1, 0, -0.999964, 0, -0.0074443, 135.295, 0, 223.54)
+
+[node name="Path_30" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_b4wx3")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_30"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_30" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.999987, 0, 0, 0, 1, 0, 0, 0, 0.999987, 55, 0, 335)
+
+[node name="Path_31" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_0tfl6")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_31"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_31" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.99999, 0, -0.00163378, 0, 1, 0, 0.00163378, 0, -0.99999, 144.616, 0, 214.931)
+
+[node name="Path_32" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_b7tpx")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_32"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_32" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.99999, 0, -0.00179839, 0, 1, 0, 0.00179839, 0, 0.99999, 135.37, 0, 334.766)
+
+[node name="Path_33" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_g277b")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_33"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_33" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-4.3711e-08, 0, -0.99999, 0, 1, 0, 0.99999, 0, -4.3711e-08, 65, 0, 335)
+
+[node name="Path_34" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_qugxw")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_34"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_34" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.00179997, 0, 0.99999, 0, 1, 0, -0.99999, 0, -0.00179997, 135.202, 0, 345.014)
+
+[node name="Path_35" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_0t0bb")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_35"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_35" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.999992, 0, 0, 0, 1, 0, 0, 0, 0.999992, -25.4638, 0, 335.462)
+
+[node name="Path_36" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_g763l")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_36"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_36" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.999945, 0, -0.00943342, 0, 1, 0, 0.00943342, 0, -0.999945, -15.9513, 0, 254.365)
+
+[node name="Path_37" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_2tjcr")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_37"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_37" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.00710693, 0, -0.999965, 0, 1, 0, 0.999965, 0, -0.00710693, -15.459, 0, 334.983)
+
+[node name="Path_38" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_cdlkr")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_38"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_38" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.00153962, 0, 0.99999, 0, 1, 0, -0.99999, 0, -0.00153962, 65.1643, 0, 344.627)
+
+[node name="Path_39" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_x5gkv")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_39"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_39" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.999964, 0, 0.00746018, 0, 1, 0, -0.00746018, 0, 0.999964, -64.8297, 0, 411.452)
+
+[node name="Path_40" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_sq6sw")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_40"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_40" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.0061448, 0, 0.999968, 0, 1, 0, -0.999968, 0, -0.0061448, -15.0588, 0, 344.355)
+
+[node name="Path_41" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_5kqyy")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_41"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_41" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.00198915, 0, -0.999989, 0, 1, 0, 0.999989, 0, -0.00198915, -55.5175, 0, 415.174)
+
+[node name="Path_42" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_8yl1x")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_42"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_42" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.999992, 0, -8.74221e-08, 0, 1, 0, 8.74221e-08, 0, -0.999992, 144.41, 0, 335.151)
+
+[node name="Path_43" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_yosuq")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_43"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_43" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.999969, 0, -0.00592069, 0, 1, 0, 0.00592069, 0, -0.999969, -136.125, 0, 264.327)
+
+[node name="Path_44" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_wmm8q")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_44"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_44" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-4.3711e-08, 0, -0.999991, 0, 1, 0, 0.999991, 0, -4.3711e-08, -256, 0, 375)
+
+[node name="Path_45" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_b0fav")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_45"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_45" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.999991, 0, -8.7422e-08, 0, 1, 0, 8.7422e-08, 0, -0.999991, -255, 0, 266)
+
+[node name="Path_46" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_mt4tm")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_46"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_46" instance=ExtResource("14_kq58d")]
+transform = Transform3D(0.99999, 0, 0, 0, 1, 0, 0, 0, 0.99999, -265, 0, 385)
+
+[node name="Path_47" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_b0tc1")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_47"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_47" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.999981, 0, -8.74211e-08, 0, 1, 0, 8.74211e-08, 0, -0.999981, -255, 0, 385)
+
+[node name="Path_48" type="Path3D" parent="Map/Navigation/VehiclePaths"]
+curve = SubResource("Curve3D_op2fv")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Map/Navigation/VehiclePaths/Path_48"]
+cast_shadow = 0
+visibility_range_end_margin = 10.0
+polygon = PackedVector2Array(-1, 0, -1, 0.1, 1, 0.1, 1, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_rotation_accurate = false
+path_local = false
+path_continuous_u = true
+path_u_distance = 1.0
+path_joined = false
+material = ExtResource("13_qsp4k")
+
+[node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_48" instance=ExtResource("14_kq58d")]
+transform = Transform3D(-0.999667, 0, 0.0254431, 0, 1, 0, -0.0254431, 0, -0.999667, -56, 0, 425)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.594826, 0.505385, -0.625115, 0, 0.777647, 0.628701, 0.803855, 0.373968, -0.462564, -164.405, 104.956, -86.9895)
+
+[node name="CameraRig" parent="." node_paths=PackedStringArray("vehicle") instance=ExtResource("15_seu75")]
+vehicle = NodePath("../Vehicles/Van_Kimedero")
+
+[node name="Vehicles" type="Node3D" parent="."]
+
+[node name="Van_Kimedero" parent="Vehicles" instance=ExtResource("16_htxhm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 1, -20)
+
+[node name="Van_Kimedero2" parent="Vehicles" instance=ExtResource("16_htxhm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 1, -14)
+
+[node name="Van_Kimedero3" parent="Vehicles" instance=ExtResource("16_htxhm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 1, -26)
+
+[node name="Van_Kimedero4" parent="Vehicles" instance=ExtResource("16_htxhm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9, 1, -20)
+
+[node name="Van_Kimedero5" parent="Vehicles" instance=ExtResource("16_htxhm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9, 1, -14)
+
+[node name="Van_Kimedero6" parent="Vehicles" instance=ExtResource("16_htxhm")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9, 1, -26)
+
+[node name="Van_Nyarain" parent="Vehicles" instance=ExtResource("17_cegan")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 74, 1, 372)
+
+[node name="Van_Nyarain2" parent="Vehicles" instance=ExtResource("17_cegan")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 79.6579, 1, 372)
+
+[node name="Van_Nyarain3" parent="Vehicles" instance=ExtResource("17_cegan")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 86.6579, 1, 372)
+
+[node name="Van_Nyarain4" parent="Vehicles" instance=ExtResource("17_cegan")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 74, 1, 381)
+
+[node name="Van_Nyarain5" parent="Vehicles" instance=ExtResource("17_cegan")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 79.6579, 1, 381)
+
+[node name="Van_Nyarain6" parent="Vehicles" instance=ExtResource("17_cegan")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 86.6579, 1, 381)
+
+[node name="NavigationPathHolder" type="Node3D" parent="."]
+
+[node name="MonitorOverlay" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 0)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_bottom = 50.0
+grow_horizontal = 0
+script = ExtResource("17_jq2sk")
+metadata/_custom_type_script = "uid://ceg1oovl4vxuv"
+
+[node name="DeliveryPackages" type="Node3D" parent="."]
+
+[node name="Delivery Package" parent="DeliveryPackages" instance=ExtResource("18_074og")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh4ev2q4aj3ni"]
+
+[ext_resource type="Script" uid="uid://pd8jj1djpvk3" path="res://Camera/camera_rig.gd" id="1_3a4d3"]
+
+[node name="CameraRig" type="Node3D"]
+script = ExtResource("1_3a4d3")
+
+[node name="SpringArm" type="SpringArm3D" parent="."]
+spring_length = 6.0
+
+[node name="Camera" type="Camera3D" parent="SpringArm"]
+current = true
+fov = 50.0
