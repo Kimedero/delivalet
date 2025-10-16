@@ -63,6 +63,8 @@ var vehicle_despawn_distance: float = 200 # 160
 @export var max_vehicles = 25 # 16 # 12 # 20 # 16 # 32
 var current_vehicles: int = 0
 
+var current_delivery_vehicle_array: Array
+
 var current_vehicle: VehicleBody3D
 var last_vehicle: VehicleBody3D
 

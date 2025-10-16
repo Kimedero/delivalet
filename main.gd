@@ -13,6 +13,7 @@ var DELIVERY_PACKAGE_DATA = load("res://DeliveryPackages/Resources/delivery_pack
 @export var navigation_path_holder: Node
 @export var delivery_package_path_holder: Node
 
+@onready var info_label: Label = $infoLabel
 
 func _ready() -> void:
 	randomize()
@@ -38,11 +39,12 @@ func _ready() -> void:
 	VEHICLE_PATHFINDING.add_navigation_points()
 	VEHICLE_PATHFINDING.connect_navigation_points()
 	
-	spawn_delivery_package()
-	spawn_delivery_package()
-	spawn_delivery_package()
-	spawn_delivery_package()
-	spawn_delivery_package()
+	for package in DELIVERY_PACKAGE_DATA.max_delivery_packages:
+		spawn_delivery_package()
+
+
+func _process(_delta: float) -> void:
+	info_label.text = "Packages: %s" % [DELIVERY_PACKAGE_DATA.current_delivery_packages_array.size()]
 
 
 func set_vehicle_path_changer_linked_paths():
@@ -92,9 +94,21 @@ func spawn_delivery_package():
 	
 	var new_path_follow := PathFollow3D.new()
 	random_spawn_path.add_child(new_path_follow)
+	
 	new_path_follow.progress_ratio = random_ratio
 	var package_spawn_pos: Vector3 = random_spawn_path.curve.get_closest_point(new_path_follow.global_position)
 	new_path_follow.queue_free()
 	
-	var new_package = DELIVERY_PACKAGE_DATA.spawn_delivery_package(package_spawn_pos)
-	print("Package: %s -> Path: %s -> Ratio: %.2f -> Pos: %s" % [new_package.name, random_spawn_path.name, random_ratio, package_spawn_pos])
+	var new_package: DeliveryPackage = DELIVERY_PACKAGE_DATA.spawn_delivery_package(package_spawn_pos)
+	
+	new_package.package_picked.connect(on_delivery_packaged_picked)
+	for vehicle: Vehicle in VEHICLE_DATA.current_delivery_vehicle_array:
+		new_package.package_picked.connect(vehicle.on_delivery_packaged_update)
+		##print("Vehiko: %s" % [vehicle])
+	print("%s spawned on %s at %s -> Ratio: %.2f" % [new_package.name, random_spawn_path.name, package_spawn_pos, random_ratio])
+
+
+func on_delivery_packaged_picked(_picked_delivery_package: DeliveryPackage, _picked_vehicle: Vehicle):
+	if DELIVERY_PACKAGE_DATA.current_delivery_packages_array.size() < DELIVERY_PACKAGE_DATA.max_delivery_packages:
+		spawn_delivery_package()
+	pass

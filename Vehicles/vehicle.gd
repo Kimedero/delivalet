@@ -1,11 +1,14 @@
 extends VehicleBody3D
 class_name Vehicle
 
+var VEHICLE_DATA = load("res://Vehicles/Resources/vehicle_data.tres")
 var VEHICLE_PATHFINDING = load("res://Vehicles/Resources/vehicle_pathfinding.tres")
 
 enum VEHICLE_CONTROL {AUTO, MANUAL}
 
 @export var vehicle_control: VEHICLE_CONTROL
+
+@export var delivery_vehicle: bool = true
 
 var vehicle_controller: VehicleController
 
@@ -36,9 +39,14 @@ var activate_mission_at_next_junction: bool
 
 var reversing: bool = false
 
+#signal delivery_package_updated
 
 func _ready() -> void:
 	vehicle_at_path_changer.connect(on_vehicle_at_path_changer)
+	
+	## to keep track of delivery vehicles
+	if delivery_vehicle:
+		VEHICLE_DATA.current_delivery_vehicle_array.append(self)
 
 
 func _physics_process(_delta: float) -> void:
@@ -80,3 +88,8 @@ func process_roam(current_path_changer: VehiclePathChanger):
 		linked_path_array_dup.erase(navigation_path)
 	var new_path: Path3D = linked_path_array_dup.pick_random()
 	vehicle_controller.new_path = new_path
+
+
+func on_delivery_packaged_update(picked_delivery_package: DeliveryPackage, picked_vehicle: Vehicle):
+	if picked_vehicle == self:
+		print("%s picked %s!" % [picked_vehicle.name, picked_delivery_package.name])

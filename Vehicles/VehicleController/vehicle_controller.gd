@@ -32,7 +32,8 @@ func _physics_process(delta: float) -> void:
 		Vehicle.VEHICLE_CONTROL.MANUAL:
 			manual_process(delta)
 	
-	info_label_3d.text = "%d KM/H\nAt Junction: %s\nOn Mission: %s" % [
+	info_label_3d.text = "%s\n%d KM/H\nAt Junction: %s\nOn Mission: %s" % [
+		vehicle.name,
 		vehicle.current_speed_ms * 3.6, 
 		vehicle.at_junction, 
 		vehicle.on_mission,
