@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxi4pdh3mskw8"]
+
+[ext_resource type="Script" uid="uid://dbbyhiqwfsnsr" path="res://MiniMap/mini_map_round.gd" id="1_v0v7a"]
+[ext_resource type="Texture2D" uid="uid://bnioqhe6i1ios" path="res://MiniMap/Images/grid.png" id="2_cprju"]
+[ext_resource type="Texture2D" uid="uid://boc50nwdrbpo8" path="res://MiniMap/Images/circle_mask.png" id="2_xd770"]
+[ext_resource type="Texture2D" uid="uid://pwnmyvvl53b0" path="res://MiniMap/Images/player.png" id="3_iqbqe"]
+[ext_resource type="Texture2D" uid="uid://du644bbs8b2eb" path="res://MiniMap/Images/team_mate.png" id="4_xd770"]
+[ext_resource type="Texture2D" uid="uid://bdx43wl4gjjxh" path="res://MiniMap/Images/opponent.png" id="5_xt6un"]
+[ext_resource type="Texture2D" uid="uid://d0xi3anodp7om" path="res://MiniMap/Images/target.png" id="6_gm7dj"]
+[ext_resource type="Texture2D" uid="uid://bho1grqxotcff" path="res://MiniMap/Images/circle.png" id="8_xt6un"]
+
+[node name="MiniMapRound" type="MarginContainer"]
+custom_minimum_size = Vector2(180, 180)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -180.0
+offset_right = 180.0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_v0v7a")
+
+[node name="GridMask" type="TextureRect" parent="."]
+clip_children = 1
+layout_mode = 2
+texture = ExtResource("2_xd770")
+expand_mode = 1
+
+[node name="GridTextureRect" type="TextureRect" parent="GridMask"]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+offset_right = 160.0
+offset_bottom = 160.0
+texture = ExtResource("2_cprju")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="PlayerMarkerSprite" type="Sprite2D" parent="GridMask/GridTextureRect"]
+z_index = 10
+position = Vector2(80, 80)
+texture = ExtResource("3_iqbqe")
+
+[node name="TeammateMarkerSprite" type="Sprite2D" parent="GridMask/GridTextureRect"]
+visible = false
+z_index = 6
+texture = ExtResource("4_xd770")
+
+[node name="OpponentMarkerSprite" type="Sprite2D" parent="GridMask/GridTextureRect"]
+visible = false
+z_index = 8
+texture = ExtResource("5_xt6un")
+
+[node name="PickupMarkerSprite" type="Sprite2D" parent="GridMask/GridTextureRect"]
+visible = false
+z_index = 4
+texture = ExtResource("6_gm7dj")
+
+[node name="LineMask" type="TextureRect" parent="."]
+clip_children = 1
+layout_mode = 2
+texture = ExtResource("2_xd770")
+expand_mode = 1
+
+[node name="PlayerPathLine" type="Line2D" parent="LineMask"]
+points = PackedVector2Array(0, 0, 155.721, 23.0698, 186, 53, 78, 186, 29, 166, 110, 73, -45, 27)
+width = 2.0
+default_color = Color(1, 0.415686, 0, 1)
+
+[node name="CircleTextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("8_xt6un")
+expand_mode = 1

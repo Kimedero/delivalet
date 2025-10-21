@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource type="Script" uid="uid://08io0pbrlguj" path="res://MiniMap/Resources/mini_map_stats.gd" id="1"]
+
+[resource]
+script = ExtResource( 1 )

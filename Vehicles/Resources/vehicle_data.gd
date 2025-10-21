@@ -1,27 +1,15 @@
 extends Resource
 
-#const LORRY_1 = preload("res://Vehicles/lorry.tscn")
-#const NISSAN_1 = preload("res://Vehicles/nissan.tscn")
-#const SEDAN_1 = preload("res://Vehicles/sedan.tscn")
-#const SMALL_CAR_1 = preload("res://Vehicles/small_car.tscn")
-#const FIAT_131 = preload("res://Vehicles/fiat_131.tscn")
-#const EVO_6 = preload("res://Vehicles/evo_6.tscn")
-#const MATATU_1 = preload("res://Vehicles/matatu_1.tscn")
-#const MUSCLE_1 = preload("res://Vehicles/muscle_1.tscn")
-#const SUV_1 = preload("res://Vehicles/suv_1.tscn")
-#const BUG_1 = preload("res://Vehicles/bug_1.tscn")
-#const HATCHBACK_1 = preload("res://Vehicles/hatchback_1.tscn")
-#
-#const CABBY = preload("res://Vehicles/cabby.tscn")
-#const CAVALCADE = preload("res://Vehicles/cavalcade.tscn")
-#const COGNOSCENTI = preload("res://Vehicles/cognoscenti.tscn")
-#const COMET = preload("res://Vehicles/comet.tscn")
-#const COQUETTE = preload("res://Vehicles/coquette.tscn")
-#const POLICE = preload("res://Vehicles/police.tscn")
-#const POLICE_2 = preload("res://Vehicles/police_2.tscn")
-#const RANCHER = preload("res://Vehicles/rancher.tscn")
-#const TAXI = preload("res://Vehicles/taxi.tscn")
-#const TAXI_2 = preload("res://Vehicles/taxi_2.tscn")
+const VAN_KIMEDERO = preload("res://Vehicles/van_kimedero.tscn")
+const VAN_NYARAIN = preload("res://Vehicles/van_nyarain.tscn")
+
+var vehicle_type: Vehicle
+var delivery_team: Vehicle.DELIVERY_TEAM
+
+var delivery_team_dict: Dictionary = {
+	Vehicle.DELIVERY_TEAM.KIMEDERO: VAN_KIMEDERO,
+	Vehicle.DELIVERY_TEAM.NYARAIN: VAN_NYARAIN,
+}
 
 var vehicle_scenes = [
 	#LORRY_1, 

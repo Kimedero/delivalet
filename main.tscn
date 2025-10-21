@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://lww51yjnm3p3"]
+[gd_scene load_steps=68 format=3 uid="uid://lww51yjnm3p3"]
 
 [ext_resource type="Script" uid="uid://cjhouy8qla3ha" path="res://main.gd" id="1_yaehf"]
 [ext_resource type="PackedScene" uid="uid://c2jaeeq3behpd" path="res://Map/Structures/Fence1/fence_1.tscn" id="2_074og"]
@@ -14,9 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://br2d2u45x0f0h" path="res://Vehicles/Navigation/vehicle_path_changer.tscn" id="12_xuqvo"]
 [ext_resource type="Material" uid="uid://c0jjpvijjpxgf" path="res://Vehicles/Navigation/path_scroll_material.tres" id="13_qsp4k"]
 [ext_resource type="PackedScene" uid="uid://bmyumancekp74" path="res://Vehicles/VehicleSpawning/vehicle_spawner.tscn" id="14_kq58d"]
-[ext_resource type="PackedScene" uid="uid://dh4ev2q4aj3ni" path="res://Camera/camera_rig.tscn" id="15_seu75"]
-[ext_resource type="PackedScene" uid="uid://i7yw3rq3hpa5" path="res://Vehicles/van_kimedero.tscn" id="16_htxhm"]
-[ext_resource type="PackedScene" uid="uid://bbwvj1totin30" path="res://Vehicles/van_nyarain.tscn" id="17_cegan"]
+[ext_resource type="PackedScene" uid="uid://dxi4pdh3mskw8" path="res://MiniMap/mini_map_round.tscn" id="16_2cqfq"]
 [ext_resource type="Script" uid="uid://ceg1oovl4vxuv" path="res://addons/monitor_overlay/monitor_overlay.gd" id="17_jq2sk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c0e6f"]
@@ -244,7 +242,7 @@ point_count = 4
 
 [sub_resource type="Curve3D" id="Curve3D_0tfl6"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 144.616, 0, 214.931, 0, 0, 0, 0, 0, 0, 144.805, 0, 330.615),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 145, 0, 214.931, 0, 0, 0, 0, 0, 0, 145, 0, 330.615),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -321,7 +319,7 @@ point_count = 4
 
 [sub_resource type="Curve3D" id="Curve3D_8yl1x"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 144.41, 0, 335.151, 0, 0, 0, 0, 0, 0, 144.41, 0, 413.14, 14, 0, 0, -14, 0, 0, 132.688, 0, 424.768, 0, 0, 0, 0, 0, 0, -50.3209, 0, 425.381),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 145, 0, 335.151, 0, 0, 0, 0, 0, 0, 145, 0, 413.14, 14, 0, 0, -14, 0, 0, 132.688, 0, 425, 0, 0, 0, 0, 0, 0, -50.321, 0, 425),
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
@@ -368,13 +366,29 @@ _data = {
 }
 point_count = 6
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("vehicles_spawn", "vehicle_path_changers", "vehicle_paths", "navigation_path_holder", "delivery_package_path_holder")]
+[node name="Main" type="Node3D" node_paths=PackedStringArray("vehicles_spawn", "vehicle_path_changers", "vehicle_paths", "navigation_path_holder", "delivery_package_spawn_node", "player_spawn_node", "delivery_vehicles_spawn", "camera_spawn_node", "minimap_node")]
 script = ExtResource("1_yaehf")
-vehicles_spawn = NodePath("Vehicles")
+vehicles_spawn = NodePath("VehiclesSpawn")
 vehicle_path_changers = NodePath("Map/Navigation/VehiclePathChangers")
 vehicle_paths = NodePath("Map/Navigation/VehiclePaths")
 navigation_path_holder = NodePath("NavigationPathHolder")
-delivery_package_path_holder = NodePath("DeliveryPackages")
+delivery_package_spawn_node = NodePath("DeliveryPackagesSpawn")
+player_spawn_node = NodePath("VehiclesSpawn/PlayerSpawnPos")
+delivery_vehicles_spawn = {
+NodePath("VehiclesSpawn/KimederoSpawnPos2"): 0,
+NodePath("VehiclesSpawn/KimederoSpawnPos3"): 0,
+NodePath("VehiclesSpawn/KimederoSpawnPos4"): 0,
+NodePath("VehiclesSpawn/KimederoSpawnPos5"): 0,
+NodePath("VehiclesSpawn/KimederoSpawnPos6"): 0,
+NodePath("VehiclesSpawn/NyarainSpawnPos"): 1,
+NodePath("VehiclesSpawn/NyarainSpawnPos2"): 1,
+NodePath("VehiclesSpawn/NyarainSpawnPos3"): 1,
+NodePath("VehiclesSpawn/NyarainSpawnPos4"): 1,
+NodePath("VehiclesSpawn/NyarainSpawnPos5"): 1,
+NodePath("VehiclesSpawn/NyarainSpawnPos6"): 1
+}
+camera_spawn_node = NodePath("CameraSpawnNode")
+minimap_node = NodePath("MiniMapRound")
 
 [node name="Map" type="Node3D" parent="."]
 
@@ -2699,7 +2713,7 @@ path_joined = false
 material = ExtResource("13_qsp4k")
 
 [node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_31" instance=ExtResource("14_kq58d")]
-transform = Transform3D(-0.99999, 0, -0.00163378, 0, 1, 0, 0.00163378, 0, -0.99999, 144.616, 0, 214.931)
+transform = Transform3D(-0.999991, 0, -8.7422e-08, 0, 1, 0, 8.7422e-08, 0, -0.999991, 145, 0, 214.931)
 
 [node name="Path_32" type="Path3D" parent="Map/Navigation/VehiclePaths"]
 curve = SubResource("Curve3D_b7tpx")
@@ -2952,7 +2966,7 @@ path_joined = false
 material = ExtResource("13_qsp4k")
 
 [node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_42" instance=ExtResource("14_kq58d")]
-transform = Transform3D(-0.999992, 0, -8.74221e-08, 0, 1, 0, 8.74221e-08, 0, -0.999992, 144.41, 0, 335.151)
+transform = Transform3D(-0.999992, 0, -8.74221e-08, 0, 1, 0, 8.74221e-08, 0, -0.999992, 145, 0, 335.151)
 
 [node name="Path_43" type="Path3D" parent="Map/Navigation/VehiclePaths"]
 curve = SubResource("Curve3D_yosuq")
@@ -3095,48 +3109,47 @@ transform = Transform3D(-0.999667, 0, 0.0254431, 0, 1, 0, -0.0254431, 0, -0.9996
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.594826, 0.505385, -0.625115, 0, 0.777647, 0.628701, 0.803855, 0.373968, -0.462564, -164.405, 104.956, -86.9895)
 
-[node name="CameraRig" parent="." node_paths=PackedStringArray("vehicle") instance=ExtResource("15_seu75")]
-vehicle = NodePath("../Vehicles/Van_Kimedero")
+[node name="VehiclesSpawn" type="Node3D" parent="."]
 
-[node name="Vehicles" type="Node3D" parent="."]
-
-[node name="Van_Kimedero" parent="Vehicles" instance=ExtResource("16_htxhm")]
+[node name="PlayerSpawnPos" type="Node3D" parent="VehiclesSpawn"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 1, -20)
 
-[node name="Van_Kimedero2" parent="Vehicles" instance=ExtResource("16_htxhm")]
+[node name="KimederoSpawnPos2" type="Node3D" parent="VehiclesSpawn"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 1, -14)
 
-[node name="Van_Kimedero3" parent="Vehicles" instance=ExtResource("16_htxhm")]
+[node name="KimederoSpawnPos3" type="Node3D" parent="VehiclesSpawn"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 1, -26)
 
-[node name="Van_Kimedero4" parent="Vehicles" instance=ExtResource("16_htxhm")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22, 1, -20)
+[node name="KimederoSpawnPos4" type="Node3D" parent="VehiclesSpawn"]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 25, 1, -2)
 
-[node name="Van_Kimedero5" parent="Vehicles" instance=ExtResource("16_htxhm")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22, 1, -14)
+[node name="KimederoSpawnPos5" type="Node3D" parent="VehiclesSpawn"]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 31, 1, -2)
 
-[node name="Van_Kimedero6" parent="Vehicles" instance=ExtResource("16_htxhm")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22, 1, -26)
+[node name="KimederoSpawnPos6" type="Node3D" parent="VehiclesSpawn"]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 19, 1, -2)
 
-[node name="Van_Nyarain" parent="Vehicles" instance=ExtResource("17_cegan")]
+[node name="NyarainSpawnPos" type="Node3D" parent="VehiclesSpawn"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 74, 1, 352)
 
-[node name="Van_Nyarain2" parent="Vehicles" instance=ExtResource("17_cegan")]
+[node name="NyarainSpawnPos2" type="Node3D" parent="VehiclesSpawn"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 79.6579, 1, 352)
 
-[node name="Van_Nyarain3" parent="Vehicles" instance=ExtResource("17_cegan")]
+[node name="NyarainSpawnPos3" type="Node3D" parent="VehiclesSpawn"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 86.6579, 1, 352)
 
-[node name="Van_Nyarain4" parent="Vehicles" instance=ExtResource("17_cegan")]
+[node name="NyarainSpawnPos4" type="Node3D" parent="VehiclesSpawn"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 74, 1, 361)
 
-[node name="Van_Nyarain5" parent="Vehicles" instance=ExtResource("17_cegan")]
+[node name="NyarainSpawnPos5" type="Node3D" parent="VehiclesSpawn"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 79.6579, 1, 361)
 
-[node name="Van_Nyarain6" parent="Vehicles" instance=ExtResource("17_cegan")]
+[node name="NyarainSpawnPos6" type="Node3D" parent="VehiclesSpawn"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 86.6579, 1, 361)
 
 [node name="NavigationPathHolder" type="Node3D" parent="."]
+
+[node name="CameraSpawnNode" type="Node3D" parent="."]
 
 [node name="MonitorOverlay" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(300, 0)
@@ -3149,7 +3162,7 @@ grow_horizontal = 0
 script = ExtResource("17_jq2sk")
 metadata/_custom_type_script = "uid://ceg1oovl4vxuv"
 
-[node name="DeliveryPackages" type="Node3D" parent="."]
+[node name="DeliveryPackagesSpawn" type="Node3D" parent="."]
 
 [node name="infoLabel" type="Label" parent="."]
 offset_left = 10.0
@@ -3158,3 +3171,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 text = "info"
+
+[node name="MiniMapRound" parent="." instance=ExtResource("16_2cqfq")]
+minimap_size = 250.0
+grid_margin = 15

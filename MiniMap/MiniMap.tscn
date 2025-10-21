@@ -1,0 +1,82 @@
+[gd_scene load_steps=13 format=3 uid="uid://bl0bn5448smdh"]
+
+[ext_resource type="Script" uid="uid://bs2fp4msndycb" path="res://MiniMap/MiniMap.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cqgfrn36fimnw" path="res://MiniMap/Minimap UI Assets/MiniMapUI_checkpoint.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://d3axw8wi1dale" path="res://MiniMap/Minimap UI Assets/MiniMapUI_player.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dklkkjo7ng3cc" path="res://MiniMap/Minimap UI Assets/MiniMapUI_target.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://u4dir0u0f0ri" path="res://MiniMap/Minimap UI Assets/MiniMapUI_frame.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://cjfg66f1odiqw" path="res://MiniMap/Minimap UI Assets/MiniMapUI_grid.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://tmlwtsnixni1" path="res://MiniMap/Minimap UI Assets/MiniMapUI_alert.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://btrfbavl7v05j" path="res://MiniMap/Minimap UI Assets/MiniMapUI_opponent.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://rn8a5pamcr1y" path="res://MiniMap/Minimap UI Assets/MiniMapUI_house.png" id="9"]
+[ext_resource type="Texture2D" uid="uid://bl2kklqpv1nl3" path="res://MiniMap/Minimap UI Assets/MiniMapUI_fence.png" id="10"]
+[ext_resource type="Texture2D" uid="uid://welpv75y5u22" path="res://MiniMap/Minimap UI Assets/MiniMapUI_outside.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://biy7awo47xgke" path="res://MiniMap/Minimap UI Assets/MiniMapUI_teammate.png" id="12"]
+
+[node name="MiniMap" type="MarginContainer"]
+script = ExtResource("1")
+
+[node name="FrameNinePatch" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("5")
+
+[node name="GridMargin" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Grid" type="TextureRect" parent="GridMargin"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6")
+
+[node name="iconz" type="Control" parent="GridMargin"]
+layout_mode = 2
+
+[node name="PlayerMarker" type="Sprite2D" parent="GridMargin/iconz"]
+z_index = 20
+texture = ExtResource("3")
+
+[node name="TargetMarker" type="Sprite2D" parent="GridMargin/iconz"]
+visible = false
+z_index = 15
+texture = ExtResource("4")
+
+[node name="CheckpointMarker" type="Sprite2D" parent="GridMargin/iconz"]
+visible = false
+texture = ExtResource("2")
+
+[node name="AlertMarker" type="Sprite2D" parent="GridMargin/iconz"]
+visible = false
+texture = ExtResource("7")
+
+[node name="TeammateMarker" type="Sprite2D" parent="GridMargin/iconz"]
+visible = false
+z_index = 10
+texture = ExtResource("12")
+
+[node name="OpponentMarker" type="Sprite2D" parent="GridMargin/iconz"]
+visible = false
+z_index = 10
+texture = ExtResource("8")
+
+[node name="HouseMarker" type="Sprite2D" parent="GridMargin/iconz"]
+visible = false
+texture = ExtResource("9")
+
+[node name="FenceMarker" type="Sprite2D" parent="GridMargin/iconz"]
+visible = false
+texture = ExtResource("10")
+
+[node name="OutsideMarker" type="Sprite2D" parent="GridMargin/iconz"]
+visible = false
+texture = ExtResource("11")
+
+[node name="SquareMarker" type="Sprite2D" parent="GridMargin/iconz"]
+visible = false
+texture = ExtResource("11")
+
+[node name="pathwayLine2D" type="Line2D" parent="GridMargin/iconz"]
+z_index = 15
+width = 2.0
+default_color = Color(1, 0.654902, 0, 1)
+joint_mode = 2

@@ -8,7 +8,7 @@ class_name CameraRig
 
 @export var camera_sensitivity: float = 0.2
 
-@export var camera_height = 2
+@export var camera_height = 1.5 # 2 # .5
 
 var direction := Vector3.FORWARD
 @export_range(1, 10, 0.1) var smooth_speed := 2.5
@@ -17,7 +17,8 @@ var camera_reset_delta: float
 var camera_reset_timeout: float = 3.0
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	pass
 
 
 func _physics_process(delta):
@@ -40,17 +41,18 @@ func vehicle_process(delta: float):
 	reset_camera_rotation(delta)
 
 
-func _input(event):
-	var mouse_movement = event as InputEventMouseMotion
-	if mouse_movement:
-		#if camera_attachment is Character:
-			#camera_attachment.rotation_degrees.y -= mouse_movement.relative.x * camera_sensitivity
-		#else:
-		spring_arm.rotation_degrees.y -= mouse_movement.relative.x * camera_sensitivity
-		spring_arm.rotation_degrees.x -= mouse_movement.relative.y * camera_sensitivity
-		spring_arm.rotation_degrees.x = clamp(spring_arm.rotation_degrees.x, -75, 45)
-		
-		camera_reset_delta = 0
+func _input(_event):
+	#var mouse_movement = event as InputEventMouseMotion
+	#if mouse_movement:
+		##if camera_attachment is Character:
+			##camera_attachment.rotation_degrees.y -= mouse_movement.relative.x * camera_sensitivity
+		##else:
+		#spring_arm.rotation_degrees.y -= mouse_movement.relative.x * camera_sensitivity
+		#spring_arm.rotation_degrees.x -= mouse_movement.relative.y * camera_sensitivity
+		#spring_arm.rotation_degrees.x = clamp(spring_arm.rotation_degrees.x, -75, 45)
+		#
+		#camera_reset_delta = 0
+	pass
 
 
 func get_rotation_from_direction(look_direction : Vector3) -> Basis:

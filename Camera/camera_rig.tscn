@@ -6,8 +6,10 @@
 script = ExtResource("1_3a4d3")
 
 [node name="SpringArm" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.978148, 0.207912, 0, -0.207912, 0.978148, 0, 0, 0)
 spring_length = 6.0
 
 [node name="Camera" type="Camera3D" parent="SpringArm"]
 current = true
-fov = 50.0
+fov = 65.0
+far = 2500.0

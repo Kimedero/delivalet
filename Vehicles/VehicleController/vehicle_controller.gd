@@ -14,15 +14,21 @@ var brake_input: float
 
 var new_path: Path3D
 
+@export_category("Target Reached")
+@export var target_reached_max_stop: float = 8
+var target_stop_delta: float
+
+
 @onready var info_label_3d: Label3D = $infoLabel3D
 
 func _ready() -> void:
 	vehicle.vehicle_controller = self
 	
-	match vehicle.vehicle_control:
-		Vehicle.VEHICLE_CONTROL.AUTO:
-			#set_up_navigation()
-			pass
+	set_up_navigation()
+	
+	#match vehicle.vehicle_control:
+		#Vehicle.VEHICLE_CONTROL.AUTO:
+			#pass
 
 
 func _physics_process(delta: float) -> void:
@@ -32,11 +38,12 @@ func _physics_process(delta: float) -> void:
 		Vehicle.VEHICLE_CONTROL.MANUAL:
 			manual_process(delta)
 	
-	info_label_3d.text = "%s\n%d KM/H\nAt Junction: %s\nOn Mission: %s" % [
+	info_label_3d.text = "%s\n%d KM/H\nOn Mission: %s\nTarget Reached: %s" % [
 		vehicle.name,
 		vehicle.current_speed_ms * 3.6, 
-		vehicle.at_junction, 
+		#vehicle.at_junction, 
 		vehicle.on_mission,
+		vehicle.target_reached
 		]
 
 
@@ -51,7 +58,8 @@ func _unhandled_input(_event: InputEvent) -> void:
 func ai_process(_delta: float):
 	if vehicle.at_junction:
 		if is_equal_approx(path_finder.progress_ratio, 1.0):
-			switch_path(new_path)
+			if not vehicle.on_mission: ## REMEMBER TO REMOVE THIS LINE
+				switch_path(new_path)
 	
 	steer_input = ai_steer()
 	drive_input = 1
@@ -62,11 +70,12 @@ func ai_process(_delta: float):
 	if vehicle.at_junction:
 		speed_limiter_process(40)
 	
-	#vehicle.steering = clampf(deg_to_rad(vehicle.max_steer) * steer_input * 2.5, -1, 1)
-	vehicle.steering = deg_to_rad(vehicle.max_steer) * steer_input
+	#target_reached_process(delta)
+	
+	vehicle.steering = clampf(deg_to_rad(vehicle.max_steer) * steer_input * 2.5, -1, 1)
+	#vehicle.steering = deg_to_rad(vehicle.max_steer) * steer_input
 	vehicle.engine_force = vehicle.horse_power * drive_input
 	vehicle.brake = vehicle.brake_power * brake_input
-	
 
 
 func manual_process(delta: float):
@@ -105,6 +114,7 @@ func set_up_navigation():
 
 
 func switch_path(next_path: Path3D):
+	assert(next_path, "Next path not found!")
 	path_finder.reparent(next_path)
 	
 	vehicle.navigation_path = next_path
@@ -123,3 +133,30 @@ func speed_limiter_process(target_speed: float):
 		#print("OS: %.1f -> %.1f" % [speed_overshoot, limit_factor])
 		drive_input *= limit_factor
 		brake_input = 1 - limit_factor
+
+
+var last_target_position: Vector3
+func target_reached_process(delta: float):
+	if vehicle.target_reached:
+		drive_input = 0
+		brake_input = 1
+		
+		target_stop_delta += delta
+		if target_stop_delta >= target_reached_max_stop:
+			target_stop_delta = 0
+			
+			vehicle.target_reached = false
+			vehicle.mission_vehicle = false
+			
+			# the mission path indicator is deleted
+			if vehicle.mission_target_visualisation_path:
+				vehicle.mission_target_visualisation_path.queue_free()
+			
+			# start another mission
+			var mission_pos_dup: Array = vehicle.mission_positions_array.duplicate()
+			if last_target_position in mission_pos_dup:
+				mission_pos_dup.erase(last_target_position)
+			var target_position: Vector3 = mission_pos_dup.pick_random()
+			vehicle.activate_mission_to(target_position)
+			last_target_position = target_position
+	

@@ -5,7 +5,7 @@ class_name VehiclePathChanger
 var linked_paths_array: Array[Path3D]
 var neighbour_path_changers_array: Array[VehiclePathChanger]
 
-@export var area_radius: float = 16
+@export var area_radius: float = 16: set = set_area_radius, get = get_area_radius
 
 @onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var mesh_instance_3d: MeshInstance3D = $MeshInstance3D
@@ -13,8 +13,6 @@ var neighbour_path_changers_array: Array[VehiclePathChanger]
 func _ready() -> void:
 	body_entered.connect(on_body_entered)
 	body_exited.connect(on_body_exited)
-	
-	set_area_radius()
 
 
 func on_body_entered(body):
@@ -27,7 +25,12 @@ func on_body_exited(body):
 		body.emit_signal("vehicle_at_path_changer", self, false)
 
 
-func set_area_radius():
-	collision_shape_3d.shape.radius = area_radius
-	mesh_instance_3d.mesh.top_radius = area_radius
-	mesh_instance_3d.mesh.bottom_radius = area_radius
+func set_area_radius(value):
+	collision_shape_3d.shape.radius = value
+	mesh_instance_3d.mesh.top_radius = value
+	mesh_instance_3d.mesh.bottom_radius = value
+	print("%s's new area radius: %s" % [name, value])
+
+
+func get_area_radius() -> float:
+	return area_radius
