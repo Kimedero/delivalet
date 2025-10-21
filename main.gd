@@ -186,9 +186,3 @@ func spawn_delivery_vehicles():
 			Vehicle.DELIVERY_TEAM.NYARAIN:
 				var new_nyarain_vehicle: Vehicle = spawn_vehicle(vehicle_transform, nearest_path, Vehicle.VEHICLE_TYPE.DELIVERY, Vehicle.DELIVERY_TEAM.NYARAIN)
 				new_nyarain_vehicle.name = "Nyarain_1"
-				
-		##print("%s -> Transform: %s -> %s" % [
-			##spawn_node, 
-			##spawn_node.global_transform, 
-			##delivery_vehicles_spawn[spawn_node],
-			##])

@@ -2,6 +2,7 @@ extends MarginContainer
 class_name Minimap
 
 var MINI_MAP_STATS = preload("res://Minimap/Resources/mini_map_stats.tres")
+var VEHICLE_DATA = preload("res://Vehicles/Resources/vehicle_data.tres")
 
 @export var vehicle: Vehicle
 
@@ -32,11 +33,18 @@ var marker_count: int
 
 @export var map_zoom: float = 0.4: set = set_map_zoom
 var grid_scale: Vector2
+# how fast the minimap rotates along with the vehicle
 @export var rotation_speed = 2.5
+
+var road_lines_drawn: bool
+# keeps track of which road lines are co-related to which paths on the map 
+var path_to_road_lines_dict: Dictionary
 
 func _ready() -> void:
 	MINI_MAP_STATS.add_minimap_object.connect(add_minimap_object)
 	MINI_MAP_STATS.remove_minimap_object.connect(remove_minimap_object)
+	
+	gui_input.connect(on_gui_input)
 	
 	initialise_elements()
 	
@@ -49,6 +57,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not vehicle:
 		return
+	
+	if not road_lines_drawn:
+		draw_road_lines()
+		road_lines_drawn = true
+	
 	#player_marker_sprite.rotation = -vehicle.rotation.y + PI
 	player_marker_sprite.rotation = lerp_angle(player_marker_sprite.rotation, -vehicle.rotation.y + PI, rotation_speed * delta)
 	
@@ -77,7 +90,7 @@ func _process(delta: float) -> void:
 		vec3_to_vec2(vehicle.global_position)) * grid_scale + grid_texture_rect.size * 0.5
 		
 		# we determine the middle point of the grid and anything a bigger distance 
-		# from the radius is put at the radius and shrunk/smallized
+		# from the radius is put at the radius and shrunk/smallisized
 		if marker_pos.distance_squared_to(grid_mid_point) < pow(grid_radius, 2):
 			object_markers_dict[object].scale = Vector2.ONE
 			object_markers_dict[object].self_modulate.a = 1.0
@@ -97,6 +110,8 @@ func _process(delta: float) -> void:
 			#markers_dict[marker].scale = Vector2.ONE * 0.5
 		#marker_pos.x = clamp(marker_pos.x, 0, grid_texture_rect.size.x)
 		#marker_pos.y = clamp(marker_pos.y, 0, grid_texture_rect.size.y)
+		
+	update_road_lines()
 
 
 func initialise_elements():
@@ -155,11 +170,46 @@ func remove_minimap_object(minimap_object: Node3D):
 		print("%s removed!" % [minimap_object.name])
 
 
+func on_gui_input(event: InputEvent):
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			map_zoom -= 0.1
+		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			map_zoom += 0.1
+		print("map zoom: %s" % [map_zoom])
+
+
 func set_map_zoom(value: float):
 	map_zoom = clamp(value, 0.2, 1.0)
 	grid_scale = grid_texture_rect.size / (get_viewport_rect().size * map_zoom)
-	#grid_scale = grid_texture_rect.size / (get_viewport_rect().size * map_zoom)
 	print("Map zoom: %s" % [map_zoom])
+
+
+func draw_road_lines():
+	## this basically places lines on the minimap that co-relates to the 
+	## vehicle paths on the map
+	for path: Path3D in VEHICLE_DATA.vehicle_traffic_paths_array:
+		var new_line := Line2D.new()
+		new_line.width = 2
+		new_line.default_color = Color("ff6a00")
+		new_line.antialiased = true
+		new_line.name = "%s_road_line" % [path.name]
+		
+		path_to_road_lines_dict[path] = new_line
+		line_mask.add_child(new_line)
+
+
+func update_road_lines():
+	for path: Path3D in path_to_road_lines_dict.keys():
+		var line: Line2D = path_to_road_lines_dict[path]
+		line.clear_points()
+		for point in path.curve.point_count:
+			var path_point: Vector3 = path.curve.get_point_position(point)
+			var point_pos: Vector2 = (vec3_to_vec2(path_point) - vec3_to_vec2(vehicle.global_transform.origin)) \
+			* grid_scale + grid_texture_rect.size * 0.5
+			point_pos.x = clamp(point_pos.x, 0, grid_texture_rect.size.x)
+			point_pos.y = clamp(point_pos.y, 0, grid_texture_rect.size.y)
+			line.add_point(point_pos)
 
 
 func vec3_to_vec2(vec3: Vector3) -> Vector2:

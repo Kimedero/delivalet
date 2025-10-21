@@ -38,7 +38,8 @@ func on_body_entered(body):
 		#print("%s picked %s!" % [body.name, self.name])
 		
 		var shrink_tween := create_tween()
-		shrink_tween.tween_property(mesh, "scale", Vector3.ZERO, 1)
+		shrink_tween.tween_property(self, "position:y", 2, 0.25)
+		shrink_tween.parallel().tween_property(mesh, "scale", Vector3.ZERO, 1)
 		shrink_tween.set_ease(Tween.EASE_IN_OUT)
-		shrink_tween.set_trans(Tween.TRANS_SPRING)
+		shrink_tween.set_trans(Tween.TRANS_SINE)
 		shrink_tween.finished.connect(queue_free)

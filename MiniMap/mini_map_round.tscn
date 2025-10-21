@@ -65,6 +65,7 @@ texture = ExtResource("2_xd770")
 expand_mode = 1
 
 [node name="PlayerPathLine" type="Line2D" parent="LineMask"]
+visible = false
 points = PackedVector2Array(0, 0, 155.721, 23.0698, 186, 53, 78, 186, 29, 166, 110, 73, -45, 27)
 width = 2.0
 default_color = Color(1, 0.415686, 0, 1)

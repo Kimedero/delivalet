@@ -80,7 +80,6 @@ func _ready() -> void:
 		DELIVERY_TEAM.NYARAIN:
 			minimap_icon = "opponent"
 	
-	#await get_tree().process_frame
 	MINI_MAP_STATS.emit_signal("add_minimap_object", self)
 	#MINI_MAP_STATS.minimap_objects.append(self)
 
