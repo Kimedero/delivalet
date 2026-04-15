@@ -179,8 +179,6 @@ skeleton = NodePath("")
 [node name="uHouse1_LOD1" type="MeshInstance3D" parent="."]
 cast_shadow = 0
 visibility_range_begin = 160.0
-visibility_range_begin_margin = 10.0
-visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_jecqs")
 skeleton = NodePath("")
 

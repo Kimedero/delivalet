@@ -191,8 +191,6 @@ data = PackedVector3Array(12.6042, 0, 10.1042, 13.763, -0.06875, 10.013, 13.763,
 
 [node name="t" type="MeshInstance3D" parent="."]
 visibility_range_end = 125.0
-visibility_range_end_margin = 10.0
-visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_dswui")
 skeleton = NodePath("")
 

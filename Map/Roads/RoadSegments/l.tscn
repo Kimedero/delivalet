@@ -191,8 +191,6 @@ data = PackedVector3Array(-3.63281, 0, -8.59375, -6.66667, -0.06875, -6.66667, -
 
 [node name="l" type="MeshInstance3D" parent="."]
 visibility_range_end = 125.0
-visibility_range_end_margin = 10.0
-visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_eflte")
 skeleton = NodePath("")
 

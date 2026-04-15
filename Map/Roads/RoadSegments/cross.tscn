@@ -191,8 +191,6 @@ data = PackedVector3Array(-10, 0, 20, -10.013, 0, 13.763, -10, 0, 15, -13.763, 0
 
 [node name="cross" type="MeshInstance3D" parent="."]
 visibility_range_end = 125.0
-visibility_range_end_margin = 10.0
-visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_ff6t8")
 skeleton = NodePath("")
 

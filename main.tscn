@@ -32,28 +32,28 @@ glow_enabled = true
 
 [sub_resource type="Curve3D" id="Curve3D_pfhwb"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -15.572, 0, 15.347, 0, 0, 0, 0, 0, 0, 90.4561, 0, 15.4712),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -15, 0, 15, 0, 0, 0, 0, 0, 0, 90, 0, 15),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
 
 [sub_resource type="Curve3D" id="Curve3D_5vsgc"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 95.1377, 0, 24.9463, 0, 0, 0, 0, 0, 0, -10.4701, 0, 25.0469),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 95, 0, 25, 0, 0, 0, 0, 0, 0, -10, 0, 25),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
 
 [sub_resource type="Curve3D" id="Curve3D_c42um"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -25, 0, -64, 0, 0, 0, 0, 0, 0, 94, 0, -64, -0.1, 0, -9.9, 0.1, 0, 9.9, 104, 0, -56, 0, 0, 0, 0, 0, 0, 103, 0, 11),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -25, 0, -64, 0, 0, 0, 0, 0, 0, 94, 0, -64, -0.1, 0, -9.9, 0.1, 0, 9.9, 104, 0, -56, 0, 0, 0, 0, 0, 0, 104, 0, 11),
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
 
 [sub_resource type="Curve3D" id="Curve3D_8qdo8"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 96.1164, 0, 15.6563, 0.2, 0, 8.2, -0.2, 0, -8.2, 95.9647, 0, -49.406, 0, 0, 0, 0, 0, 0, 87.5518, 0, -56.1, 0, 0, 0, 0, 0, 0, -10.1786, 0, -56.0095),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 96, 0, 15, 0.2, 0, 8.2, -0.2, 0, -8.2, 96, 0, -49, 0, 0, 0, 0, 0, 0, 88, 0, -56, 0, 0, 0, 0, 0, 0, -10, 0, -56),
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
@@ -102,7 +102,7 @@ point_count = 2
 
 [sub_resource type="Curve3D" id="Curve3D_831ya"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 103.398, 0, 15.1889, 0, 0, 0, 0, 0, 0, 103.61, 0, 49.6249, -5.3, 0, 0.3, 5.3, 0, -0.3, 108.736, 0, 55.3431, 0, 0, 0, 0, 0, 0, 134.567, 0, 55.5403, 0.3, 0, -9.8, -0.3, 0, 9.8, 145.017, 0, 64.2161, 0, 0, 0, 0, 0, 0, 144.82, 0, 130.299),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 104, 0, 15.189, 0, 0, 0, 0, 0, 0, 104, 0, 49.625, -5.3, 0, 0.3, 5.3, 0, -0.3, 108.736, 0, 55.3431, 0, 0, 0, 0, 0, 0, 134.567, 0, 55.5403, 0.3, 0, -9.8, -0.3, 0, 9.8, 145.017, 0, 64.2161, 0, 0, 0, 0, 0, 0, 144.82, 0, 130.299),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
 }
 point_count = 6
@@ -158,7 +158,7 @@ point_count = 4
 
 [sub_resource type="Curve3D" id="Curve3D_27v0r"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -254.633, 0, 255.065, 0, 0, 0, 0, 0, 0, -149.353, 0, 255.345),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -254, 0, 255, 0, 0, 0, 0, 0, 0, -149.353, 0, 255),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -179,14 +179,14 @@ point_count = 2
 
 [sub_resource type="Curve3D" id="Curve3D_nam1k"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -134.856, 0, 144.163, 0, 0, 0, 0, 0, 0, -135.019, 0, 250.682),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -135, 0, 144.163, 0, 0, 0, 0, 0, 0, -135, 0, 250.682),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
 
 [sub_resource type="Curve3D" id="Curve3D_uv25q"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -135.291, 0, 254.303, 0, 0, 0, 0, 0, 0, -29.0465, 0, 254.164),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -135, 0, 255, 0, 0, 0, 0, 0, 0, -29, 0, 255),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -200,7 +200,7 @@ point_count = 2
 
 [sub_resource type="Curve3D" id="Curve3D_gsfph"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -24.1817, 0, 254.215, 0, 0, 0, 0, 0, 0, -24.3794, 0, 149.399),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -25, 0, 254, 0, 0, 0, 0, 0, 0, -25, 0, 149),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -270,7 +270,7 @@ point_count = 2
 
 [sub_resource type="Curve3D" id="Curve3D_0t0bb"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -25.4638, 0, 335.462, 0, 0, 0, 0, 0, 0, -25.4638, 0, 271.365),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -25, 0, 335, 0, 0, 0, 0, 0, 0, -25, 0, 271),
 "tilts": PackedFloat32Array(0, 0)
 }
 point_count = 2
@@ -326,7 +326,7 @@ point_count = 4
 
 [sub_resource type="Curve3D" id="Curve3D_yosuq"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -136.125, 0, 264.327, 0, 0, 0, 0, 0, 0, -135.476, 0, 373.941, 10.3, 0, -0.5, -10.3, 0, 0.5, -145.763, 0, 384.237, 0, 0, 0, 0, 0, 0, -250.481, 0, 384.995),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -135, 0, 264.327, 0, 0, 0, 0, 0, 0, -135, 0, 373.941, 10.3, 0, -0.5, -10.3, 0, 0.5, -145.763, 0, 384.237, 0, 0, 0, 0, 0, 0, -250.481, 0, 384.995),
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
@@ -2023,7 +2023,7 @@ path_joined = false
 material = ExtResource("13_qsp4k")
 
 [node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_1" instance=ExtResource("14_kq58d")]
-transform = Transform3D(-0.00117139, 0, -0.999994, 0, 1, 0, 0.999994, 0, -0.00117139, -15.572, 0, 15.347)
+transform = Transform3D(-4.37111e-08, 0, -0.999994, 0, 1, 0, 0.999994, 0, -4.37111e-08, -15, 0, 15)
 
 [node name="Path_2" type="Path3D" parent="Map/Navigation/VehiclePaths"]
 curve = SubResource("Curve3D_5vsgc")
@@ -2046,7 +2046,7 @@ path_joined = false
 material = ExtResource("13_qsp4k")
 
 [node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_2" instance=ExtResource("14_kq58d")]
-transform = Transform3D(-0.000952639, 0, 0.999993, 0, 1, 0, -0.999993, 0, -0.000952639, 95.1377, 0, 24.9463)
+transform = Transform3D(-4.37111e-08, 0, 0.999993, 0, 1, 0, -0.999993, 0, -4.37111e-08, 95, 0, 25)
 
 [node name="Path_3" type="Path3D" parent="Map/Navigation/VehiclePaths"]
 curve = SubResource("Curve3D_c42um")
@@ -2092,7 +2092,7 @@ path_joined = false
 material = ExtResource("13_qsp4k")
 
 [node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_4" instance=ExtResource("14_kq58d")]
-transform = Transform3D(0.999987, 0, 0.00233163, 0, 1, 0, -0.00233163, 0, 0.999987, 96.1164, 0, 15.6563)
+transform = Transform3D(0.999989, 0, 0, 0, 1, 0, 0, 0, 0.999989, 96, 0, 15)
 
 [node name="Path_5" type="Path3D" parent="Map/Navigation/VehiclePaths"]
 curve = SubResource("Curve3D_4td1n")
@@ -2253,7 +2253,7 @@ path_joined = false
 material = ExtResource("13_qsp4k")
 
 [node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_11" instance=ExtResource("14_kq58d")]
-transform = Transform3D(-0.999967, 0, -0.00615599, 0, 1, 0, 0.00615599, 0, -0.999967, 103.398, 0, 15.1889)
+transform = Transform3D(-0.999986, 0, -8.74216e-08, 0, 1, 0, 8.74216e-08, 0, -0.999986, 104, 0, 15.189)
 
 [node name="Path_12" type="Path3D" parent="Map/Navigation/VehiclePaths"]
 curve = SubResource("Curve3D_ipl27")
@@ -2437,7 +2437,7 @@ path_joined = false
 material = ExtResource("13_qsp4k")
 
 [node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_19" instance=ExtResource("14_kq58d")]
-transform = Transform3D(-0.00265958, 0, -0.99999, 0, 1, 0, 0.99999, 0, -0.00265958, -254.633, 0, 255.065)
+transform = Transform3D(-4.37111e-08, 0, -0.999993, 0, 1, 0, 0.999993, 0, -4.37111e-08, -254, 0, 255)
 
 [node name="Path_20" type="Path3D" parent="Map/Navigation/VehiclePaths"]
 curve = SubResource("Curve3D_4gofc")
@@ -2506,7 +2506,7 @@ path_joined = false
 material = ExtResource("13_qsp4k")
 
 [node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_22" instance=ExtResource("14_kq58d")]
-transform = Transform3D(-0.99999, 0, 0.00153007, 0, 1, 0, -0.00153007, 0, -0.99999, -134.856, 0, 144.163)
+transform = Transform3D(-0.999991, 0, -8.7422e-08, 0, 1, 0, 8.7422e-08, 0, -0.999991, -135, 0, 144.163)
 
 [node name="Path_23" type="Path3D" parent="Map/Navigation/VehiclePaths"]
 curve = SubResource("Curve3D_uv25q")
@@ -2529,7 +2529,7 @@ path_joined = false
 material = ExtResource("13_qsp4k")
 
 [node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_23" instance=ExtResource("14_kq58d")]
-transform = Transform3D(0.00130803, 0, -0.999992, 0, 1, 0, 0.999992, 0, 0.00130803, -135.291, 0, 254.303)
+transform = Transform3D(-4.37111e-08, 0, -0.999993, 0, 1, 0, 0.999993, 0, -4.37111e-08, -135, 0, 255)
 
 [node name="Path_24" type="Path3D" parent="Map/Navigation/VehiclePaths"]
 curve = SubResource("Curve3D_hjbdb")
@@ -2575,7 +2575,7 @@ path_joined = false
 material = ExtResource("13_qsp4k")
 
 [node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_25" instance=ExtResource("14_kq58d")]
-transform = Transform3D(0.99999, 0, 0.00188615, 0, 1, 0, -0.00188615, 0, 0.99999, -24.1817, 0, 254.215)
+transform = Transform3D(0.999992, 0, 0, 0, 1, 0, 0, 0, 0.999992, -25, 0, 254)
 
 [node name="Path_26" type="Path3D" parent="Map/Navigation/VehiclePaths"]
 curve = SubResource("Curve3D_vigww")
@@ -2805,7 +2805,7 @@ path_joined = false
 material = ExtResource("13_qsp4k")
 
 [node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_35" instance=ExtResource("14_kq58d")]
-transform = Transform3D(0.999992, 0, 0, 0, 1, 0, 0, 0, 0.999992, -25.4638, 0, 335.462)
+transform = Transform3D(0.999992, 0, 0, 0, 1, 0, 0, 0, 0.999992, -25, 0, 335)
 
 [node name="Path_36" type="Path3D" parent="Map/Navigation/VehiclePaths"]
 curve = SubResource("Curve3D_g763l")
@@ -2989,7 +2989,7 @@ path_joined = false
 material = ExtResource("13_qsp4k")
 
 [node name="VehicleSpawner" parent="Map/Navigation/VehiclePaths/Path_43" instance=ExtResource("14_kq58d")]
-transform = Transform3D(-0.999969, 0, -0.00592069, 0, 1, 0, 0.00592069, 0, -0.999969, -136.125, 0, 264.327)
+transform = Transform3D(-0.999987, 0, -8.74216e-08, 0, 1, 0, 8.74216e-08, 0, -0.999987, -135, 0, 264.327)
 
 [node name="Path_44" type="Path3D" parent="Map/Navigation/VehiclePaths"]
 curve = SubResource("Curve3D_wmm8q")

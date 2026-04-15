@@ -2,7 +2,7 @@ extends VehicleBody3D
 class_name Vehicle
 
 var GAME_DATA = preload("res://Resources/game_data.tres")
-var VEHICLE_DATA = preload("res://Vehicles/Resources/vehicle_data.tres")
+var VEHICLE_DATA = load("res://Vehicles/Resources/vehicle_data.tres")
 var VEHICLE_PATHFINDING = preload("res://Vehicles/Resources/vehicle_pathfinding.tres")
 var DELIVERY_PACKAGE_DATA = preload("res://DeliveryPackages/Resources/delivery_package_data.tres")
 
@@ -73,7 +73,7 @@ func _ready() -> void:
 	## to keep track of delivery vehicles
 	if delivery_vehicle:
 		VEHICLE_DATA.current_delivery_vehicle_array.append(self)
-	
+		
 	match delivery_team:
 		DELIVERY_TEAM.KIMEDERO:
 			minimap_icon = "teammate"
@@ -81,16 +81,16 @@ func _ready() -> void:
 			minimap_icon = "opponent"
 	
 	MINI_MAP_STATS.emit_signal("add_minimap_object", self)
-	#MINI_MAP_STATS.minimap_objects.append(self)
 
 
 func _physics_process(_delta: float) -> void:
 	current_speed_ms = linear_velocity.length()
 	
 	#if delivery_vehicle:
-		###3. Navigate to nearest package
-		#if not on_mission: # and not target_reached:
-			#navigate_to_nearest_package()
+		####3. Navigate to nearest package
+		#if not on_mission and not target_reached:
+			#process_nearest_package()
+			##navigate_to_nearest_package()
 			#on_mission = true
 	##
 			####we figure out the delivery package path finding here
@@ -148,6 +148,17 @@ func on_delivery_packaged_update(picked_delivery_package: DeliveryPackage, picke
 	# we also update vehicle target positions here
 	if picked_vehicle == self:
 		print("%s picked %s!" % [picked_vehicle.name, picked_delivery_package.name])
+
+
+# keeps track of each delivery package so as to avoid calculating these properties again
+var delivery_package_properties_dict: Dictionary
+func process_nearest_package():
+	#var two_nearest_paths_to_vehicle: Array = VEHICLE_PATHFINDING.get_two_nearest_paths(self.global_position)
+	for delivery_package: DeliveryPackage in DELIVERY_PACKAGE_DATA.delivery_packages_array:
+		# we should first check that the package is legit
+		if is_instance_valid(delivery_package):
+			var two_nearest_paths_to_package: Array = VEHICLE_PATHFINDING.get_two_nearest_paths(delivery_package.global_position)
+			delivery_package_properties_dict[delivery_package] = two_nearest_paths_to_package
 
 
 func navigate_to_nearest_package():
@@ -304,7 +315,7 @@ func generate_pathchanger_and_linked_path_dict(generated_navigation_path_array: 
 			var path_changer_a: VehiclePathChanger = path_changer_array[idx] 
 			var path_changer_b: VehiclePathChanger = path_changer_array[idx + 1]
 			## we want to check what path connects PathChangerA to PathChangerB
-			var near_path: Path3D
+			var near_path: Path3D = null
 			for linked_path: Path3D in path_changer_a.linked_paths_array:
 				##print("Point Count: %s" % [linked_path.curve.get_point_count()])
 				var linked_path_end_pos: Vector3 = GAME_DATA.flatten_vec3(linked_path.curve.get_point_position(linked_path.curve.point_count - 1))

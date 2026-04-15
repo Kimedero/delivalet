@@ -40,6 +40,9 @@ var road_lines_drawn: bool
 # keeps track of which road lines are co-related to which paths on the map 
 var path_to_road_lines_dict: Dictionary
 
+var current_frame: int
+@export var frames_to_skip: int = 4
+
 func _ready() -> void:
 	MINI_MAP_STATS.add_minimap_object.connect(add_minimap_object)
 	MINI_MAP_STATS.remove_minimap_object.connect(remove_minimap_object)
@@ -110,8 +113,10 @@ func _process(delta: float) -> void:
 			#markers_dict[marker].scale = Vector2.ONE * 0.5
 		#marker_pos.x = clamp(marker_pos.x, 0, grid_texture_rect.size.x)
 		#marker_pos.y = clamp(marker_pos.y, 0, grid_texture_rect.size.y)
-		
-	update_road_lines()
+	
+	current_frame = wrapi(current_frame + 1, 0, frames_to_skip)
+	if current_frame == 0:
+		update_road_lines()
 
 
 func initialise_elements():
@@ -173,9 +178,9 @@ func remove_minimap_object(minimap_object: Node3D):
 func on_gui_input(event: InputEvent):
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-			map_zoom -= 0.1
+			map_zoom -= 0.05
 		if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			map_zoom += 0.1
+			map_zoom += 0.05
 		print("map zoom: %s" % [map_zoom])
 
 
@@ -195,21 +200,67 @@ func draw_road_lines():
 		new_line.antialiased = true
 		new_line.name = "%s_road_line" % [path.name]
 		
-		path_to_road_lines_dict[path] = new_line
-		line_mask.add_child(new_line)
-
-
-func update_road_lines():
-	for path: Path3D in path_to_road_lines_dict.keys():
-		var line: Line2D = path_to_road_lines_dict[path]
-		line.clear_points()
+		var path_points: Array = []
+		for point_idx: int in path.curve.point_count:
+			#var path_point: Vector3 = path.curve.get_point_position(point_idx)
+			#path_points.append(path_point)
+		#path_to_road_lines_dict[path] = {
+			#"line": new_line,
+			#"points": path_points
+			#}
+			var path_point: Vector2 = vec3_to_vec2(path.curve.get_point_position(point_idx))
+			path_points.append(path_point)
+		path_to_road_lines_dict[path] = {
+			"line": new_line,
+			"points": path_points
+			}
+			
+		new_line.clear_points()
 		for point in path.curve.point_count:
 			var path_point: Vector3 = path.curve.get_point_position(point)
 			var point_pos: Vector2 = (vec3_to_vec2(path_point) - vec3_to_vec2(vehicle.global_transform.origin)) \
 			* grid_scale + grid_texture_rect.size * 0.5
 			point_pos.x = clamp(point_pos.x, 0, grid_texture_rect.size.x)
 			point_pos.y = clamp(point_pos.y, 0, grid_texture_rect.size.y)
-			line.add_point(point_pos)
+			new_line.add_point(point_pos)
+			
+		line_mask.add_child(new_line)
+	print("path_to_road_lines_dict: ", path_to_road_lines_dict)
+
+
+func update_road_lines():
+	for path: Path3D in path_to_road_lines_dict.keys():
+		var line: Line2D = path_to_road_lines_dict[path].line
+		var path_points: Array = path_to_road_lines_dict[path].points
+		#line.clear_points()
+		#for point in path.curve.point_count:
+			#var path_point: Vector3 = path.curve.get_point_position(point)
+			#var point_pos: Vector2 = (vec3_to_vec2(path_point) - vec3_to_vec2(vehicle.global_transform.origin)) \
+			#* grid_scale + grid_texture_rect.size * 0.5
+			#point_pos.x = clamp(point_pos.x, 0, grid_texture_rect.size.x)
+			#point_pos.y = clamp(point_pos.y, 0, grid_texture_rect.size.y)
+			#line.add_point(point_pos)
+		
+		#var new_pos_array: Array
+		##print("PTRLD: %s" % [path_to_road_lines_dict[path].points[0]])
+		#for point_idx: int in path_points.size():
+			#var new_point_pos: Vector2 = (vec3_to_vec2(path_points[point_idx]) - vec3_to_vec2(vehicle.global_transform.origin)) \
+			#* grid_scale + grid_texture_rect.size * 0.5
+			#new_pos_array.append(new_point_pos)
+			#new_point_pos.x = clampf(new_point_pos.x, 0, grid_texture_rect.size.x)
+			#new_point_pos.y = clampf(new_point_pos.y, 0, grid_texture_rect.size.y)
+			#line.set_point_position(point_idx, new_point_pos)
+		##print("%s new pos: %s" % [path, new_pos_array])
+		var new_pos_array: Array
+		#print("PTRLD: %s" % [path_to_road_lines_dict[path].points[0]])
+		for point_idx: int in path_points.size():
+			var new_point_pos: Vector2 = (path_points[point_idx] - vec3_to_vec2(vehicle.global_transform.origin)) \
+			* grid_scale + grid_texture_rect.size * 0.5
+			new_pos_array.append(new_point_pos)
+			new_point_pos.x = clampf(new_point_pos.x, 0, grid_texture_rect.size.x)
+			new_point_pos.y = clampf(new_point_pos.y, 0, grid_texture_rect.size.y)
+			line.set_point_position(point_idx, new_point_pos)
+		
 
 
 func vec3_to_vec2(vec3: Vector3) -> Vector2:

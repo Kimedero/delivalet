@@ -8,7 +8,6 @@ var vehicle_traffic_paths_array: Array
 ## the array that holds traffic path changers
 var vehicle_path_changers_array: Array
 
-
 ## vehicle path-finding node
 var a_star: AStar3D = AStar3D.new()
 

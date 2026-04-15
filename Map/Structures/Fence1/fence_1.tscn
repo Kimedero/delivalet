@@ -9,8 +9,6 @@ size = Vector3(20, 8, 0.4)
 
 [node name="fence1" parent="." index="0"]
 visibility_range_end = 120.0
-visibility_range_end_margin = 5.0
-visibility_range_fade_mode = 1
 
 [node name="StaticBody3D" type="StaticBody3D" parent="fence1" index="0"]
 
@@ -20,6 +18,4 @@ shape = SubResource("BoxShape3D_w3ty6")
 
 [node name="fence1_LOD1" parent="." index="1"]
 cast_shadow = 0
-visibility_range_begin = 110.0
-visibility_range_begin_margin = 5.0
-visibility_range_fade_mode = 1
+visibility_range_begin = 120.0

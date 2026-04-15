@@ -1,9 +1,9 @@
 extends Node3D
 
-var GAME_DATA = load("res://Resources/game_data.tres")
-var VEHICLE_DATA = load("res://Vehicles/Resources/vehicle_data.tres")
-var VEHICLE_PATHFINDING = load("res://Vehicles/Resources/vehicle_pathfinding.tres")
-var DELIVERY_PACKAGE_DATA = load("res://DeliveryPackages/Resources/delivery_package_data.tres")
+var GAME_DATA = preload("res://Resources/game_data.tres")
+var VEHICLE_DATA = preload("res://Vehicles/Resources/vehicle_data.tres")
+var VEHICLE_PATHFINDING = preload("res://Vehicles/Resources/vehicle_pathfinding.tres")
+var DELIVERY_PACKAGE_DATA = preload("res://DeliveryPackages/Resources/delivery_package_data.tres")
 var MINI_MAP_STATS = preload("res://Minimap/Resources/mini_map_stats.tres")
 
 const CAMERA_RIG = preload("res://Camera/camera_rig.tscn")

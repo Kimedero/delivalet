@@ -189,8 +189,6 @@ data = PackedVector3Array(10, -0.06875, -20, 10, 0, 20, 10, -0.06875, 20, 10, -0
 
 [node name="through" type="MeshInstance3D" parent="."]
 visibility_range_end = 125.0
-visibility_range_end_margin = 10.0
-visibility_range_fade_mode = 1
 mesh = SubResource("ArrayMesh_rv4yu")
 skeleton = NodePath("")
 
