@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://bxurxr5hlh7vp"]
+
+[ext_resource type="Script" uid="uid://b4vy36foj2gtd" path="res://addons/visibility_range_adjustment/visibility_range_adjustment_panel.gd" id="1_x2p62"]
+
+[node name="Visibility Range Adjustment Panel" type="VBoxContainer" unique_id=1212339596]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x2p62")
+metadata/_edit_vertical_guides_ = [-87.0]
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1021857124]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1951153421]
+layout_mode = 2
+
+[node name="LODSettingLabel" type="Label" parent="PanelContainer/VBoxContainer" unique_id=166896200]
+layout_mode = 2
+text = "Select Meshes to set their visibility ranges"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=2075300456]
+layout_mode = 2
+theme_override_constants/separation = 34
+alignment = 1
+
+[node name="MeshStartLabel" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=252640294]
+layout_mode = 2
+text = "Mesh Start"
+horizontal_alignment = 2
+
+[node name="MeshStartSpinBox" type="SpinBox" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=625280644]
+layout_mode = 2
+
+[node name="MeshEndLabel" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=2058869882]
+layout_mode = 2
+text = "Mesh End"
+
+[node name="MeshEndSpinBox" type="SpinBox" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=651387487]
+layout_mode = 2
+max_value = 250.0
+value = 125.0
+
+[node name="MeshVisibleCheckBox" type="CheckBox" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1963580538]
+layout_mode = 2
+button_pressed = true
+text = "Mesh Visible"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1701425803]
+layout_mode = 2
+theme_override_constants/separation = 34
+alignment = 1
+
+[node name="LODStartLabel" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=908609955]
+layout_mode = 2
+text = "LOD Start"
+horizontal_alignment = 2
+
+[node name="LODStartSpinBox" type="SpinBox" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=284291709]
+layout_mode = 2
+max_value = 250.0
+value = 125.0
+
+[node name="LODEndLabel" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=256519961]
+layout_mode = 2
+text = "LOD End"
+
+[node name="LODEndSpinBox" type="SpinBox" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=260180737]
+layout_mode = 2
+
+[node name="LODVisibleCheckBox" type="CheckBox" parent="PanelContainer/VBoxContainer/HBoxContainer2" unique_id=1974583185]
+layout_mode = 2
+button_pressed = true
+text = "LOD Visible"
+
+[node name="SettingButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=472975590]
+layout_mode = 2
+text = "Set visibility range adjustment"

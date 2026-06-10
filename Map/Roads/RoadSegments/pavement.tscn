@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://tw7gu0hwnu4l"]
+[gd_scene format=4 uid="uid://tw7gu0hwnu4l"]
 
 [ext_resource type="Texture2D" uid="uid://rf67sjjw8x7v" path="res://Map/Roads/textures/ConcreteSidewalk001a_Color.png" id="4_bxb1y"]
 [ext_resource type="Texture2D" uid="uid://dnhs3onx2du3m" path="res://Map/Roads/textures/Asphalt diffuse_bmp.png" id="4_ehfqd"]
@@ -126,18 +126,17 @@ shadow_mesh = SubResource("ArrayMesh_jcaca")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jcaca"]
 data = PackedVector3Array(20, 0, 20, -20, -0.1, 20, -20, 0, 20, 20, 0, 20, 20, -0.1, 20, -20, -0.1, 20, -20, -0.1, -20, -20, 0, 20, -20, -0.1, 20, -20, -0.1, -20, -20, 0, -20, -20, 0, 20, 20, -0.1, 20, 20, 0, -20, 20, -0.1, -20, 20, -0.1, 20, 20, 0, 20, 20, 0, -20, 20, -0.1, -20, -20, 0, -20, -20, -0.1, -20, 20, -0.1, -20, 20, 0, -20, -20, 0, -20, 20, -0.1, 20, -20, -1.1, 20, -20, -0.1, 20, 20, -0.1, 20, 20, -1.1, 20, -20, -1.1, 20, -20, -0.1, 20, -20, -1.1, -20, -20, -0.1, -20, -20, -0.1, 20, -20, -1.1, 20, -20, -1.1, -20, 20, -0.1, -20, 20, -1.1, 20, 20, -0.1, 20, 20, -0.1, -20, 20, -1.1, -20, 20, -1.1, 20, -20, -0.1, -20, 20, -1.1, -20, 20, -0.1, -20, -20, -0.1, -20, -20, -1.1, -20, 20, -1.1, -20, 20, -1.1, -20, -20, -1.1, 20, 20, -1.1, 20, 20, -1.1, -20, -20, -1.1, -20, -20, -1.1, 20, -20, 0, -20, 20, 0, 20, -20, 0, 20, -20, 0, -20, 20, 0, -20, 20, 0, 20)
 
-[node name="pavement" type="StaticBody3D"]
+[node name="pavement" type="StaticBody3D" unique_id=286579752]
 
-[node name="pavement" type="MeshInstance3D" parent="."]
-visibility_range_end = 125.0
+[node name="pavement" type="MeshInstance3D" parent="." unique_id=774480500]
 mesh = SubResource("ArrayMesh_sgl1u")
 skeleton = NodePath("")
 
-[node name="road-LOD1" type="MeshInstance3D" parent="."]
+[node name="road-LOD1" type="MeshInstance3D" parent="." unique_id=124687541]
+visible = false
 cast_shadow = 0
-visibility_range_begin = 125.0
 mesh = SubResource("ArrayMesh_diptm")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1166008928]
 shape = SubResource("ConcavePolygonShape3D_jcaca")

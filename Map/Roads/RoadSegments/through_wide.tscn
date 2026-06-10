@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://denwq00017qwx"]
+[gd_scene format=4 uid="uid://denwq00017qwx"]
 
 [ext_resource type="Texture2D" uid="uid://rf67sjjw8x7v" path="res://Map/Roads/textures/ConcreteSidewalk001a_Color.png" id="1_qbxg8"]
 [ext_resource type="Texture2D" uid="uid://co40b4gquj1kv" path="res://Map/Roads/textures/ConcreteSidewalk001a_Roughness.png" id="2_dtc48"]
@@ -185,18 +185,17 @@ shadow_mesh = SubResource("ArrayMesh_qbxg8")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_i80ta"]
 data = PackedVector3Array(-20, 0, 20, -20, -0.1, -20, -20, 0, -20, -20, 0, 20, -20, -0.1, 20, -20, -0.1, -20, -20, -0.1, 20, -9.92678, -0.0908471, 20, -9.75, -0.1, 20, -20, -0.1, 20, -10, -0.06875, 20, -9.92678, -0.0908471, 20, -20, 0, -20, -10, -0.06875, -20, -10, 0, -20, -9.92678, -0.0908471, -20, -20, -0.1, -20, -9.75, -0.1, -20, -20, 0, -20, -9.92678, -0.0908471, -20, -10, -0.06875, -20, -9.92678, -0.0908471, -20, -20, 0, -20, -20, -0.1, -20, -10, 0, -20, -10, -0.06875, 20, -10, 0, 20, -10, 0, -20, -10, -0.06875, -20, -10, -0.06875, 20, -9.92678, -0.0908471, -20, -9.75, -0.1, 20, -9.92678, -0.0908471, 20, -9.92678, -0.0908471, -20, -9.75, -0.1, -20, -9.75, -0.1, 20, -20, 0, 20, -10, -0.06875, 20, -20, -0.1, 20, -20, 0, 20, -10, 0, 20, -10, -0.06875, 20, -10, -0.06875, -20, -9.92678, -0.0908471, 20, -10, -0.06875, 20, -10, -0.06875, -20, -9.92678, -0.0908471, -20, -9.92678, -0.0908471, 20, -9.75, -0.1, 20, -20, -1.1, 20, -20, -0.1, 20, -9.75, -0.1, 20, -9.75, -1.1, 20, -20, -1.1, 20, -20, -0.1, 20, -20, -1.1, -20, -20, -0.1, -20, -20, -0.1, 20, -20, -1.1, 20, -20, -1.1, -20, -20, -0.1, -20, -9.75, -1.1, -20, -9.75, -0.1, -20, -20, -0.1, -20, -20, -1.1, -20, -9.75, -1.1, -20, -20, 0, -20, -10, 0, 20, -20, 0, 20, -20, 0, -20, -10, 0, -20, -10, 0, 20, 20, -0.0999999, -20, -9.75, -0.1, 20, -9.75, -0.1, -20, 20, -0.0999999, -20, 20, -0.0999999, 20, -9.75, -0.1, 20, 20, -0.0999999, -20, 20, -1.1, 20, 20, -0.0999999, 20, 20, -0.0999999, -20, 20, -1.1, -20, 20, -1.1, 20, 20, -0.0999999, 20, -9.75, -1.1, 20, -9.75, -0.1, 20, 20, -0.0999999, 20, 20, -1.1, 20, -9.75, -1.1, 20, -9.75, -0.1, -20, 20, -1.1, -20, 20, -0.0999999, -20, -9.75, -0.1, -20, -9.75, -1.1, -20, 20, -1.1, -20, 20, -1.1, -20, -9.75, -1.1, 20, 20, -1.1, 20, -9.75, -1.1, 20, -20, -1.1, -20, -20, -1.1, 20, -9.75, -1.1, -20, -9.75, -1.1, 20, 20, -1.1, -20, -9.75, -1.1, 20, -9.75, -1.1, -20, -20, -1.1, -20, -9.2, -0.099, 20, -9.5, -0.099, -20, -9.2, -0.099, -20, -9.2, -0.099, 20, -9.5, -0.099, 20, -9.5, -0.099, -20)
 
-[node name="through_wide" type="StaticBody3D"]
+[node name="through_wide" type="StaticBody3D" unique_id=161794492]
 
-[node name="through_wide" type="MeshInstance3D" parent="."]
-visibility_range_end = 125.0
+[node name="through_wide" type="MeshInstance3D" parent="." unique_id=27165841]
 mesh = SubResource("ArrayMesh_2qjkr")
 skeleton = NodePath("")
 
-[node name="road-LOD1" type="MeshInstance3D" parent="."]
+[node name="road-LOD1" type="MeshInstance3D" parent="." unique_id=518861090]
+visible = false
 cast_shadow = 0
-visibility_range_begin = 125.0
 mesh = SubResource("ArrayMesh_dtc48")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=448438810]
 shape = SubResource("ConcavePolygonShape3D_i80ta")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bipf2saaeplmq"]
+[gd_scene format=4 uid="uid://bipf2saaeplmq"]
 
 [ext_resource type="Texture2D" uid="uid://dnhs3onx2du3m" path="res://Map/Roads/textures/Asphalt diffuse_bmp.png" id="1_loosn"]
 [ext_resource type="Texture2D" uid="uid://jiiuhi2jr1jy" path="res://Map/Roads/textures/Asphalt roughness_bmp.png" id="2_uy2u0"]
@@ -126,18 +126,17 @@ shadow_mesh = SubResource("ArrayMesh_xetfq")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_cwjgw"]
 data = PackedVector3Array(20, -0.1, 20, -20, -1.1, 20, -20, -0.1, 20, 20, -0.1, 20, 20, -1.1, 20, -20, -1.1, 20, 20, -0.1, -20, 20, -1.1, 20, 20, -0.1, 20, 20, -0.1, -20, 20, -1.1, -20, 20, -1.1, 20, -20, -0.1, 20, -20, -1.1, -20, -20, -0.1, -20, -20, -0.1, 20, -20, -1.1, 20, -20, -1.1, -20, -20, -0.1, -20, 20, -1.1, -20, 20, -0.1, -20, -20, -0.1, -20, -20, -1.1, -20, 20, -1.1, -20, -20, -1.1, -20, 20, -1.1, 20, 20, -1.1, -20, -20, -1.1, -20, -20, -1.1, 20, 20, -1.1, 20, 20, -0.1, -20, -20, -0.1, 20, -20, -0.1, -20, 20, -0.1, -20, 20, -0.1, 20, -20, -0.1, 20)
 
-[node name="road_plain" type="StaticBody3D"]
+[node name="road_plain" type="StaticBody3D" unique_id=14050045]
 
-[node name="road_plain" type="MeshInstance3D" parent="."]
-visibility_range_end = 125.0
+[node name="road_plain" type="MeshInstance3D" parent="." unique_id=368024177]
 mesh = SubResource("ArrayMesh_nmjli")
 skeleton = NodePath("")
 
-[node name="road-LOD1" type="MeshInstance3D" parent="."]
+[node name="road-LOD1" type="MeshInstance3D" parent="." unique_id=931014963]
+visible = false
 cast_shadow = 0
-visibility_range_begin = 125.0
 mesh = SubResource("ArrayMesh_pkux2")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2009320654]
 shape = SubResource("ConcavePolygonShape3D_cwjgw")

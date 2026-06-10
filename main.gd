@@ -10,10 +10,10 @@ const CAMERA_RIG = preload("res://Camera/camera_rig.tscn")
 
 @export var vehicles_spawn: Node3D
 
-@export var vehicle_path_changers: Node3D
-@export var vehicle_paths: Node3D
+@export var vehicle_path_changers: Marker3D
+@export var vehicle_paths: Marker3D
 
-@export var navigation_path_holder: Node
+@export var navigation_path_holder: Marker3D
 
 ## where delivery packages spawn
 @export var delivery_package_spawn_node: Node
@@ -24,7 +24,7 @@ const CAMERA_RIG = preload("res://Camera/camera_rig.tscn")
 @export var delivery_vehicles_spawn: Dictionary[Node3D, Vehicle.DELIVERY_TEAM]
 
 ## where the camera spawns
-@export var camera_spawn_node: Node3D
+@export var camera_spawn_node: Marker3D
 
 @export var minimap_node: Minimap
 

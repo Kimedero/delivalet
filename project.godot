@@ -26,7 +26,7 @@ window/handheld/orientation=4
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/monitor_overlay/plugin.cfg")
+enabled=PackedStringArray("res://addons/monitor_overlay/plugin.cfg", "res://addons/path_tools/plugin.cfg", "res://addons/visibility_range_adjustment/plugin.cfg")
 
 [input]
 
