@@ -6,16 +6,7 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_fglag")
-shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/texture_albedo = ExtResource("2_0m85r")
-shader_parameter/albedo_texture_size = Vector2i(128, 128)
-shader_parameter/point_size = 1.0
-shader_parameter/roughness = 1.0
-shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
-shader_parameter/specular = 0.5
-shader_parameter/metallic = 0.0
 shader_parameter/uv1_scale = Vector3(0.125, 2, 1)
 shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/uv2_scale = Vector3(0, 0, 0)
-shader_parameter/uv2_offset = Vector3(0, 0, 0)
 shader_parameter/uv_shift_speed = 0.5

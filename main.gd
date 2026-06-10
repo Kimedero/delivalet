@@ -33,9 +33,19 @@ const CAMERA_RIG = preload("res://Camera/camera_rig.tscn")
 func _ready() -> void:
 	randomize()
 	
+	assert(vehicle_paths, "Vehicle paths not set at %s!" % [self])
+	assert(vehicles_spawn, "Vehicles spawn not set at %s!" % [self])
+	assert(vehicle_path_changers, "Vehicle path changers not set at %s!" % [self])
+	assert(vehicle_paths, "Vehicle paths not set at %s!" % [self])
+	assert(navigation_path_holder, "Navigation path holder not set at %s!" % [self])
+	assert(delivery_package_spawn_node, "Delivery package spawn node not set at %s!" % [self])
+	assert(player_spawn_node, "Player spawn node not set at %s!" % [self])
+	assert(delivery_vehicles_spawn, "Delivery vehicles spawn not set at %s!" % [self])
+	assert(camera_spawn_node, "Camera spawn node not set at %s!" % [self])
+	assert(minimap_node, "Minimap node not set at %s!" % [self])
+	
 	VEHICLE_DATA.vehicle_spawn = vehicles_spawn
 	
-	assert(vehicle_paths, "Vehicle paths not set!")
 	VEHICLE_DATA.vehicle_traffic_paths_array = vehicle_paths.get_children()
 	VEHICLE_PATHFINDING.vehicle_traffic_paths_array = vehicle_paths.get_children()
 	
@@ -50,7 +60,7 @@ func _ready() -> void:
 	set_vehicle_path_changer_linked_paths()
 	set_path_changers_neighbours()
 	
-	assert(not VEHICLE_PATHFINDING.vehicle_path_changers_array.is_empty(), "We do not have vehicle path changers set!")
+	assert(not VEHICLE_PATHFINDING.vehicle_path_changers_array.is_empty(), "We do not have vehicle path changers set at %s!" % [self])
 	VEHICLE_PATHFINDING.add_navigation_points()
 	VEHICLE_PATHFINDING.connect_navigation_points()
 	
