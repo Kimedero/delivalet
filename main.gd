@@ -8,24 +8,33 @@ var MINI_MAP_STATS = preload("res://Minimap/Resources/mini_map_stats.tres")
 
 const CAMERA_RIG = preload("res://Camera/camera_rig.tscn")
 
+@export_category("Vehicle Spawning")
 @export var vehicles_spawn: Node3D
 
+@export_category("Vehicle Navigation")
 @export var vehicle_path_changers: Marker3D
-@export var vehicle_paths: Marker3D
+@export var navigation_path_node: Marker3D
+@export var transition_path_node: Marker3D
 
 @export var navigation_path_holder: Marker3D
 
+@export_category("Delivery Packages")
 ## where delivery packages spawn
 @export var delivery_package_spawn_node: Node
 
+@export_category("Player Spawn")
 ## where the player spawns
 @export var player_spawn_node: Node3D
+
+@export_category("Delivery Van Spawn")
 ## where other vehicles spawn
 @export var delivery_vehicles_spawn: Dictionary[Node3D, Vehicle.DELIVERY_TEAM]
 
+@export_category("Camera Spawn")
 ## where the camera spawns
 @export var camera_spawn_node: Marker3D
 
+@export_category("Minimap")
 @export var minimap_node: Minimap
 
 @onready var info_label: Label = $infoLabel
@@ -33,10 +42,10 @@ const CAMERA_RIG = preload("res://Camera/camera_rig.tscn")
 func _ready() -> void:
 	randomize()
 	
-	assert(vehicle_paths, "Vehicle paths not set at %s!" % [self])
+	assert(navigation_path_node, "Navigation path node not set at %s!" % [self])
 	assert(vehicles_spawn, "Vehicles spawn not set at %s!" % [self])
 	assert(vehicle_path_changers, "Vehicle path changers not set at %s!" % [self])
-	assert(vehicle_paths, "Vehicle paths not set at %s!" % [self])
+	assert(navigation_path_node, "Vehicle paths not set at %s!" % [self])
 	assert(navigation_path_holder, "Navigation path holder not set at %s!" % [self])
 	assert(delivery_package_spawn_node, "Delivery package spawn node not set at %s!" % [self])
 	assert(player_spawn_node, "Player spawn node not set at %s!" % [self])
@@ -46,8 +55,11 @@ func _ready() -> void:
 	
 	VEHICLE_DATA.vehicle_spawn = vehicles_spawn
 	
-	VEHICLE_DATA.vehicle_traffic_paths_array = vehicle_paths.get_children()
-	VEHICLE_PATHFINDING.vehicle_traffic_paths_array = vehicle_paths.get_children()
+	VEHICLE_DATA.vehicle_traffic_paths_array = navigation_path_node.get_children()
+	VEHICLE_PATHFINDING.vehicle_traffic_paths_array = navigation_path_node.get_children()
+	
+	VEHICLE_PATHFINDING.vehicle_navigation_paths_array = navigation_path_node.get_children()
+	VEHICLE_PATHFINDING.vehicle_transition_paths_array = navigation_path_node.get_children()
 	
 	VEHICLE_DATA.vehicle_path_changers_array = vehicle_path_changers.get_children()
 	VEHICLE_PATHFINDING.vehicle_path_changers_array = vehicle_path_changers.get_children()
@@ -75,7 +87,7 @@ func _process(_delta: float) -> void:
 
 func set_vehicle_path_changer_linked_paths():
 	for path_changer: VehiclePathChanger in vehicle_path_changers.get_children():
-		for vehicle_path: Path3D in vehicle_paths.get_children():
+		for vehicle_path: Path3D in navigation_path_node.get_children():
 			var path_start_pos: Vector3 = GAME_DATA.flatten_vec3(vehicle_path.curve.get_point_position(0))
 			
 			var path_changer_pos: Vector3 = GAME_DATA.flatten_vec3(path_changer.global_position)
@@ -117,7 +129,7 @@ func spawn_original_delivery_packages():
 
 
 func spawn_delivery_package():
-	var random_spawn_path: Path3D = vehicle_paths.get_children().pick_random()
+	var random_spawn_path: Path3D = navigation_path_node.get_children().pick_random()
 	var random_ratio := randf_range(0.1, 0.9)
 	
 	var new_path_follow := PathFollow3D.new()
