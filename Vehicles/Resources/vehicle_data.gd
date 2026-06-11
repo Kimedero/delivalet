@@ -39,6 +39,9 @@ var vehicle_scenes = [
 var vehicle_traffic_paths_array: Array
 var vehicle_path_changers_array: Array
 
+var vehicle_navigation_paths_array: Array
+var vehicle_transition_paths_array: Array
+
 # VEHICLE SPAWNING DATA
 var vehicle_spawn: Node3D
 

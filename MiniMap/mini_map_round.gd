@@ -62,7 +62,8 @@ func _process(delta: float) -> void:
 		return
 	
 	if not road_lines_drawn:
-		draw_road_lines()
+		draw_road_lines(VEHICLE_DATA.vehicle_navigation_paths_array)
+		draw_road_lines(VEHICLE_DATA.vehicle_transition_paths_array)
 		road_lines_drawn = true
 	
 	#player_marker_sprite.rotation = -vehicle.rotation.y + PI
@@ -190,10 +191,10 @@ func set_map_zoom(value: float):
 	print("Map zoom: %s" % [map_zoom])
 
 
-func draw_road_lines():
+func draw_road_lines(road_array: Array):
 	## this basically places lines on the minimap that co-relates to the 
 	## vehicle paths on the map
-	for path: Path3D in VEHICLE_DATA.vehicle_traffic_paths_array:
+	for path: Path3D in road_array:
 		var new_line := Line2D.new()
 		new_line.width = 2
 		new_line.default_color = Color("ff6a00")

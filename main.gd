@@ -60,6 +60,8 @@ func _ready() -> void:
 	
 	VEHICLE_PATHFINDING.vehicle_navigation_paths_array = navigation_path_node.get_children()
 	VEHICLE_PATHFINDING.vehicle_transition_paths_array = navigation_path_node.get_children()
+	VEHICLE_DATA.vehicle_navigation_paths_array = navigation_path_node.get_children()
+	VEHICLE_DATA.vehicle_transition_paths_array = transition_path_node.get_children()
 	
 	VEHICLE_DATA.vehicle_path_changers_array = vehicle_path_changers.get_children()
 	VEHICLE_PATHFINDING.vehicle_path_changers_array = vehicle_path_changers.get_children()
