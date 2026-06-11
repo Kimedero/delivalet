@@ -59,7 +59,7 @@ func _ready() -> void:
 	VEHICLE_PATHFINDING.vehicle_traffic_paths_array = navigation_path_node.get_children()
 	
 	VEHICLE_PATHFINDING.vehicle_navigation_paths_array = navigation_path_node.get_children()
-	VEHICLE_PATHFINDING.vehicle_transition_paths_array = navigation_path_node.get_children()
+	VEHICLE_PATHFINDING.vehicle_transition_paths_array = transition_path_node.get_children()
 	VEHICLE_DATA.vehicle_navigation_paths_array = navigation_path_node.get_children()
 	VEHICLE_DATA.vehicle_transition_paths_array = transition_path_node.get_children()
 	
@@ -70,6 +70,13 @@ func _ready() -> void:
 		VEHICLE_PATHFINDING.navigation_path_holder_node = navigation_path_holder
 	
 	DELIVERY_PACKAGE_DATA.delivery_package_spawn_node = delivery_package_spawn_node
+	
+	## NEW
+	VEHICLE_PATHFINDING.process_navigation_paths()
+	VEHICLE_PATHFINDING.process_twin_navigation_paths()
+	VEHICLE_PATHFINDING.process_transition_paths()
+	VEHICLE_PATHFINDING.a_star_process()
+	## NEW
 	
 	set_vehicle_path_changer_linked_paths()
 	set_path_changers_neighbours()
@@ -147,7 +154,7 @@ func spawn_delivery_package():
 	for vehicle: Vehicle in VEHICLE_DATA.current_delivery_vehicle_array:
 		new_package.package_picked.connect(vehicle.on_delivery_packaged_update)
 		##print("Vehiko: %s" % [vehicle])
-	print("%s spawned on %s at %s at ratio: %.2f" % [new_package.name, random_spawn_path.name, package_spawn_pos, random_ratio])
+	#print_debug("%s spawned on %s at %s at ratio: %.2f" % [new_package.name, random_spawn_path.name, package_spawn_pos, random_ratio])
 
 
 func on_delivery_packaged_picked(_picked_delivery_package: DeliveryPackage, _picked_vehicle: Vehicle):
@@ -164,7 +171,7 @@ func spawn_vehicle(spawn_transform: Transform3D, spawn_path: Path3D, vehicle_typ
 		Vehicle.VEHICLE_TYPE.TRAFFIC:
 			pass
 	
-	new_vehicle.navigation_path = spawn_path
+	new_vehicle.current_path = spawn_path
 	new_vehicle.vehicle_control = vehicle_control
 	vehicles_spawn.add_child(new_vehicle)
 	new_vehicle.global_transform = spawn_transform

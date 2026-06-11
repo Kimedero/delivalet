@@ -17,9 +17,9 @@ enum VEHICLE_CONTROL {AUTO, MANUAL}
 
 var vehicle_controller: VehicleController
 
-var navigation_path: Path3D = null
-var path_finder: PathFollow3D = null ## the node that controls the vehicle's steering
-var path_explorer: PathFollow3D = null
+var current_path: Path3D = null
+var navigator: PathFollow3D = null ## the node that controls the vehicle's steering
+#var path_explorer: PathFollow3D = null
 
 ## vehicle types
 enum VEHICLE_TYPE {
@@ -31,6 +31,9 @@ enum DELIVERY_TEAM {
 	NYARAIN,
 	}
 var delivery_team: DELIVERY_TEAM
+
+enum MissionMode {Stop, Roam, OnMission, Park}
+@export var mission_mode: MissionMode = MissionMode.Roam
 
 @export_category("Drive")
 @export var horse_power: float = 1250
@@ -46,10 +49,16 @@ var delivery_team: DELIVERY_TEAM
 var current_speed_ms: float
 @export var max_speed: float = 80 # 100 # in km/h 
 
+@export_category("Navigation")
+## where to place the navigator in junctions
+@export var vehicle_front: Marker3D
+## the distance from the middle of the vehicle to the vehicle front
+var vehicle_front_distance: float
+
 @export_category("Pathfinding")
 signal vehicle_at_path_changer
 var on_mission: bool = false
-var at_junction: bool = false ## triggers a slow-down at junctions
+#var at_junction: bool = false ## triggers a slow-down at junctions
 ## when we try to activate a mission but fail due to vehicle location
 var activate_mission_at_next_junction: bool
 
@@ -66,9 +75,19 @@ var targets_updated: bool = false
 ## when we're at the final path to delivery package
 var final_approach: bool
 
+## NEW
+
+## NEW
+
 
 func _ready() -> void:
-	vehicle_at_path_changer.connect(on_vehicle_at_path_changer)
+	#vehicle_at_path_changer.connect(on_vehicle_at_path_changer)
+	
+	## NEW
+	assert(vehicle_front, "Vehicle front is not set at %s!" % [self])
+	
+	vehicle_front_distance = self.global_position.distance_to(self.vehicle_front.global_position)
+	## NEW
 	
 	## to keep track of delivery vehicles
 	if delivery_vehicle:
@@ -85,61 +104,32 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	current_speed_ms = linear_velocity.length()
-	
-	#if delivery_vehicle:
-		####3. Navigate to nearest package
-		#if not on_mission and not target_reached:
-			#process_nearest_package()
-			##navigate_to_nearest_package()
-			#on_mission = true
-	##
-			####we figure out the delivery package path finding here
-			###on_mission = true
-			
-	#if final_approach:
-		#var nearest_point_on_path_to_target: Vector3 = navigation_path.curve.get_closest_point(current_delivery_package_position)
-		#var distance_squared_to_target_position_on_path: float = GAME_DATA.flatten_vec3(global_position).distance_squared_to(GAME_DATA.flatten_vec3(nearest_point_on_path_to_target))
-		#if distance_squared_to_target_position_on_path <= target_reached_distance:
-			#target_reached = true
-			#final_approach = false
-			#print("Target reached!")
-	
-
-func on_vehicle_at_path_changer(current_path_changer: VehiclePathChanger, vehicle_entered: bool):
-	if vehicle_entered:
-		at_junction = true
-		
-		if on_mission:
-			##sometimes when we try to activate a mission in maybe a tunnel wires
-			##get crossed. So we set the vehicle on the nearest path and try to 
-			##activate the mission at the nearest junction
-			#if activate_mission_at_next_junction:
-				#activate_mission_to(mission_target_position)
-				#activate_mission_at_next_junction = false
-			
-			process_mission(current_path_changer)
-			
-			#final_approach_process(current_path_changer)
-			pass
-		else:
-			process_roam(current_path_changer)
-	else:
-		at_junction = false
 
 
-## to figure out which path to choose
+#func on_vehicle_at_path_changer(current_path_changer: VehiclePathChanger, vehicle_entered: bool):
+	#if vehicle_entered:
+		#at_junction = true
+		#
+		#if on_mission:
+			#process_mission(current_path_changer)
+			#
+			##final_approach_process(current_path_changer)
+			#pass
+		#else:
+			#process_roam(current_path_changer)
+	#else:
+		#at_junction = false
+
+
 func process_mission(_current_pathchanger: VehiclePathChanger):
-	#if current_pathchanger in mission_path_changer_dict.keys():
-		#var next_path: Path3D = mission_path_changer_dict[current_pathchanger]
-		#vehicle_controller.new_path = next_path
 	pass
 
 
 func process_roam(current_path_changer: VehiclePathChanger):
 	var linked_path_array_dup: Array = current_path_changer.linked_paths_array.duplicate()
-	if navigation_path in linked_path_array_dup:
+	if current_path in linked_path_array_dup:
 		#print("Nav path in linked path array dup!")
-		linked_path_array_dup.erase(navigation_path)
+		linked_path_array_dup.erase(current_path)
 	var new_path: Path3D = linked_path_array_dup.pick_random()
 	vehicle_controller.new_path = new_path
 
@@ -190,97 +180,6 @@ func get_nearest_delivery_package_position() -> Vector3:
 func process_generated_path(generated_navigation_path_array: Array, target_position: Vector3):
 	var pathchanger_and_linked_path_dict: Array = generate_pathchanger_and_linked_path_dict(generated_navigation_path_array, target_position)
 	print("PCLPD: %s" % [pathchanger_and_linked_path_dict])
-	
-	## paths array gives us an array of paths to follow from one path changer to another
-	#print("Paths Array: %s" % [paths_array])
-	## mission path cahnger dict gives us a dictionary of path changer with reference to what paths 
-	## to choose when we hit those path changers
-	#print("Path changer Dict: %s" % [mission_path_changer_dict])
-#
-	## checking for the start path road loop-back
-	## we test if the navigation path has more than 1 entries
-	##WE ALSO NEED TO FIGURE OUT HOW TO HANDLE A NEARBY TARGET AND PARK
-	#var nearest_start_path: Path3D = two_nearest_start_paths_array[0]
-	#var next_nearest_start_path: Path3D = two_nearest_start_paths_array[1]
-	#var nearest_finish_path: Path3D = mission_target_two_nearest_paths_array[0]
-	#var next_nearest_finish_path: Path3D = mission_target_two_nearest_paths_array[1]
-	#if not generated_navigation_path_array.is_empty(): # size() > 1:
-		### in  situation where the start path is also the end path or the next nearest end path
-		#if nearest_start_path in mission_target_two_nearest_paths_array:
-			#var vehicle_progress: float = nearest_start_path.curve.get_closest_offset(self.global_position)
-			#if nearest_start_path == nearest_finish_path:
-				## we need to check if we need to switch to next nearest path, if 
-				## the target position is behind the vehicle
-				#var target_nearest_finish_path_progress: float = nearest_finish_path.curve.get_closest_offset(current_delivery_package_position)
-				#final_approach = true
-				#if vehicle_progress > target_nearest_finish_path_progress:
-					#vehicle_controller.switch_path(next_nearest_start_path)
-				#else:
-					#vehicle_controller.switch_path(nearest_start_path)
-				#print("Nearest path is also the nearest finish path")
-			#elif nearest_start_path == next_nearest_finish_path:
-				#var target_next_nearest_finish_path_progress: float = next_nearest_finish_path.curve.get_closest_offset(current_delivery_package_position)
-				#final_approach = true
-				#if vehicle_progress > target_next_nearest_finish_path_progress:
-					#vehicle_controller.switch_path(nearest_finish_path)
-				#else:
-					#vehicle_controller.switch_path(nearest_start_path)
-				#print("Nearest path is also the next nearest finish path")
-		### in a situation where we have to loop back on the same road we start 
-		### on, the nearest path or the next nearest path will be in the path 
-		### array, usually as the first entry in the paths array
-		#elif (nearest_start_path in paths_array) or (next_nearest_start_path in paths_array):
-			## it means we can skip going to the first path changer and just 
-			## switch to the first path changer's path instead
-			#var first_path_changer_path: Path3D = mission_path_changer_dict[path_changer_array[0]]
-			#vehicle_controller.switch_path(first_path_changer_path)
-		### in a situation where the nearest start path is in the linked path 
-		### array of the first path changer which means the current path will not 
-		### lead us to the first path changer we switch to the next nearest path
-		#elif nearest_start_path in path_changer_array[0].linked_paths_array:
-			#vehicle_controller.switch_path(next_nearest_start_path)
-		##elif nearest_start_path not in path_changer_array[0].linked_paths_array:
-			##vehicle_controller.switch_path(nearest_start_path)
-			##print("Current path is not linked to the")
-		### in a situation where the next nearest path is in the next path 
-		### changer's linkes paths array it means that next nearest path cannot lead
-		### us to the path changer and so we swith to the nearest path
-		#elif next_nearest_start_path in path_changer_array[0].linked_paths_array:
-			##SOLVED: BUG: the nearest path doesn't necessarily always lead to a path changer that will take 
-			##us straight to the right paths. We need to test for that somehow..
-			#vehicle_controller.switch_path(nearest_start_path)
-		#else:
-			##here we set a flag to activate mission at the next vehicle path changer encountered
-			#print("Unique situation! Check logs!")
-			#activate_mission_at_next_junction = true
-			#vehicle_controller.switch_path(nearest_start_path)
-	##elif generated_navigation_path_array.size() == 1:
-		### this means we are either on the same path as the target, on the next
-		###nearest path, or heading to the path changer will lead us to the target 
-		##print("We are already on the target path or in the next nearest path")
-	#else:
-		#print("No mission path generated!")	
-#
-#
-#func final_approach_process(current_path_changer: VehiclePathChanger):
-	#var nearest_path_to_target: Path3D = mission_target_two_nearest_paths_array[0]
-	#var next_nearest_path_to_target: Path3D = mission_target_two_nearest_paths_array[1]
-	### in a situation where the current path we're on is one of either the 
-	### nearest or next nearest paths we enter final approach mode
-	#if navigation_path == nearest_path_to_target or navigation_path == next_nearest_path_to_target:
-		#final_approach = true
-	### in a situation where the nearest path to a target is linked to the 
-	### current path changer we should switch to it to get to the target
-	#elif (nearest_path_to_target in current_path_changer.linked_paths_array):
-		##switch to the path
-		#vehicle_controller.switch_path(nearest_path_to_target)
-		#final_approach = true
-	### in a situation where the next nearest path to a target is linked to the 
-	### current path changer we should switch to it to get to the target
-	#elif (next_nearest_path_to_target in current_path_changer.linked_paths_array):
-		#vehicle_controller.switch_path(next_nearest_path_to_target)
-		#final_approach = true
-	#
 
 
 func generate_pathchanger_and_linked_path_dict(generated_navigation_path_array: Array, target_position: Vector3) -> Array:
@@ -326,4 +225,9 @@ func generate_pathchanger_and_linked_path_dict(generated_navigation_path_array: 
 					near_path = linked_path
 			#print("PC A: %s > PC B: %s -> %s" % [path_changer_a.name, path_changer_b.name, near_path.name])
 	return [path_changer_dict, paths_array, two_nearest_start_paths_array, two_nearest_paths_to_target_array]
-	
+
+
+## NEW
+
+
+## NEW

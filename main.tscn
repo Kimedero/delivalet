@@ -4358,7 +4358,7 @@ path_joined = false
 material = ExtResource("13_qsp4k")
 
 [node name="VehicleSpawner" parent="Map/Navigation/NavigationPaths/Path_7" unique_id=1339620587 instance=ExtResource("14_kq58d")]
-transform = Transform3D(0.009647002, 0, 0.99994785, 0, 1, 0, -0.99994785, 0, 0.009647002, -29.314339, 0, -55.9518)
+transform = Transform3D(0.0096470015, 0, 0.9999477, 0, 1, 0, -0.9999477, 0, 0.0096470015, -29.314339, 0, -55.9518)
 
 [node name="Path_8" type="Path3D" parent="Map/Navigation/NavigationPaths" unique_id=1587657889]
 curve = SubResource("Curve3D_o5na3")
@@ -5054,7 +5054,7 @@ path_joined = false
 material = ExtResource("13_qsp4k")
 
 [node name="VehicleSpawner" parent="Map/Navigation/NavigationPaths/Path_36" unique_id=1520280334 instance=ExtResource("14_kq58d")]
-transform = Transform3D(-0.99992067, 0, -0.0115778325, 0, 1, 0, 0.0115778325, 0, -0.99992067, -15.9513, 0, 269.23813)
+transform = Transform3D(-0.99992055, 0, -0.011577832, 0, 1, 0, 0.011577832, 0, -0.99992055, -15.9513, 0, 269.23813)
 
 [node name="Path_37" type="Path3D" parent="Map/Navigation/NavigationPaths" unique_id=323871348]
 curve = SubResource("Curve3D_2tjcr")
@@ -5078,7 +5078,7 @@ path_joined = false
 material = ExtResource("13_qsp4k")
 
 [node name="VehicleSpawner" parent="Map/Navigation/NavigationPaths/Path_37" unique_id=576116641 instance=ExtResource("14_kq58d")]
-transform = Transform3D(-0.0076402454, 0, -0.9999596, 0, 1, 0, 0.9999596, 0, -0.0076402454, -10.843979, 0, 334.983)
+transform = Transform3D(-0.0076402444, 0, -0.99995947, 0, 1, 0, 0.99995947, 0, -0.0076402444, -10.843979, 0, 334.983)
 
 [node name="Path_38" type="Path3D" parent="Map/Navigation/NavigationPaths" unique_id=671636772]
 curve = SubResource("Curve3D_cdlkr")
@@ -5342,7 +5342,7 @@ path_joined = false
 material = ExtResource("13_qsp4k")
 
 [node name="VehicleSpawner" parent="Map/Navigation/NavigationPaths/Path_48" unique_id=931553024 instance=ExtResource("14_kq58d")]
-transform = Transform3D(-0.9995609, 0, 0.02923387, 0, 1, 0, -0.02923387, 0, -0.9995609, -56, 0, 429.23044)
+transform = Transform3D(-0.9995608, 0, 0.029233865, 0, 1, 0, -0.029233865, 0, -0.9995608, -56, 0, 429.23044)
 
 [node name="TransitionPaths" type="Marker3D" parent="Map/Navigation" unique_id=1837774890]
 

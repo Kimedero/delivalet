@@ -120,7 +120,7 @@ func _process(delta: float) -> void:
 		update_road_lines()
 
 
-func initialise_elements():
+func initialise_elements() -> void:
 	# Main Control
 	#set_deferred("layout_mode", 1)
 	set_deferred("anchors_preset", Control.PRESET_BOTTOM_LEFT)
@@ -153,7 +153,7 @@ func initialise_elements():
 	player_marker_sprite.position = Vector2.ONE * minimap_size * 0.5
 
 
-func add_minimap_object(minimap_object: Node3D):
+func add_minimap_object(minimap_object: Node3D) -> void:
 	#print("MOBJ: %s -> %s" % [minimap_object, vehicle])
 	if minimap_object.minimap_icon and icons_dict[minimap_object.minimap_icon]: # and vehicle != minimap_object:
 		var new_marker: Sprite2D = icons_dict[minimap_object.minimap_icon].duplicate()
@@ -165,10 +165,10 @@ func add_minimap_object(minimap_object: Node3D):
 		grid_texture_rect.add_child(new_marker)
 		new_marker.position = player_marker_sprite.position
 		
-		print("%s added!" % [minimap_object.name])
+		#print("%s added!" % [minimap_object.name])
 
 
-func remove_minimap_object(minimap_object: Node3D):
+func remove_minimap_object(minimap_object: Node3D) -> void:
 	if object_markers_dict.has(minimap_object):
 		grid_texture_rect.remove_child(object_markers_dict[minimap_object])
 		object_markers_dict.erase(minimap_object)
@@ -176,7 +176,7 @@ func remove_minimap_object(minimap_object: Node3D):
 		print("%s removed!" % [minimap_object.name])
 
 
-func on_gui_input(event: InputEvent):
+func on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			map_zoom -= 0.05
@@ -185,13 +185,13 @@ func on_gui_input(event: InputEvent):
 		print("map zoom: %s" % [map_zoom])
 
 
-func set_map_zoom(value: float):
+func set_map_zoom(value: float) -> void:
 	map_zoom = clamp(value, 0.2, 1.0)
 	grid_scale = grid_texture_rect.size / (get_viewport_rect().size * map_zoom)
 	print("Map zoom: %s" % [map_zoom])
 
 
-func draw_road_lines(road_array: Array):
+func draw_road_lines(road_array: Array) -> void:
 	## this basically places lines on the minimap that co-relates to the 
 	## vehicle paths on the map
 	for path: Path3D in road_array:
@@ -226,10 +226,10 @@ func draw_road_lines(road_array: Array):
 			new_line.add_point(point_pos)
 			
 		line_mask.add_child(new_line)
-	print("path_to_road_lines_dict: ", path_to_road_lines_dict)
+	print("%s. path_to_road_lines_dict: %s" % [road_array.size(), path_to_road_lines_dict.size()])
 
 
-func update_road_lines():
+func update_road_lines() -> void:
 	for path: Path3D in path_to_road_lines_dict.keys():
 		var line: Line2D = path_to_road_lines_dict[path].line
 		var path_points: Array = path_to_road_lines_dict[path].points
@@ -261,7 +261,6 @@ func update_road_lines():
 			new_point_pos.x = clampf(new_point_pos.x, 0, grid_texture_rect.size.x)
 			new_point_pos.y = clampf(new_point_pos.y, 0, grid_texture_rect.size.y)
 			line.set_point_position(point_idx, new_point_pos)
-		
 
 
 func vec3_to_vec2(vec3: Vector3) -> Vector2:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://bbwvj1totin30"]
+[gd_scene format=4 uid="uid://bbwvj1totin30"]
 
 [ext_resource type="Script" uid="uid://bvfyp5110i55s" path="res://Vehicles/vehicle.gd" id="1_2tosg"]
 [ext_resource type="PackedScene" uid="uid://cpyc688ksm7v4" path="res://Vehicles/VehicleController/vehicle_controller.tscn" id="2_2tosg"]
@@ -442,14 +442,15 @@ shadow_mesh = SubResource("ArrayMesh_icqci")
 [sub_resource type="BoxShape3D" id="BoxShape3D_vtset"]
 size = Vector3(1.50977, 1.33911, 3.85553)
 
-[node name="Van_Nyarain" type="VehicleBody3D"]
+[node name="Van_Nyarain" type="VehicleBody3D" unique_id=1433037966 node_paths=PackedStringArray("vehicle_front")]
 mass = 800.0
 physics_material_override = SubResource("PhysicsMaterial_0e6fr")
 center_of_mass_mode = 1
 script = ExtResource("1_2tosg")
+vehicle_front = NodePath("VehicleFront")
 metadata/_custom_type_script = "uid://bvfyp5110i55s"
 
-[node name="main_body" type="MeshInstance3D" parent="."]
+[node name="main_body" type="MeshInstance3D" parent="." unique_id=862857448]
 visibility_range_end = 125.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -464,7 +465,7 @@ metadata/extras = {
 }
 }
 
-[node name="main_body_LOD1" type="MeshInstance3D" parent="."]
+[node name="main_body_LOD1" type="MeshInstance3D" parent="." unique_id=170782706]
 cast_shadow = 0
 visibility_range_begin = 125.0
 mesh = SubResource("ArrayMesh_vtset")
@@ -478,7 +479,7 @@ metadata/extras = {
 }
 }
 
-[node name="fr" type="VehicleWheel3D" parent="."]
+[node name="fr" type="VehicleWheel3D" parent="." unique_id=1731610695]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.665382, 0.303772, 1.19016)
 use_as_steering = true
 wheel_radius = 0.3
@@ -492,7 +493,7 @@ metadata/extras = {
 }
 }
 
-[node name="fr" type="MeshInstance3D" parent="fr"]
+[node name="fr" type="MeshInstance3D" parent="fr" unique_id=1137621706]
 visibility_range_end = 125.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -507,7 +508,7 @@ metadata/extras = {
 }
 }
 
-[node name="fl" type="VehicleWheel3D" parent="."]
+[node name="fl" type="VehicleWheel3D" parent="." unique_id=970872192]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.664456, 0.303496, 1.19025)
 use_as_steering = true
 wheel_radius = 0.3
@@ -521,7 +522,7 @@ metadata/extras = {
 }
 }
 
-[node name="fl" type="MeshInstance3D" parent="fl"]
+[node name="fl" type="MeshInstance3D" parent="fl" unique_id=1233866506]
 visibility_range_end = 125.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -536,7 +537,7 @@ metadata/extras = {
 }
 }
 
-[node name="br" type="VehicleWheel3D" parent="."]
+[node name="br" type="VehicleWheel3D" parent="." unique_id=93879863]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.665382, 0.303835, -1.25341)
 use_as_traction = true
 wheel_radius = 0.3
@@ -550,7 +551,7 @@ metadata/extras = {
 }
 }
 
-[node name="br" type="MeshInstance3D" parent="br"]
+[node name="br" type="MeshInstance3D" parent="br" unique_id=1092768871]
 visibility_range_end = 125.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -565,7 +566,7 @@ metadata/extras = {
 }
 }
 
-[node name="bl" type="VehicleWheel3D" parent="."]
+[node name="bl" type="VehicleWheel3D" parent="." unique_id=742568494]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.66446, 0.30398, -1.25297)
 use_as_traction = true
 wheel_radius = 0.3
@@ -579,7 +580,7 @@ metadata/extras = {
 }
 }
 
-[node name="bl" type="MeshInstance3D" parent="bl"]
+[node name="bl" type="MeshInstance3D" parent="bl" unique_id=255639888]
 visibility_range_end = 125.0
 visibility_range_end_margin = 10.0
 visibility_range_fade_mode = 1
@@ -594,8 +595,11 @@ metadata/extras = {
 }
 }
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1818977853]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.945679, -0.0194397)
 shape = SubResource("BoxShape3D_vtset")
 
-[node name="VehicleController" parent="." instance=ExtResource("2_2tosg")]
+[node name="VehicleController" parent="." unique_id=96379793 instance=ExtResource("2_2tosg")]
+
+[node name="VehicleFront" type="Marker3D" parent="." unique_id=2015547441]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.899)
